@@ -159,6 +159,16 @@ def test_robots_403_exception_only_for_listed_hosts() -> None:
 def test_repo_exceptions_are_documented() -> None:
     cfg = load_crawler_config()
     assert "www.maharera.maharashtra.gov.in" in cfg.robots_unavailable_allowed_hosts
+    assert cfg.legacy_tls_hosts == {"rera.mp.gov.in", "hira.wb.gov.in"}
+
+
+def test_legacy_tls_client_only_for_listed_hosts() -> None:
+    c = PoliteClient(load_crawler_config(), env=ENV_ON)
+    try:
+        assert c._client_for("https://rera.mp.gov.in/x") is c._http_legacy
+        assert c._client_for("https://up-rera.in/x") is c._http
+    finally:
+        c.close()
 
 
 def test_robots_crawl_delay_extends_interval() -> None:
@@ -300,6 +310,17 @@ def test_body_truncated_at_cap(tmp_path: Path) -> None:
         r = c.get("https://a.gov.in/big")
     assert r.truncated and len(r.body) == 1000
     assert r.archived is not None and r.archived.truncated
+
+
+def test_per_request_body_cap_override() -> None:
+    ft = FakeTime()
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        return _no_robots(req) or httpx.Response(200, content=b"x" * 5000)
+
+    with _client(handler, ft, max_body_bytes=1000) as c:
+        r = c.get("https://a.gov.in/big", max_body_bytes=10_000)
+    assert not r.truncated and len(r.body) == 5000
 
 
 def test_every_response_archived(tmp_path: Path) -> None:

@@ -19,6 +19,7 @@ Guarantees, enforced here so adapters cannot forget them:
 
 from __future__ import annotations
 
+import ssl
 import time
 from collections import Counter
 from collections.abc import Callable, Mapping
@@ -26,6 +27,7 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from enum import StrEnum
 from types import TracebackType
+from typing import Any
 from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
 
@@ -130,11 +132,19 @@ class PoliteClient:
         self._clock = clock
         self._sleep = sleep
         self._now = now
-        self._http = httpx.Client(
-            transport=transport,
-            timeout=cfg.timeout_seconds,
-            follow_redirects=False,
-            headers={"User-Agent": cfg.user_agent_header, "Accept": _ACCEPT},
+        common: dict[str, Any] = {
+            "timeout": cfg.timeout_seconds,
+            "follow_redirects": False,
+            "headers": {"User-Agent": cfg.user_agent_header, "Accept": _ACCEPT},
+        }
+        self._http = httpx.Client(transport=transport, **common)
+        # Separate client for documented legacy-TLS hosts (config/crawler.yaml).
+        legacy_ctx = ssl.create_default_context()  # certificate checks stay on
+        legacy_ctx.options |= getattr(ssl, "OP_LEGACY_SERVER_CONNECT", 0x4)
+        self._http_legacy = (
+            httpx.Client(transport=transport, **common)
+            if transport is not None
+            else httpx.Client(verify=legacy_ctx, **common)
         )
         self._last_request: dict[str, float] = {}
         self._robots: dict[str, _Robots] = {}
@@ -155,6 +165,12 @@ class PoliteClient:
 
     def close(self) -> None:
         self._http.close()
+        self._http_legacy.close()
+
+    def _client_for(self, url: str) -> httpx.Client:
+        if urlsplit(url).netloc.lower() in self.cfg.legacy_tls_hosts:
+            return self._http_legacy
+        return self._http
 
     # -- public API ------------------------------------------------------
     def robots_note(self, url: str) -> str:
@@ -162,9 +178,16 @@ class PoliteClient:
         return self._robots_for(url).note
 
     def get(
-        self, url: str, *, etag: str | None = None, last_modified: str | None = None
+        self,
+        url: str,
+        *,
+        etag: str | None = None,
+        last_modified: str | None = None,
+        max_body_bytes: int | None = None,
     ) -> FetchResult:
+        """GET politely. `max_body_bytes` overrides the configured cap for known-large pages."""
         self._check_abort()
+        cap = max_body_bytes or self.cfg.max_body_bytes
         current = url
         conditional: dict[str, str] = {}
         if etag:
@@ -176,7 +199,7 @@ class PoliteClient:
             if not self._robots_for(current).allows(current):
                 self.stats["disallowed"] += 1
                 return FetchResult(url=url, final_url=current, outcome=Outcome.DISALLOWED)
-            raw = self._fetch_with_retries(current, conditional)
+            raw = self._fetch_with_retries(current, conditional, cap)
             location = raw.headers.get("location")
             if raw.status in _REDIRECTS and location:
                 self._archive(url, current, raw)
@@ -261,19 +284,20 @@ class PoliteClient:
             delay = max(delay, float(retry_after.strip()))
         return min(delay, self.cfg.backoff_max_seconds)
 
-    def _fetch_once(self, url: str, headers: Mapping[str, str]) -> _Raw:
+    def _fetch_once(self, url: str, headers: Mapping[str, str], cap: int) -> _Raw:
         try:
-            with self._http.stream("GET", url, headers=dict(headers)) as resp:
+            client = self._client_for(url)
+            with client.stream("GET", url, headers=dict(headers)) as resp:
                 chunks: list[bytes] = []
                 size = 0
                 truncated = False
                 for chunk in resp.iter_bytes():
                     chunks.append(chunk)
                     size += len(chunk)
-                    if size >= self.cfg.max_body_bytes:
+                    if size > cap:
                         truncated = True
                         break
-                body = b"".join(chunks)[: self.cfg.max_body_bytes]
+                body = b"".join(chunks)[:cap]
                 return _Raw(
                     status=resp.status_code,
                     headers={k.lower(): v for k, v in resp.headers.items()},
@@ -283,13 +307,15 @@ class PoliteClient:
         except httpx.TransportError as exc:
             return _Raw(status=None, error=f"{type(exc).__name__}: {exc}")
 
-    def _fetch_with_retries(self, url: str, headers: Mapping[str, str]) -> _Raw:
+    def _fetch_with_retries(
+        self, url: str, headers: Mapping[str, str], cap: int | None = None
+    ) -> _Raw:
         host = _host_key(url)
         raw = _Raw(status=None)
         for attempt in range(1, self.cfg.max_attempts + 1):
             self._wait_turn(host)
             self.stats["requests"] += 1
-            raw = self._fetch_once(url, headers)
+            raw = self._fetch_once(url, headers, cap or self.cfg.max_body_bytes)
             raw.attempts = attempt
             retryable = raw.status is None or raw.status == 429 or raw.status >= 500
             if not retryable or attempt == self.cfg.max_attempts:

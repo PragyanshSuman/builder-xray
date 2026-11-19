@@ -68,6 +68,29 @@ def _cmd_survey(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_crawl_up(args: argparse.Namespace) -> int:
+    from datetime import UTC, datetime
+
+    from bxr.config import DATA_DIR, load_crawler_config
+    from bxr.core.archive import RawArchive
+    from bxr.core.http import CrawlDisabledError, PoliteClient
+    from bxr.crawl.up import run_up_crawl
+
+    try:
+        client = PoliteClient(load_crawler_config(), archive=RawArchive(DATA_DIR / "raw"))
+    except CrawlDisabledError as exc:
+        print(f"refusing to crawl: {exc}")
+        return 2
+    with client:
+        summary = run_up_crawl(client, DATA_DIR, max_details=args.max_details)
+    log_dir = DATA_DIR / "logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    out = log_dir / f"crawl-up-{datetime.now(UTC):%Y%m%d-%H%M%S}.json"
+    out.write_text(summary.model_dump_json(indent=2), encoding="utf-8")
+    print(summary.model_dump_json(indent=2))
+    return 1 if summary.aborted else 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="bxr", description="Builder X-Ray pipeline")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -87,6 +110,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     sv.add_argument("--only", help="comma-separated state codes, e.g. MH,UP")
     sv.set_defaults(func=_cmd_survey)
+
+    cu = sub.add_parser("crawl-up", help="incremental Uttar Pradesh crawl + snapshot")
+    cu.add_argument(
+        "--max-details",
+        type=int,
+        default=1200,
+        help="max detail pages this run (1200 ≈ 1 h at 3 s/request)",
+    )
+    cu.set_defaults(func=_cmd_crawl_up)
 
     args = parser.parse_args(argv)
     result: int = args.func(args)

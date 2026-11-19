@@ -26,3 +26,11 @@ robots_unavailable_allowed_hosts:
   # BuilderXRayBot, no CAPTCHA/login; public project search exists.
   - maharera.maharashtra.gov.in
   - www.maharera.maharashtra.gov.in
+# Hosts whose servers need TLS "legacy renegotiation", which OpenSSL 3 refuses
+# by default (error UNSAFE_LEGACY_RENEGOTIATION_DISABLED). Enabling it for these
+# hosts is client-side compatibility, not getting past access control.
+# Certificates are still fully verified. We send no secrets to these hosts.
+# Owner approved 2026-11-19.
+legacy_tls_hosts:
+  - rera.mp.gov.in
+  - hira.wb.gov.in
