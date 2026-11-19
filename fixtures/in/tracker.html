@@ -1,0 +1,720 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RERA, 2016 Weekly Tracker Report</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+      padding: 0 2rem;
+      background-color: white;
+    }
+
+    .customTable {
+      width: 100%;
+      font-size: 13px;
+      border: 2px solid #000;
+      border-collapse: collapse;
+    }
+
+    body {
+      margin-left: 2.5rem;
+      margin-right: 2.5rem;
+    }
+
+    .customTable th,
+    .customTable td {
+      border: 1px solid #000;
+      padding: 2px;
+      text-align: right;
+      color: #000;
+    }
+
+    .customTable th {
+      text-align: center;
+      background: #8fd6d6;
+      z-index: 10;
+    }
+
+    .customTable tbody tr:nth-child(even) {
+      background-color: white !important;
+      height: 30px !important;
+    }
+
+    .customTable tbody tr:nth-child(odd) {
+      background-color: #f2fbfe !important;
+      height: 30px !important;
+    }
+
+    /* ---------------- STICKY TABLE HEADER ---------------- */
+    .table-responsive {
+      overflow-x: auto;
+      overflow-y: auto;
+      max-height: 100vh;   
+      position: relative;
+    }
+
+    .customTable thead th {
+      position: sticky;
+      top: -1px;
+      background: #8fd6d6 !important; 
+      z-index: 20;
+    }
+
+    /* ------------------------------------------------------ */
+
+    .note-item {
+      margin: 5px 0;
+      line-height: 1.4;
+    }
+
+    .note-item div {
+      margin-bottom: 0 !important;
+    }
+    .fw-bold {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .text-red {
+      color: red;
+    }
+
+    .text-green {
+      color: green;
+    }
+
+    .text-blue {
+      color: blue;
+    }
+
+    .notes {
+      margin-top: 15px;
+      font-size: 15px;
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    #groupName {
+      transform: rotate(-90deg);
+      font-weight: 600;
+      font-size: 12px;
+      width: 30px;
+      max-width: 30px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      padding: 0 !important;
+    }
+
+    .c3 {
+      background-color: #fbf01f;
+    }
+
+    .export-buttons {
+      text-align: right;
+      position: relative;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #007bff;
+      color: white;
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dropbtn:hover {
+      background-color: #0056b3;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      z-index: 9999999;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .show {
+      display: block;
+    }
+
+    td.projects-type-new-1bg-addd {
+    position: sticky;
+    top: 18px;
+    z-index: 20;
+    background: #C6CBCB;
+    } 
+
+    .c3 {
+    background-color: #fbf01f;
+    position: sticky;
+    top: 19px;
+    z-index: 20;
+    }
+
+</style>
+
+<body>
+  <div style="justify-content: space-between; align-items: center;">
+    <div style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+      <h1 id="mondayDate" style="text-align:center; margin: 0 auto;">
+        RERA Implementation Status Report as on
+      </h1>
+    </div>
+    <div class="export-buttons">
+      <div class="dropdown">
+        <button class="dropbtn" id="exportDropdown">Export to ▼</button>
+        <div class="dropdown-content" id="exportMenu">
+          <a style="text-align: center;" href="#" id="exportPDF">Export PDF</a>
+          <a style="text-align: center;" href="#" id="exportExcel">Export Excel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="table-responsive">
+      <table class="customTable" id="table">
+        <thead>
+          <tr>
+            <th rowspan="3" style="width: 30px">Sr.<br />No.</th>
+            <th rowspan="3" colspan="2">State / UT</th>
+            <th rowspan="3">
+              Urban<br />Population<br /><span class="text-red">(in Lakh)</span>
+            </th>
+            <th colspan="8">Registration of Projects and Agents</th>
+          </tr>
+          <tr style="font-size: 11px; background:#C6CBCB">
+            <th rowspan="2">Total No. of  Project</th>
+            <th colspan="3">Details of Residential Projects</th>
+            <th>Agents</th>
+            <th colspan="2" style="background-color: #fc8585">Complaints</th>
+            <th rowspan="2">As On Date</th>
+          </tr>
+          <tr style="background-color: #C6CBCB;">
+            <td class="projects-type-new-1bg-addd">No. of Project</td>
+            <td class="projects-type-new-1bg-addd">No. of Res. Unit</td>
+            <td class="projects-type-new-1bg-addd">Carpet Area <br/>(Lakh Sq. Mtr.)</td>
+            <td class="projects-type-new-1bg-addd">(Nos.)</td>
+            <td class="c3">Cases Filed</td>
+            <td class="c3">Cases Disposed</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- dynamically generated rows here -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notes">
+      <h2 style="text-decoration: underline">Note:</h2>
+      <div class="note-item">Loading notes...</div>
+    </div>
+  </div>
+</body>
+
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <script>
+    function customDraftToHtml(draftContent) {
+      if (!draftContent || !draftContent.blocks) {
+        return '';
+      }
+
+      let html = '';
+
+      draftContent.blocks.forEach(block => {
+        const text = block.text || '';
+        const styles = block.inlineStyleRanges || [];
+        
+        const charStyles = new Array(text.length).fill(null).map(() => ({}));
+        
+        styles.forEach(style => {
+          const { offset, length, style: styleName } = style;
+          for (let i = offset; i < offset + length; i++) {
+            if (i < charStyles.length) {
+              if (styleName === 'BOLD') {
+                charStyles[i].bold = true;
+              } else if (styleName.startsWith('color-rgb')) {
+                const match = styleName.match(/color-rgb\((\d+),(\d+),(\d+)\)/);
+                if (match) {
+                  charStyles[i].color = `rgb(${match[1]},${match[2]},${match[3]})`;
+                }
+              }
+            }
+          }
+        });
+
+        let styledText = '';
+        let currentBold = false;
+        let currentColor = null;
+
+        for (let i = 0; i < text.length; i++) {
+          const char = text[i];
+          const isBold = charStyles[i].bold;
+          const color = charStyles[i].color;
+
+          if (currentBold && !isBold) {
+            styledText += '</strong>';
+            currentBold = false;
+          }
+          if (currentColor && currentColor !== color) {
+            styledText += '</span>';
+            currentColor = null;
+          }
+
+          if (color && color !== currentColor) {
+            styledText += `<span style="color: ${color}">`;
+            currentColor = color;
+          }
+          if (isBold && !currentBold) {
+            styledText += '<strong>';
+            currentBold = true;
+          }
+
+          styledText += char;
+        }
+
+        if (currentBold) styledText += '</strong>';
+        if (currentColor) styledText += '</span>';
+
+        html += `<div style="margin-bottom: 8px;">${styledText}</div>`;
+      });
+
+      return html;
+    }
+
+    $(window).on("load", () => {
+
+      function getMonday(date = new Date()) {
+        let day = date.getDay();
+        let diff = date.getDate() - day + (day === 0 ? -6 : 1);
+        let monday = new Date(date.setDate(diff));
+
+        let dd = String(monday.getDate()).padStart(2, '0');
+        let monthNames = [
+          "January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+        let monthName = monthNames[monday.getMonth()];
+        let yyyy = monday.getFullYear();
+
+        return dd + " " + monthName + " " + yyyy;
+      }
+
+      $("#mondayDate").text("RERA Implementation Status Report as on " + getMonday());
+
+      setTimeout(() => {
+        $.when(
+          $.ajax({
+            url: "https://dashboard.pmay-urban.gov.in/v1/states",
+            method: "GET",
+          }),
+          $.ajax({
+            url: "https://dashboard.pmay-urban.gov.in/v1/rera/reraDetailsAllState",
+            method: "GET",
+          }),
+          $.ajax({
+            url: "https://dashboard.pmay-urban.gov.in/v1/rera/reraUrbanPopulation",
+            method: "GET",
+          }),
+          $.ajax({
+            url: "https://dashboard.pmay-urban.gov.in/v1/rera/notes",
+            method: "GET",
+          })
+        ).done((res, res1, res2, res3) => {
+          let finalData = [];
+          let totalUrbanPopulation = 0,
+            totalProjects = 0,
+            totalNoOfProjects = 0,
+            totalUnits = 0,
+            totalCarpetArea = 0,
+            totalAgents = 0,
+            totalCaseFiled = 0,
+            totalCasesDisposed = 0;
+
+          res[0].forEach((item, idx) => {
+            res1[0].forEach((item1, idx1) => {
+              res2[0].forEach((item2, idx2) => {
+                if (
+                  Number(item.statecode) === Number(item1.stateCode) &&
+                  Number(item.statecode) === Number(item2.StateCode)
+                ) {
+                  const stateName = item1.userId === "380ca0e5-ab84-4c80-bf93-745228413800"
+                    ? "Haryana-Gurugram"
+                    : item.statename;
+
+                  finalData.push({
+                    stateCode: item.statecode,
+                    stateName: stateName,
+                    UT: item.UT,
+                    NEState: item.NEState,
+                    pop: item2.pop,
+                    totalNoOfProject: item1.totalNumberOfProject,
+                    noOfProject: item1.noOfProject,
+                    unit: item1.unit,
+                    carpetArea: item1.carpetArea,
+                    agents: item1.nos,
+                    caseFiled: item1.caseFiled,
+                    casesDisposed: item1.casesDisposed,
+                    userId: item1.userId,
+                    createdAt: item1.createdAt,
+                    updatedAt: item1.updatedAt,
+                    weekStart: item1.weekStart,
+                    weekEnd: item1.weekEnd,
+                    status: item1.status,
+                    maxDate: item1.maxDate,
+                  });
+                }
+              });
+            });
+          });
+
+          if (res3 && res3[0] && Array.isArray(res3[0])) {
+            const notesData = res3[0];
+            const notesContainer = $(".notes");
+
+            notesContainer.empty();
+
+            notesContainer.append('<h2 style="text-decoration: underline">Note:</h2>');
+
+            notesData.forEach((note, index) => {
+              let description = note.notes || "-";
+              let htmlContent = "";
+
+              try {
+                const parsed = JSON.parse(description);
+
+                if (parsed && parsed.blocks && Array.isArray(parsed.blocks)) {
+                  htmlContent = customDraftToHtml(parsed);
+                } else {
+                  htmlContent = `<div>${description}</div>`;
+                }
+              } catch (err) {
+                htmlContent = `<div>${description}</div>`;
+              }
+
+              notesContainer.append(`
+                <div class="note-item">
+                  ${htmlContent}
+                </div>
+              `);
+            });
+
+            console.log("Notes rendered dynamically:", notesData);
+          } else {
+            console.warn("Notes data not found or invalid format");
+          }
+
+          const filterStates = finalData.filter(
+            (flt) => flt.UT !== 1 && flt.NEState !== 1
+          );
+
+          const haryanaIndex = filterStates.findIndex(f => f.userId === "a9cfdb61-8dc4-421b-9827-a146f0acb5f0");
+          const gurugramIndex = filterStates.findIndex(f => f.userId === "380ca0e5-ab84-4c80-bf93-745228413800");
+
+          if (haryanaIndex > -1 && gurugramIndex > -1 && haryanaIndex > gurugramIndex) {
+            const [haryana] = filterStates.splice(haryanaIndex, 1);
+            filterStates.splice(gurugramIndex, 0, haryana);
+          }
+
+          const filterNEStates = finalData.filter((flt) => flt.NEState === 1);
+          // Deduplicate UT entries by stateCode to avoid repeats like Chandigarh appearing multiple times
+          const filterUTs = Array.from(
+            new Map(
+              finalData
+                .filter((flt) => flt.UT === 1)
+                .map((item) => [item.stateCode, item])
+            ).values()
+          );
+
+          finalData = [
+            { States: [...filterStates] },
+            { "North East States": [...filterNEStates] },
+            { "Union Territories": [...filterUTs] },
+          ];
+
+          const tableBody = $("#table tbody");
+
+          function formatCases(filed, disposed) {
+            const f = Number(filed) || 0;
+            const d = Number(disposed) || 0;
+
+            if (f === 0 && d === 0) {
+              return ["0", "0"];
+            }
+
+            if ((f === d && f > 0) || (d > 0 && f === 0)) {
+              return ["Yet to provide ", d.toLocaleString("en-IN")];
+            }
+
+            return [f.toLocaleString("en-IN"), d.toLocaleString("en-IN")];
+          }
+
+          function formatSumCases(totalFiled, totalDisposed) {
+            if (totalFiled === 0 && totalDisposed > 0) {
+              return ["Yet to provide ", totalDisposed];
+            }
+            return [totalFiled, totalDisposed];
+          }
+
+          finalData.forEach((group) => {
+            const groupName = Object.keys(group)[0];
+            const groupData = group[groupName];
+
+            let subTotalUrbanPopulation = 0,
+              subTotalProjects = 0,
+              subTotalNoOfProjects = 0,
+              subTotalUnits = 0,
+              subTotalCarpetArea = 0,
+              subTotalAgents = 0,
+              subTotalCaseFiled = 0,
+              subTotalCasesDisposed = 0;
+
+            groupData.forEach((data, idx) => {
+              subTotalUrbanPopulation += Number(data.pop);
+              subTotalProjects += Number(data.totalNumberOfProject || data.totalNoOfProject || 0);
+              subTotalNoOfProjects += Number(data.noOfProject);
+              subTotalUnits += Number(data.unit);
+              subTotalCarpetArea += Number(data.carpetArea);
+              subTotalAgents += Number(data.agents);
+
+              const [displayCaseFiled, displayCasesDisposed] = formatCases(data.caseFiled, data.casesDisposed);
+
+              subTotalCaseFiled += Number(data.caseFiled) || 0;
+              subTotalCasesDisposed += Number(data.casesDisposed) || 0;
+
+              tableBody.append(`
+                <tr style="background: #bbdef8; color: #fff; font-weight: 400;">
+                  <td style="text-align:center">${idx + 1}</td>
+                  ${idx === 0 ? `<td id="groupName" rowspan="${groupData.length}">${groupName || "-"}</td>` : ''}
+                  <td style="text-align:left">${data.stateName || "-"}</td>
+                  <td>${Number(data.pop).toFixed(2).toLocaleString("en-IN") || "-"}</td>
+                  <td>${data.totalNoOfProject.toLocaleString("en-IN") || "-"}</td>
+                  <td>${data.noOfProject.toLocaleString("en-IN") || "-"}</td>
+                  <td>${data.unit.toLocaleString("en-IN") || "-"}</td>
+                  <td>${data.carpetArea.toLocaleString("en-IN") || "-"}</td>
+                  <td>${data.agents.toLocaleString("en-IN") || "-"}</td>
+                  <td>${displayCaseFiled || "-"}</td>
+                  <td>${displayCasesDisposed || "-"}</td>
+                  <td style="text-align:center;">${data.updatedAt ? moment(data.updatedAt).format("DD-MM-yy") : "-"}</td>
+                </tr>           
+              `);
+            });
+
+            const [subTotalFiledDisplay, subTotalDisposedDisplay] = formatSumCases(
+              subTotalCaseFiled,
+              subTotalCasesDisposed
+            );
+
+            tableBody.append(`
+              <tr style="background: #bbdef8; color: #fff; font-weight: 400;">
+                <td colspan="3" style=" font-weight: 600; text-align:center; background:#64A0AA">Sub Total (${groupName})</td>
+                <td style="background:#C6CBCB">${Number(subTotalUrbanPopulation).toFixed(2).toLocaleString("en-IN") || "-"}</td>
+                <td style="background:#C6CBCB">${subTotalProjects.toLocaleString("en-IN") || "-"}</td>
+                <td style="background:#C6CBCB">${subTotalNoOfProjects.toLocaleString("en-IN") || "-"}</td>
+                <td style="background:#C6CBCB">${subTotalUnits.toLocaleString("en-IN") || "-"}</td>
+                <td style="background:#C6CBCB">${subTotalCarpetArea.toLocaleString("en-IN") || "-"}</td>
+                <td style="background:#F8DF52">${subTotalAgents.toLocaleString("en-IN") || "-"}</td>
+                <td style="background:#F8DF52">${typeof subTotalFiledDisplay === 'number' ? subTotalFiledDisplay.toLocaleString("en-IN") : subTotalFiledDisplay || "-"}</td>
+                <td style="background:#F8DF52">${typeof subTotalDisposedDisplay === 'number' ? subTotalDisposedDisplay.toLocaleString("en-IN") : subTotalDisposedDisplay || "-"}</td>
+                <td style="background:#F8DF52">-</td>
+              </tr>           
+            `);
+
+            totalUrbanPopulation += subTotalUrbanPopulation;
+            totalProjects += subTotalProjects;
+            totalNoOfProjects += subTotalNoOfProjects;
+            totalUnits += subTotalUnits;
+            totalCarpetArea += subTotalCarpetArea;
+            totalAgents += subTotalAgents;
+            totalCaseFiled += subTotalCaseFiled;
+            totalCasesDisposed += subTotalCasesDisposed;
+          });
+
+          const [grandTotalFiledDisplay, grandTotalDisposedDisplay] = formatSumCases(
+            totalCaseFiled,
+            totalCasesDisposed
+          );
+          tableBody.append(`
+            <tr style="background: #bbdef8; color: #fff; font-weight: 600;">
+              <td colspan="3" style="color:#000000; text-align:center; font-weight: 600; background:#4383ad">Grand Total</td>
+              <td style="color: #000000; background: #18c9c9">${Number(totalUrbanPopulation).toFixed(2).toLocaleString("en-IN") || "-"}</td>
+              <td style="color: #000000; background: #18c9c9">${totalProjects.toLocaleString("en-IN") || "-"}</td>
+              <td style="color: #000000; background: #18c9c9">${totalNoOfProjects.toLocaleString("en-IN") || "-"}</td>
+              <td style="color: #000000; background: #18c9c9">${totalUnits.toLocaleString("en-IN") || "-"}</td>
+              <td style="color: #000000; background: #18c9c9">${totalCarpetArea.toLocaleString("en-IN") || "-"}</td>
+              <td style="color: #000000; background: #18c9c9">${totalAgents.toLocaleString("en-IN") || "-"}</td>
+              <td style="color: #000000; background:#ff7f1e">${typeof grandTotalFiledDisplay === 'number' ? grandTotalFiledDisplay.toLocaleString("en-IN") : grandTotalFiledDisplay || "-"}</td>
+              <td style="color: #000000; background:#ff7f1e">${typeof grandTotalDisposedDisplay === 'number' ? grandTotalDisposedDisplay.toLocaleString("en-IN") : grandTotalDisposedDisplay || "-"}</td>
+              <td style="color: #000000; background:#ff7f1e";>-</td>
+            </tr>           
+          `);
+        });
+      }, 1000);
+    });
+
+    /* Excel Export */
+    $("#exportExcel").click(() => {
+      let wb = XLSX.utils.book_new();
+      let ws = XLSX.utils.table_to_sheet(document.getElementById("table"));
+      XLSX.utils.book_append_sheet(wb, ws, "RERA Report");
+      XLSX.writeFile(wb, "RERA_Report.xlsx");
+    });
+
+    /* PDF Export */
+    $("#exportPDF").click(() => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: "portrait", unit: "pt", format: "a3" });
+
+      const reportTitle = $("#mondayDate").text();
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(16);
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const textWidth = doc.getTextWidth(reportTitle);
+      const textX = (pageWidth - textWidth) / 2;
+      doc.text(reportTitle, textX, 40);
+
+      doc.autoTable({
+        html: "#table",
+        startY: 70,
+        theme: "grid",
+        useCss: true,
+        styles: {
+          fontSize: 8,
+          cellPadding: 3,
+          halign: "center",
+          valign: "middle",
+          lineWidth: 0.5,
+          lineColor: [0, 0, 0],
+        },
+        headStyles: {
+          fillColor: [143, 214, 214],
+          textColor: [0, 0, 0],
+          fontSize: 9,
+          lineWidth: 0.5,
+          lineColor: [0, 0, 0],
+          fontStyle: "bold",
+        },
+        alternateRowStyles: {
+          fillColor: [240, 248, 255],
+        },
+        margin: { left: 20, right: 20 },
+        tableWidth: "auto",
+        pageBreak: "auto",
+        willDrawCell: function (data) {
+          const cell = data.cell;
+          const cellElement = data.cell.raw;
+
+          if (cellElement && cellElement.id === 'groupName') {
+            cell.text = [];
+          }
+        },
+        didDrawCell: function (data) {
+          const cell = data.cell;
+          const cellElement = data.cell.raw;
+
+          if (cellElement && cellElement.id === 'groupName') {
+            const text = cellElement.textContent || cellElement.innerText;
+            if (text && text.trim().length > 0) {
+              doc.setFontSize(9);
+              doc.setFont("helvetica", "bold");
+              doc.setTextColor(0, 0, 0);
+
+              const textWidth = doc.getTextWidth(text.trim());
+              
+              const x = cell.x + cell.width / 2;
+              
+              const y = cell.y + (cell.height / 2) + (textWidth / 2);
+
+              doc.text(text.trim(), x, y, {
+                angle: 90
+              });
+            }
+          }
+        }
+      });
+
+      const finalY = doc.lastAutoTable.finalY + 20;
+
+      const notesElement = document.querySelector(".notes");
+      const notesHtml = notesElement.outerHTML;
+
+      const tempContainer = document.createElement("div");
+      tempContainer.innerHTML = notesHtml;
+      tempContainer.style.background = "white";
+      tempContainer.style.padding = "20px";
+      tempContainer.style.fontSize = "15px";
+      tempContainer.style.lineHeight = "1.6";
+      tempContainer.style.color = "#000";
+      tempContainer.style.width = "1200px";
+      document.body.appendChild(tempContainer);
+
+      html2canvas(tempContainer, { scale: 2 }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const imgWidth = pageWidth - 80;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        const marginX = (pageWidth - imgWidth) / 2;
+
+        doc.addImage(imgData, "PNG", marginX, finalY, imgWidth, imgHeight);
+
+        doc.save("RERA_Tracker_Report.pdf");
+        tempContainer.remove();
+      });
+    });
+
+    $("#exportDropdown").on("click", function (e) {
+      e.stopPropagation();
+      $("#exportMenu").toggleClass("show");
+    });
+
+    $(window).on("click", function () {
+      $("#exportMenu").removeClass("show");
+    });
+
+  </script>
+
+</body>
+</html>
