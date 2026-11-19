@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t } from '../../i18n';
+import { CONTACT_URL, CRAWLER_USER_AGENT } from '../../config';
+
+const s = t();
+const c = s.crawler;
+---
+
+<Base title={`${c.title} | ${s.siteName}`} description={c.description}>
+  <h1>{c.title}</h1>
+  <p class="lede">{c.intro}</p>
+
+  <h2>{c.statusHeading}</h2>
+  <p>{c.status}</p>
+
+  <h2>{c.userAgentHeading}</h2>
+  <p>{c.userAgentText}</p>
+  <pre><code>{CRAWLER_USER_AGENT}</code></pre>
+
+  <h2>{c.collectsHeading}</h2>
+  <ul>{c.collects.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{c.rulesHeading}</h2>
+  <ul>{c.rules.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{c.whyHeading}</h2>
+  <p>{c.why}</p>
+
+  <h2 id="contact">{c.contactHeading}</h2>
+  <p>{c.contactText}</p>
+  <p><a href={CONTACT_URL}>{c.contactLink}</a></p>
+</Base>

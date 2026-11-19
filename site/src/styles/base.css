@@ -71,6 +71,14 @@ main,
   font-size: 1.15rem;
 }
 
+pre {
+  overflow-x: auto;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   color: var(--muted);

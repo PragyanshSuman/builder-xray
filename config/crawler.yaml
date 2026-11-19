@@ -1,7 +1,8 @@
 # Crawler identity and politeness defaults (spec §5.2).
-# contact_url is a PLACEHOLDER until the public site exists; replace before M1 crawling.
+# The contact page explains the bot and links to a public GitHub issue form
+# (no personal email). Keep user_agent in sync with site/src/config.ts.
 user_agent: "BuilderXRayBot/0.1 (+{contact_url}; public RERA records research)"
-contact_url: "https://builder-xray.example/about/crawler"
+contact_url: "https://builder-xray.prags-codes.workers.dev/about/crawler/"
 min_interval_seconds: 3.0
 max_concurrency_per_host: 1
 max_consecutive_errors: 20
