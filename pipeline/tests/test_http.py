@@ -336,3 +336,39 @@ def test_every_response_archived(tmp_path: Path) -> None:
     assert [e.url for e in entries] == ["https://a.gov.in/robots.txt", "https://a.gov.in/x"]
     assert r.archived is not None
     assert archive.get(r.archived.sha256) == b"hello"
+
+
+def test_post_form_redirect_becomes_get_and_is_archived(tmp_path: Path) -> None:
+    ft = FakeTime()
+    log: list[httpx.Request] = []
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        if r := _no_robots(req):
+            return r
+        if req.method == "POST":
+            assert b"a=1" in req.content
+            return httpx.Response(302, headers={"Location": "/list"}, request=req)
+        return httpx.Response(200, text="list", headers={"set-cookie": "s=1"})
+
+    archive = RawArchive(tmp_path)
+    with _client(handler, ft, archive=archive, log=log) as c:
+        r = c.post_form("https://a.gov.in/", {"a": "1"})
+    assert r.ok and r.final_url == "https://a.gov.in/list"
+    assert [(x.method, x.url.path) for x in log] == [
+        ("GET", "/robots.txt"),
+        ("POST", "/"),
+        ("GET", "/list"),
+    ]
+    assert [e.method for e in archive.entries()] == ["GET", "POST", "GET"]
+
+
+def test_post_form_respects_robots() -> None:
+    ft = FakeTime()
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        if req.url.path == "/robots.txt":
+            return httpx.Response(200, text="User-agent: *\nDisallow: /\n")
+        return httpx.Response(200)
+
+    with _client(handler, ft) as c:
+        assert c.post_form("https://a.gov.in/", {"a": "1"}).outcome is Outcome.DISALLOWED

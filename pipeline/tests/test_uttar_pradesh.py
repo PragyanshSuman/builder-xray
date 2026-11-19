@@ -117,3 +117,20 @@ def test_individual_promoter_address_dropped() -> None:
 def test_detail_end_date_matches_list_semantics(detail: UpProjectDetail) -> None:
     # List "EndDate" for this project is 09-09-2024 = last extension's upto date.
     assert detail.extensions[-1].upto_date == date(2024, 9, 9)
+
+
+def test_build_postback_from_home() -> None:
+    from bxr.adapters.uttar_pradesh import REGISTERED_PROJECTS_TARGET, build_postback
+
+    html = (FIX / "home.html").read_text(encoding="utf-8")
+    action, fields = build_postback(html, "https://up-rera.in/", REGISTERED_PROJECTS_TARGET)
+    assert action == "https://up-rera.in/"
+    assert fields["__EVENTTARGET"] == REGISTERED_PROJECTS_TARGET
+    assert {"__VIEWSTATE", "__VIEWSTATEGENERATOR", "__EVENTVALIDATION"} <= set(fields)
+
+
+def test_error_page_detection() -> None:
+    from bxr.adapters.uttar_pradesh import is_error_page
+
+    assert is_error_page("https://up-rera.in/servermaintenance.aspx?aspxerrorpath=/projects")
+    assert not is_error_page("https://up-rera.in/projects")

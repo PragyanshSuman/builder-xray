@@ -25,11 +25,16 @@ import pyarrow.parquet as pq
 from pydantic import BaseModel, ConfigDict
 
 from bxr.adapters.uttar_pradesh import (
+    BASE_URL,
     LIST_MAX_BYTES,
     LIST_URL,
+    REGISTERED_PROJECTS_TARGET,
     STATE_CODE,
+    ListStructureError,
     UpListRow,
     UpProjectDetail,
+    build_postback,
+    is_error_page,
     parse_project_detail,
     parse_project_list,
 )
@@ -267,17 +272,35 @@ def run_up_crawl(
     store = UpStore(data_dir)
     index = store.load_index()
 
-    listing = client.get(LIST_URL, max_body_bytes=LIST_MAX_BYTES)
-    if not listing.ok or listing.truncated:
-        summary.aborted = (
-            f"list fetch failed: {listing.outcome} {listing.status} "
-            f"truncated={listing.truncated} {listing.error or ''}"
-        )
+    def stop(reason: str) -> CrawlSummary:
+        summary.aborted = reason
         summary.requests = client.stats["requests"]
         summary.finished_at = now()
+        progress(f"aborted: {reason}")
         return summary
-    list_collected_at = now()
-    rows = parse_project_list(listing.text(), base_url=listing.final_url)
+
+    # Browser flow: home page (sets session) → "Registered Projects" postback → /projects.
+    try:
+        home = client.get(BASE_URL)
+        listing = None
+        if home.ok:
+            action, fields = build_postback(home.text(), home.final_url, REGISTERED_PROJECTS_TARGET)
+            listing = client.post_form(action, fields, max_body_bytes=LIST_MAX_BYTES)
+        if (
+            listing is None
+            or not listing.ok
+            or listing.truncated
+            or is_error_page(listing.final_url)
+        ):
+            res = listing or home
+            return stop(
+                f"list fetch failed: {res.outcome} {res.status} final={res.final_url} "
+                f"truncated={res.truncated} {res.error or ''}"
+            )
+        list_collected_at = now()
+        rows = parse_project_list(listing.text(), base_url=listing.final_url)
+    except (ListStructureError, CrawlAbortedError) as exc:
+        return stop(f"{type(exc).__name__}: {exc}")
     summary.list_rows = len(rows)
     summary.list_qpr_flagged = sum(r.qpr_default_flag for r in rows)
     progress(f"list: {len(rows)} projects ({summary.list_qpr_flagged} flagged 'Default on QPR')")

@@ -19,12 +19,33 @@ def _rows() -> list[UpListRow]:
     return parse_project_list(LIST_HTML)
 
 
-def _client() -> PoliteClient:
+HOME_HTML = (FIX / "home.html").read_text(encoding="utf-8")
+MAINTENANCE = "https://up-rera.in/servermaintenance.aspx?aspxerrorpath=/projects"
+
+
+def _client(*, home_html: str = HOME_HTML) -> PoliteClient:
+    """Mock of up-rera.in: /projects only works after the postback (session)."""
+    session = {"postback": False}
+
     def handler(req: httpx.Request) -> httpx.Response:
         if req.url.path == "/robots.txt":
             return httpx.Response(200, text="User-agent: *\nDisallow: /cgi-bin/\n")
+        if req.method == "POST" and req.url.path == "/":
+            form = dict(httpx.QueryParams(req.content.decode()))
+            if form.get("__EVENTTARGET") == "ctl00$ContentPlaceHolder1$lnkRegisteredProjects":
+                session["postback"] = True
+                return httpx.Response(302, headers={"Location": "/projects"})
+            return httpx.Response(200, text=home_html)
+        if req.url.path == "/":
+            return httpx.Response(200, text=home_html)
         if req.url.path == "/projects":
+            if req.method != "GET":
+                return httpx.Response(405)
+            if not session["postback"]:
+                return httpx.Response(302, headers={"Location": MAINTENANCE})
             return httpx.Response(200, text=LIST_HTML)
+        if req.url.path == "/servermaintenance.aspx":
+            return httpx.Response(200, text="<html>maintenance</html>")
         if req.url.path == "/Projectsummary":
             # Every detail link returns UPRERAPRJ839360's page: only row 3 matches.
             return httpx.Response(200, text=DETAIL_HTML)
@@ -108,3 +129,14 @@ def test_end_to_end_with_reg_mismatch_guard(tmp_path: Path) -> None:
     queue = select_for_detail(_rows(), index, NOW, max_details=100)
     assert "UPRERAPRJ839360" not in [r.rera_reg_no for r in queue]
     assert len(queue) == 29
+
+
+def test_aborts_cleanly_when_postback_link_missing(tmp_path: Path) -> None:
+    with _client(
+        home_html="<html><form><input type=hidden name=__VIEWSTATE value=x></form></html>"
+    ) as client:
+        summary = run_up_crawl(
+            client, tmp_path, max_details=3, now=lambda: NOW, progress=lambda _: None
+        )
+    assert summary.aborted and "lnkRegisteredProjects" in summary.aborted
+    assert summary.snapshot_dir is None

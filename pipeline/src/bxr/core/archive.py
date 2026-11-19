@@ -19,6 +19,7 @@ from pydantic import BaseModel, ConfigDict
 class ArchiveEntry(BaseModel):
     model_config = ConfigDict(frozen=True)
 
+    method: str = "GET"
     url: str
     final_url: str
     status: int
@@ -52,6 +53,7 @@ class RawArchive:
         body: bytes,
         truncated: bool,
         fetched_at: datetime,
+        method: str = "GET",
     ) -> ArchiveEntry:
         digest = sha256_hex(body)
         path = self.object_path(digest)
@@ -61,6 +63,7 @@ class RawArchive:
             tmp.write_bytes(body)
             tmp.replace(path)
         entry = ArchiveEntry(
+            method=method,
             url=url,
             final_url=final_url,
             status=status,

@@ -1,0 +1,3191 @@
+
+
+<!DOCTYPE html>
+<html>
+<head id="ctl00_Head1"><link rel="shortcut icon" href="img/rera_logo.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    
+    <style>
+    /* Container holding both icon and text */
+    .container1 {
+      display: flex;              /* Align icon and text horizontally */
+      align-items: center;        /* Vertically align items in the center */
+      justify-content: flex-start;/* Align items to the left */
+    }
+
+    /* Icon styling */
+    .small-icon {
+      font-size: 15px;            /* Set the size of the icon */
+      color: #fff;                /* Set the color of the icon */
+      margin-right: 10px;         /* Space between the icon and the text */
+    }
+
+    /* Text styling */
+    .text {
+      color: #7a7575;             /* Text color */
+      font-size: 16px;            /* Font size for text */
+    }
+  </style>
+    <style>
+        .heading-with-icon {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 14px;
+            color: #7a7575;
+            margin: 0;
+            width: 100%;
+        }
+
+        .small-icon2 {
+            font-size: 14px;
+            color: #fff;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .heading-text {
+            overflow-wrap: break-word;
+            white-space: normal;
+            word-wrap: break-word;
+            flex: 1;
+            min-width: 0;
+            width: 100%;
+        }
+
+</style>
+    <style>
+        .footer-area {
+            background-color: none !important;
+            color: #010b17 !important;
+            padding-top: 80px;
+        }
+
+        .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 15px;
+            height: 15px;
+            padding: 5px;
+            cursor: pointer;
+            color: #ffffff !important;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+
+        .thumbnail p {
+            font-size: 15px;
+            padding: 10px;
+            text-align: justify;
+            color: #8a1d1f !important;
+            text-align: center;
+        }
+
+        .bottom-left {
+            position: absolute;
+            bottom: 16px;
+            left: 180px;
+        }
+
+        .d-block {
+            color: #790101 !important;
+            font-weight: bold;
+        }
+
+        .btn-block + .btn-block {
+            margin-top: 0px !important;
+        }
+
+        .modal-body p {
+            margin-bottom: 0px;
+        }
+
+        .modal-content {
+            /*margin: auto;
+         padding: 20px;
+         border: 3px solid #ff0000 !important;
+         width:160%!important;
+         margin-left:-200px;*/
+            margin: auto;
+            margin-left: auto;
+            padding: 20px;
+            border: 3px solid #ff0000 !important;
+            width: 140% !important;
+            margin-left: -110px;
+            height: 50%!important;
+        }
+         .modal-content1 {
+            /*margin: auto;
+         padding: 20px;
+         border: 3px solid #ff0000 !important;
+         width:160%!important;
+         margin-left:-200px;*/
+            margin: auto;
+            margin-left: auto;
+            padding: 20px;
+            border: 3px solid #ff0000 !important;
+            width: 120% !important;
+            margin-left: -110px;
+            height: 50%!important;
+        }
+    </style>
+
+    <script>
+      
+        $(window).on('load',function(){
+            $('#modalvdars').modal('hide');
+            //$('#modalvdars1').modal('show');
+        });
+ 
+    </script>
+
+
+    <style>
+        .demof a {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #06f;
+        }
+
+        .btnToggle {
+            background-color: red;
+            color: white !important;
+        }
+
+        .et-run {
+            background-color: green;
+            color: white !important;
+        }
+
+        input[type="radio"] {
+            background-color: initial;
+            cursor: default;
+            -webkit-appearance: radio;
+            box-sizing: border-box;
+            margin: 3px 3px 0px 5px;
+            padding: initial;
+            border: initial;
+        }
+
+        [type="radio"]:not(:checked), [type="radio"]:checked {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        [type="checkbox"], [type="radio"] {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0;
+            overflow: visible;
+        }
+
+            [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+                background-color: #26a69a;
+            }
+
+            [type="radio"]:checked + label:after,
+            [type="radio"].with-gap:checked + label:before,
+            [type="radio"].with-gap:checked + label:after {
+                border: 2px solid #26a69a;
+            }
+
+            [type="radio"]:checked + label:after,
+            [type="radio"].with-gap:checked + label:before,
+            [type="radio"].with-gap:checked + label:after {
+                border: 2px solid #26a69a;
+            }
+
+            [type="radio"]:not(:checked) + label:before, [type="radio"]:not(:checked) + label:after, [type="radio"]:checked + label:before, [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+                border-radius: 50%;
+                border: 2px solid #e7242a !important;
+            }
+
+            [type="radio"]:checked + label:before {
+                border: 2px solid transparent;
+            }
+
+            [type="radio"] + label:before, [type="radio"] + label:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 4px;
+                width: 16px;
+                height: 16px;
+                z-index: 0;
+                -webkit-transition: .28s ease;
+                transition: .28s ease;
+            }
+
+        input[type=checkbox], input[type=radio] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        [type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+            font-size: 1rem;
+            -webkit-transition: .28s ease;
+            transition: .28s ease;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        [type="radio"].with-gap:checked + label:after {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+        }
+
+        [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before,
+        [type="radio"].with-gap:checked + label:after {
+            border: 2px solid #26a69a !important;
+        }
+
+        .banner_part:after {
+            position: absolute;
+            right: 0;
+            top: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        /*/*.banner_part:after, .breadcrumb:after {
+     background-color: none !important; 
+}*/
+        .banner_part .banner_text {
+            display: table;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 99;
+            /*margin-top: 60px;*/
+            margin-top: 228px;
+        }
+
+        .banner_part {
+            /* height: 900px; */
+            /* height: 700px; */
+            height: 338px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background-image: url(img/reratemp_original11.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .blog-area i {
+            font-size: 30px;
+            color: #01264e !important;
+            border: 1px solid #01264e !important;
+            padding: 10px 15px;
+        }
+
+        #mu-abtus-counter {
+            overflow: hidden !important;
+        }
+
+        .mu-abtus-counter-area {
+            /*background: linear-gradient(rgba(83,83,83,0.5),rgba(0,0,0,.60));*/
+            background: linear-gradient(rgb(210 177 177 / 58%),rgb(255 255 255 / 60%));
+            padding: 10px;
+        }
+
+        #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single {
+            border-right: 2px solid #888;
+            display: inline;
+            float: left;
+            text-align: center;
+            width: 100%;
+        }
+
+            #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single span {
+                color: #fff;
+                display: inline-block;
+                font-size: 50px;
+            }
+
+            #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single h4 {
+                /*color: #fff;*/
+                color: #100c35;
+                font-size: 40px;
+                font-weight: bold;
+                margin-bottom: 5px;
+                margin-top: 20px;
+            }
+
+            #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single p {
+                /*color: #fff;*/
+                color: #100c35;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+
+        .service-area i {
+            font-size: 30px;
+            color: #01264e;
+            border: 1px solid #01264e;
+            padding: 10px 15px;
+        }
+    </style>
+
+    <!------ Include the above in your HEAD tag ---------->
+    <script>
+        function OpenAlbum(src)        
+        {        
+            
+            encryptValues();
+            // var Album= $("#image-gallery-title").text();     
+            
+            //sessionStorage.setItem("city", city);
+            // window.location.href = "Rera_PhotGallery.aspx";
+            //  window.location.href = "Rera_PhotGallery.aspx?city="+Album+"";
+        }
+
+
+        function encryptValues()
+        {  
+            debugger;
+            var parameter= $("#image-gallery-title").text();  
+           
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/encryptValues",
+                data: "{parameter: '" + parameter + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+
+                    if (r.d != "") {
+                   
+                         
+                        var Album= r.d;   
+                        window.location.href = "PhotGallery?city="+Album+"";
+                     
+                    }
+                    else {                         
+                                       
+                    }
+                },
+                error: function (r) {
+                    
+                },
+                failure: function (r) {
+                    
+                }
+            }); 
+
+        }
+
+
+
+        $(document).ready(function () 
+        {
+            debugger;
+            GetNotice();
+            $("input[type=radio]").addClass('with-gap');
+            bind_news();
+            bindGallery();
+            bindCounterDiv();
+  
+            $("#linkSlider1").bootstrapNews({
+                newsPerPage: 4,
+                autoplay: true,
+                pauseOnHover: true,
+                direction: 'up',
+                newsTickerInterval: 2000,
+                onToDo: function () {
+                }
+            });
+
+    
+
+
+            $("#linkSlider2").bootstrapNews({
+                newsPerPage: 4,
+                autoplay: true,
+                pauseOnHover: true,
+                navigation: true,
+                direction: 'down',
+                newsTickerInterval: 2500, 
+                onToDo: function () {
+                }
+            });
+
+            $("#linkSlider3").bootstrapNews({
+                newsPerPage: 3,
+                autoplay: true,
+                pauseOnHover: true,
+                direction: 'up',
+                newsTickerInterval: 1000,
+                onToDo: function () {
+                }
+            });
+            //$("#noticeUl").bootstrapNews({
+            //    newsPerPage: 3,
+            //    autoplay: true,
+            //    pauseOnHover: true,
+            //    direction: 'up',
+            //    newsTickerInterval: 1000,
+            //    onToDo: function () {
+            //    }
+            //});
+            bindNoticeButton();
+            ViewNotices("All");
+            Press_View();
+
+        });
+
+        function Press_View() {
+
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/GetPressForIndex",
+
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    if (r.d != "") {
+
+                        $('#pressdiv').empty().html(r.d);
+                        $('#pressdiv').show();
+                        var ticker = $('.demorelease').easyTicker({
+                            direction: 'up',
+                            visible: 5,
+                            interval: 1500,
+                        });
+                        var tickObj = ticker.data('easyTicker');
+                        var tickOpts = tickObj.options;
+                    }
+                    else {
+                        $('#pressdiv').hide();
+                    }
+                },
+                error: function (r) {
+                    
+                },
+                failure: function (r) {
+                    
+                }
+            });
+        }
+
+        function bindCounterDiv()
+        {
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/bindCounterDiv",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    //alert(r.d)
+                    var result = JSON.parse(r.d);
+                    for (var i = 0; i < result.length; i++)
+                    {
+                        $("#ctl00_ContentPlaceHolder1_noOfProjects").text(result[i].TotalProject);
+                        $("#ctl00_ContentPlaceHolder1_noOfPromoters").text(result[i].TotalPromoter);
+                        $("#ctl00_ContentPlaceHolder1_noOfAgents").text(result[i].TotalAgent);
+                        $("#ctl00_ContentPlaceHolder1_noOfComplaints").text(result[i].TotalComplaints);
+                    }
+                },
+            });
+        }
+
+        function bindNoticeButton()        
+        {      
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/GetNoticebtnForIndexPage",                      
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) 
+                {                    
+                    if (r.d != "") 
+                    {                       
+                        //alert(r.d)
+                        $('#noticeBtnDiv').empty().html(r.d);                        
+                    }                    
+                },
+                error: function (r) {
+                    
+                },
+                failure: function (r) {
+                    
+                }
+            });
+        }
+
+        function ViewNotices(ider)
+        {
+            var NoticeType="";
+            if(ider!="All")
+            {
+                NoticeType = ider.id.split("-")[1];
+            }
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/GetNoticeForIndexPage",
+                data: "{NoticeType: '" + NoticeType + "'}",                
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) 
+                {                    
+                    if (r.d != "") 
+                    {                       
+                        //alert(r.d)
+                        $('#newsDataDiv').empty().html(r.d);
+                        $('#newsDataDiv').show();
+                        var ticker = $('.demo6').easyTicker({
+                            direction: 'up',
+                            visible: 5,
+                            interval: 1500,                 
+                        });
+                        var tickObj = ticker.data('easyTicker');
+                        var tickOpts = tickObj.options;
+                    }
+                    else 
+                    {
+                        $('#newsDataDiv').hide();
+                    } 
+                },
+                error: function (r) {
+                    
+                },
+                failure: function (r) {
+                    
+                }
+            });         
+        }
+
+        function GetNotice()
+        {
+            var NoticeType="";
+            //NoticeType = $("#ctl00_ContentPlaceHolder1_rdonotice input:checked").val();          
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/GetNoticeForIndexPage",
+                data: "{NoticeType: '" + NoticeType + "'}",                
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) 
+                {                    
+                    if (r.d != "") 
+                    {                       
+                        // alert(r.d)
+                        $('#newsDataDiv').empty().html(r.d);
+                        $('#newsDataDiv').show();
+                        var ticker = $('.demo6').easyTicker({
+                            direction: 'up',
+                            visible: 4,
+                            interval: 1500,                 
+                        });
+                        var tickObj = ticker.data('easyTicker');
+                        var tickOpts = tickObj.options;
+                    }
+                    else 
+                    {
+                        $('#newsDataDiv').hide();
+                    } 
+                },
+                error: function (r) {
+                    
+                },
+                failure: function (r) {
+                    
+                }
+            });
+        }        
+
+        function bind_news() {
+            var city = "0";
+            // alert(city)
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/NewsForIndexPage",               
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    if (r.d != "") {                       
+                        $('#appendNewsData').html(r.d);                       
+                        $('#appendNewsData').owlCarousel({
+                            loop: true,
+                            center: true,
+                            items: 4,
+                            margin: 25,                           
+                            dots: true,
+                            nav: true,
+                            autoplay:true,
+                            autoplayTimeout: 2000,
+                            autoplayHoverPause:true,  
+                            
+                            smartSpeed: 450,
+                            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                768: {
+                                    items: 2
+                                },
+                                1170: {
+                                    items: 3
+                                }
+                            }
+                        });
+                    }
+                    else {
+
+                        $('#appendNewsData').hide();
+                    } 
+                },
+                error: function (r) {
+                    
+                },
+                failure: function (r) {
+                    
+                }
+            });
+        }
+
+        function bindGallery() 
+        {      
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/GalleryForIndexPage",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    if (r.d != "") {                       
+                        $('#imgGal').html(r.d);
+                        $('#imgGal').owlCarousel({
+                            loop: true,
+                            center: true,
+                            items: 4,
+                            margin: 25,                           
+                            dots: true,
+                            nav: true,
+                            autoplay:true,
+                            autoplayTimeout: 2000,
+                            autoplayHoverPause:true,                            
+                            smartSpeed: 450,
+                            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                768: {
+                                    items: 2
+                                },
+                                1170: {
+                                    items: 3
+                                }
+                            }
+                        });
+                       
+                        load();
+                    }
+                    else {
+
+                        $('#imgGal').hide();
+                    }
+                },
+                error: function (r) {                   
+                    
+                },
+                failure: function (r) {
+                    
+                }
+            });
+        } 
+
+        function load()
+        {
+            let modalId = $('#image-gallery');
+            $(document).ready(function () { 
+                loadGallery(true, 'a.thumbnail');
+
+                //This function disables buttons when needed
+                function disableButtons(counter_max, counter_current) {
+                    $('#show-previous-image, #show-next-image').show();
+                    if (counter_max === counter_current) {
+                        $('#show-next-image').hide();
+                    } else if (counter_current === 1) {
+                        $('#show-previous-image').hide();
+                    }
+                }
+
+                /**
+                 *
+                 * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+                 * @param setClickAttr  Sets the attribute for the click handler.
+                 */
+
+                function loadGallery(setIDs, setClickAttr) {
+                    let current_image,selector,counter = 0;
+
+                    $('#show-next-image, #show-previous-image').click(function () {
+                        if ($(this).attr('id') === 'show-previous-image') {
+                            current_image--;
+                        } else {
+                            current_image++;
+                        }
+                        selector = $('[data-image-id="' + current_image + '"]');
+                        updateGallery(selector);
+                    });
+
+                    function updateGallery(selector) {
+                        var $sel = selector;
+                        current_image = $sel.data('image-id');
+                        // alert($sel.data('title'))
+                        $('#image-gallery-title').text($sel.data('title'));
+                        $('#image-gallery-image').attr('src', $sel.data('image'));
+                        disableButtons(counter, $sel.data('image-id'));
+                    } 
+                    if (setIDs == true) {
+                       
+                        $('[data-image-id]').each(function () {                            
+                            counter++;
+                            $(this).attr('data-image-id', counter);
+                        });
+                    }
+                    $(setClickAttr).on('click', function () {
+                        updateGallery($(this));
+                    });
+                }
+            });
+
+            // build key actions
+            $(document)
+              .keydown(function (e) {
+                  switch (e.which) {
+                      case 37: // left
+                          if ((modalId.data('bs.modal') || {})._isShown && $('#show-previous-image').is(":visible")) {
+                              $('#show-previous-image')
+                                .click();
+                          }
+                          break;
+
+                      case 39: // right
+                          if ((modalId.data('bs.modal') || {})._isShown && $('#show-next-image').is(":visible")) {
+                              $('#show-next-image')
+                                .click();
+                          }
+                          break;
+
+                      default:
+                          return; // exit this handler for other keys
+                  }
+                  e.preventDefault(); // prevent the default action (scroll / move caret)
+              });
+        }
+        
+        function stopScroll()
+        {
+            
+            // $('#stopscroll').css("diplay","none");
+            // $('#startscroll').css("diplay","block");
+          
+            $('#stopscroll').hide();
+            $('#startscroll').show();
+            document.getElementById('mq1').stop()
+        }
+        function startScroll()
+        {
+            debugger;
+            // $('#stopscroll').css("diplay","block");
+            // $('#startscroll').css("diplay","none");
+
+            $('#stopscroll').show();
+            $('#startscroll').hide();
+            document.getElementById('mq1').start();
+        }
+
+         
+        function stopList()
+        {
+            debugger;
+            
+            $('#stopList').hide();
+            $('#startList').show();
+            var element = $('.demo6').data('easyTicker');           
+            element.stop();
+        }
+        function startList()
+        {
+            debugger;
+            $('#stopList').show();
+            $('#startList').hide();
+            var element = $('.demo6').data('easyTicker');           
+            element.start();
+        }
+
+        function stopListpRelease()
+        {
+            debugger;
+            
+            $('#A2pRelease').show();
+            $('#A1pRelease').hide();
+            var element = $('.demorelease').data('easyTicker');           
+            element.stop();
+        }
+        function startListpRelease()
+        {
+            debugger;
+            
+            $('#A1pRelease').show();
+            $('#A2pRelease').hide();
+            var element = $('.demorelease').data('easyTicker');           
+            element.start();
+        }
+
+        //-------------------important Link----------------------------
+        function stopImportant()
+        {
+            debugger;
+            
+            $('#stopImportant').hide();
+            $('#startImportant').show();
+            var element = $('.demo6').data('easyTicker');           
+            element.stop();
+        }
+        function startImportant()
+        {
+            debugger;
+            $('#stopImportant').show();
+            $('#startImportant').hide();
+            var element = $('.demo6').data('easyTicker');           
+            element.start();
+        }
+         
+        
+        //-------------------------LatestNews-----------
+        //function stopLatestNews()
+        //{
+        //    debugger;
+            
+        //    $('#stopLatestNews').hide();
+        //    $('#startLatestNews').show();
+        //    owl.trigger('owl.autoplay');
+        //}
+        //function startLatestNews()
+        //{
+        //    debugger;
+        //    $('#stopLatestNews').show();
+        //    $('#startLatestNews').hide();
+        //     owl.trigger('owl.autoplay')
+            
+        //}
+
+        
+ 
+        $(document).ready(function() {
+            var owl = $('.owl-carousel');
+           
+            $('.play').on('click', function() {
+                $('.stop').show();
+                $('.play').hide();
+                owl.trigger('play.owl.autoplay', [1000])
+            });
+            $('.stop').on('click', function() {
+                $('.stop').hide();
+                $('.play').show();
+                owl.trigger('stop.owl.autoplay')
+            });
+        });
+
+
+        
+        //$(document).ready(function() {
+        //    var owl = $('.nav-item');
+           
+        //    $('#impplay').on('click', function() {
+        //     //   $('#imppause').show();
+        //       // $('#impplay').hide();
+        //        $("#linkSlider1").bootstrapNews({
+        //            newsPerPage: 4,
+        //            autoplay: true,
+        //            pauseOnHover: true,
+        //            direction: 'up',
+        //            newsTickerInterval: 2000,
+        //            onToDo: function () {
+        //            }
+        //        });
+        //    });
+        //    $('#imppause').on('click', function() {
+
+        //        alert("Okk");
+        //     //   $('#imppause').hide();
+        //       // $('#impplay').show();
+        //        $("#linkSlider1").bootstrapNews({
+              
+        //            autoplay: false,
+                  
+        //            onToDo: function () {
+        //            }
+        //        });
+        //    });
+        //});
+
+         
+    </script>
+    <style>
+        .btn:focus, .btn:active, button:focus, button:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        #image-gallery .modal-footer {
+            display: block;
+        }
+
+        .thumb {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <style>
+        .wa-modal {
+    border-radius: 12px;
+    padding: 15px 0 20px;
+    border: none;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Close button */
+.wa-close {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    font-size: 18px;
+}
+
+
+/* Icon */
+.wa-icon {
+    width: 42px;
+    margin: 10px auto 12px;
+    display: block;
+}
+
+
+/* Title */
+.wa-title {
+    font-size: 18px;
+}
+
+
+/* Description */
+.wa-desc {
+    font-size: 14px;
+    color: #8a8a8a;
+    line-height: 1.5;
+    padding: 0 10px;   /* reduce side padding */
+    margin-bottom: 10px;
+}
+
+/* Button (WhatsApp exact green style) */
+.wa-btn {
+    display: block;
+    width: 100%;              /* full width */
+    margin-top: 18px;
+    background-color: #25D366;
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+.wa-btn:hover {
+    background-color: #20c45a;
+    color: #fff;
+}
+
+/* Footer */
+.wa-footer {
+    margin-top: 12px;
+}
+
+.wa-footer a {
+    font-size: 12px;
+    color: #bdbdbd;
+    text-decoration: none;
+}
+#modalvdars .modal-content {
+    min-height: auto;   /* remove fixed height */
+    padding: 20px 15px;
+    border: none !important;
+    outline: none !important;
+    border-radius: 16px !important;   /* smoother rounded corners */
+    overflow: hidden;
+    background: #fff;
+}
+
+#modalvdars .modal-dialog {
+    max-width: 360px;
+     border: none !important;
+}
+
+
+#modalvdars .modal-body {
+    padding: 25px 20px;
+    text-align: center;
+}
+  
+
+#modalvdars .custom-btn {
+    background-color: #25D366;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+#modalvdars .modal-header {
+    border-bottom: none !important;
+}
+
+    </style>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><meta name="description" content="This is an official website of UP RERA that provides online information about all activities, provisions by UP RERA in Uttar Pradesh." /><meta name="keywords" content="uprera,UP RERA,uttar pradesh rera,rera in uttar pradesh,UPRERA,Official Website of RERA Uttar Pradesh,Website of RERA Uttar Pradesh,Website of RERA,RERA UP WEBSITE,UP RERA WEBSITE, OFFICIAL WEBSITE OF RERA,RERA UP,UPRERA WEBSITE,ONLINE PROPERTY,ONLINE PROJECT REGISTRTION,Promoters Registration" /><title>
+	UP RERA : Uttar Pradesh Real Estate Regulatory Authority
+</title>
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" /><link rel="stylesheet" href="css/bootstrap.css" /><link rel="stylesheet" href="css/themify-icons.css" /><link rel="stylesheet" href="vendors/fontawesome/css/all.min.css" /><link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" /><link rel="stylesheet" href="vendors/animate-css/animate.css" /><link rel="stylesheet" href="css/site.css" /><link href="JqueryCallender/css/jquery-ui.css" rel="stylesheet" /><link href="css/font-awesome.min.css" rel="stylesheet" />
+         
+    <!-- main css -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-3.min.js"></script>        
+     <script src="js/jquery-2.min.js"></script>
+    <script src="js/validation.js"></script>
+     
+    <link href="multiselect/bootstrap-multiselect.css" rel="stylesheet" /><link href="css/slick.css" rel="stylesheet" /><link rel="stylesheet" href="css/style.css" /><link rel="stylesheet" href="css/responsive.css" />
+
+     
+ 
+         
+       <script type="text/javascript">
+           $(document).ready(function () {
+               var counter = 0;
+
+               var originalSize = $('div').css('font-size');
+               var originalSizeAnc = $('a').css('font-size');
+               var originalSizePara = $('p').css('font-size');
+               var originalSizeli = $('li').css('font-size');
+               var originalSizetable = $('table').css('font-size');
+               // reset        
+               $(".resetMe").click(function () {
+                   counter = 0;
+
+                   $('div').css('font-size', originalSize);
+                   $('a').css('font-size', originalSizeAnc);
+                   $('p').css('font-size', originalSizePara);
+                   $('li').css('font-size', originalSizeli);
+                   $('table').css('font-size', originalSizeli);
+               });
+
+               // Increase Font Size          
+               $(".increase").click(function () {
+
+                   if (counter <= 4 && counter >= 0) {
+                       counter = counter + 1
+                   }
+                   else if (counter >= 4) {
+
+                   }
+                   else {
+                       counter = counter + 1;
+                   }
+
+                   var currentSize = $('div').css('font-size');
+
+                   var currentSizeAnc = $('a').css('font-size');
+                   var currentSizepara = $('p').css('font-size');
+                   var currentSizeli = $('li').css('font-size');
+                   var currentSizetable = $('table').css('font-size');
+                   if (counter <= 4) {
+
+                       var currentSize = parseFloat(currentSize) * 1.2;
+
+                       var currentSizeAnc = parseFloat(currentSizeAnc) * 1.2;
+                       var currentSizepara = parseFloat(currentSizepara) * 1.2;
+                       var currentSizeli = parseFloat(currentSizeli) * 1.2;
+                       var currentSizetable = parseFloat(currentSizetable) * 1.2;
+                       $('div').css('font-size', currentSize);
+                       $('a').css('font-size', currentSizeAnc);
+                       $('p').css('font-size', currentSizepara);
+                       $('li').css('font-size', currentSizeli);
+                       $('table').css('font-size', currentSizetable);
+                   }
+
+                   return false;
+               });
+
+               // Decrease Font Size       
+               $(".decrease").click(function () {
+
+                   counter = counter - 1;
+
+
+
+                   var currentFontSize = $('div').css('font-size');
+                   var currentFontSizeAnc = $('a').css('font-size');
+                   var currentFontSizepara = $('p').css('font-size');
+                   var currentFontSizeli = $('li').css('font-size');
+                   var currentFontSizetable = $('table').css('font-size');
+                   var currentSize = $('div').css('font-size');
+                   var currentSizeAnc = $('a').css('font-size');
+                   var currentSizepara = $('p').css('font-size');
+                   var currentSizeli = $('li').css('font-size');
+                   var currentSizetable = $('table').css('font-size');
+
+                   var currentSize = parseFloat(currentSize) * 0.8;
+                   var currentSizeAnc = parseFloat(currentSizeAnc) * 0.8;
+                   var currentSizepara = parseFloat(currentSizeAnc) * 0.8;
+                   var currentSizeli = parseFloat(currentSizeli) * 0.8;
+                   var currentSizetable = parseFloat(currentSizetable) * 0.8;
+
+                   $('div').css('font-size', currentSize);
+                   $('a').css('font-size', currentSizeAnc);
+                   $('p').css('font-size', currentSizepara);
+                   $('li').css('font-size', currentSizeli);
+                   $('table').css('font-size', currentSizetable);
+                   return false;
+               });
+           });
+
+      </script>
+
+ 
+
+    
+
+    
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="[stripped]" />
+
+
+<script src="/ScriptResource.axd?d=9hSKVupFAlz5rX1VfBgqktJMTypQlhA4CayKFPkY73SkaMnjMtFJYKhIgoJMaysbh9Vcm_sdgF4wmtit3uonkkb58QNc8r-e0usWCn8E9rWQCdPVfnqgw2kYVX_H95_1s5OQQx7e2--IIBu5WuM_yvcP-J2NhS6bxlrH2wOOTYo1&amp;t=2ddfb07d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=jDrYmNZ1BfuQTouQ_UV7IBXWXW1cdQHTmtY5CMur73DvuWX3F9zbKJSatVkGJH8D5QlCEr30Ln1LYpkSHGTJMAMQGq3Qjug1o3V1bbfG-porSx-F_NY_aH8Ilc0rGfLoeBK2RoLUILrFmoB9ahemWA2&amp;t=7f16157c" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90059987" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="[stripped]" />
+        
+        <!--================Header Menu Area =================-->
+        <header class="header_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="accessibilityDiv">
+                        <ul class="accessibility-icons list-unstyled list-inline font-zoom pull-right">
+                            <li class="language" style="display: inline;"><a style="font-size: 14px;" class="taglib-language-list-text" href="#">
+                                
+                                   <a href="https://facebook.com/upreraofficial" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a>	
+                                &nbsp;
+                               <a href="https://twitter.com/UPRERAofficial" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>	
+                                   &nbsp;
+                                <a href="https://www.youtube.com/channel/UCAeF0bOHPpzN-K9QvfA9rSQ" target="_blank" title="Youtube"><i class="fa fa-youtube-play" style="color:red"></i></a>	
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text increase" title="Increase font size"> | +A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text resetMe" title="Restore default font size" style="padding: 2px 6px 2px 6px;">| A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text decrease" title="Decrease font size" style="">| -A</a>
+                                 &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class=" taglib-language-list-text " href="#main" data-toggle="tooltip" title="Skip to main content"><span class="fa fa-arrow-down"></span>   </a>
+                                  &nbsp;
+                                  &nbsp;
+
+                                 <a style="font-size: 14px;" class=" taglib-language-list-text " href="ScreenReader.aspx" data-toggle="tooltip" title="Screen Reader Access"><span class="fa fa-desktop"></span>   </a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class="taglib-language-list-text " href="Sitemap" data-toggle="tooltip" title="Sitemap"> <i class="fa fa-sitemap" aria-hidden="true"></i></a>
+                                         &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class="taglib-language-list-text " href="admin" data-toggle="tooltip" title=""> <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                                   
+                                    &nbsp;
+                                  &nbsp;
+                              
+                                <span class="time"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                <script type="text/javascript">
+                                    var d = new Date()
+                                    var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+                                    var monthname = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+                                    document.write(weekday[d.getDay()] + ", ")
+                                    document.write(d.getDate() + " ")
+                                    document.write(monthname[d.getMonth()] + ", ")
+                                    document.write(d.getFullYear())
+                                </script>
+                                | <i class="far fa-clock" aria-hidden="true"></i>
+                                <span id="clockDisplay">
+                                    <script type="text/javascript" language="javascript">
+                                        function renderTime() {
+                                            var currentTime = new Date();
+                                            var diem = "AM";
+                                            var h = currentTime.getHours();
+                                            var m = currentTime.getMinutes();
+                                            var s = currentTime.getSeconds();
+                                            setTimeout('renderTime()', 1000);
+                                            if (h == 0) {
+                                                h = 12;
+                                            } else if (h > 12) {
+                                                h = h - 12;
+                                                diem = "PM";
+                                            }
+                                            if (h < 10) {
+                                                h = "0" + h;
+                                            }
+                                            if (m < 10) {
+                                                m = "0" + m;
+                                            }
+                                            if (s < 10) {
+                                                s = "0" + s;
+                                            }
+                                            var myClock = document.getElementById('clockDisplay');
+                                            myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+                                            myClock.innerText = h + ":" + m + ":" + s + " " + diem;
+                                        }
+                                        renderTime();
+                                    </script>
+                                </span></span></a>
+
+
+                            </li>
+                            <li class="language" style="display: inline;"></li>
+                            <li class="language" style="display: inline;"> </li>
+                            <li class="language" style="display: inline;"> </li>
+                            <li class="language" style="display: inline;"> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main_menu m0">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <div class="row" style="width: 100%">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="col-lg-2 col-md-2 col-xs-6">
+                                <a class="navbar-brand logo_h" href="index" style="padding-top: 10px;">
+                                    <img src="img/rera_logo.png" title="UPRERA Logo" alt="UPRERA" class="img-responsive" /></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="float: right;">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="col-lg-9 col-md-9" style="padding-right: 0px; padding-left: 0px;">
+                                <div class="row wname" style="margin-top: 15px;">
+                                    <div class="col-lg-12 col-md-12">
+                                        <h2 id="reraheading" style="color:#dc3838">Uttar Pradesh Real Estate Regulatory Authority</h2>
+                                    </div>
+                                </div>
+                                <div class="row menudiv" style="margin-top: 10px;">
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse main-menu-item" id="navbarNav" style="margin-top: 5px;">
+                                        <a href="#ctl00_menuBar_SkipLink"><img alt="Skip Navigation Links" src="/WebResource.axd?d=qRV__gASohxYzUYw4RthYnyOyafG05EdEYlf45hh_Zw2aGxOzGSxeQeWS2HRmdgDWkuyRHsu-VXZ_0uBpfGAr6ovsJ7RcJaAXmzR1O-AOcU1&amp;t=639256397503738887" width="0" height="0" border="0" /></a><div id="ctl00_menuBar" style="width: 100%; float: none;">
+	<ul class="level1 nav navbar-nav">
+		<li><a class="level1" href="index.aspx"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li><li><a class="popout level1" href="#">ABOUT RERA</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="about">INTRODUCTION</a></li><li><a class="popout level2" href="#">MEDIA SECTION</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="GalleryDashboard">PHOTO GALLERY</a></li><li><a class="level3" href="VideoDashboard">VIDEO GALLERY</a></li><li><a class="level3" href="PressRelease">PRESS RELEASES</a></li><li><a class="level3" href="reranews">IN NEWS</a></li><li><a class="level3" href="frm_interviews.aspx">INTERVIEWS</a></li>
+			</ul></li><li><a class="level2" href="frm_Rera_Anual_Report.aspx">UP-RERA Annual Report</a></li><li><a class="level2" href="pdf/Best_Practices_by_UP-RERA.pdf">E-Book on Best Practices</a></li>
+		</ul></li><li><a class="popout level1" href="#">LEGAL</a><ul class="level2 dropdown-menu">
+			<li><a class="popout level2" href="#">ACTS</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="pdf/reraact.pdf">RERA Acts</a></li><li><a class="level3" href="https://awas.upsdc.gov.in/en/page/acts">UP Housing Development Acts </a></li><li><a class="level3" href="https://www.yamunaexpresswayauthority.com/web/acts-regulations/key-acts/">UP Industrial Development Acts </a></li>
+			</ul></li><li><a class="popout level2" href="#">RULES</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="pdf/rera.pdf">UP RERA Rules General Rules-2016 </a></li><li><a class="level3" href="pdf/UPRERA_ATS_2018.pdf">UP RERA Rules-2018 (Agreement for Sale and lease) </a></li><li><a class="level3" href="https://awas.upsdc.gov.in/en/page/rules">UP Housing Development Rules </a></li>
+			</ul></li><li><a class="popout level2" href="#">REGULATIONS</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="frm_Regulation_View.aspx">UP RERA Regulations</a></li><li><a class="level3" href="https://awas.upsdc.gov.in/en/page/regulations">UP Housing Development Regulations  </a></li><li><a class="level3" href="https://www.stagingupsida.com/ammendment-regulation.aspx">UP Industrial Development Regulations</a></li>
+			</ul></li><li><a class="popout level2" href="#">Bye-Laws</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="https://awas.upsdc.gov.in/en/page/bye-laws">UP Housing Development Bye-Laws</a></li><li><a class="level3" href="https://www.stagingupsida.com/laws-upsida.aspx">UP Industrial Development Bye-Laws</a></li>
+			</ul></li><li><a class="level2" href="pdf/rerenotification.pdf">NOTIFICATIONS</a></li><li><a class="level2" href="pdf/RERAAccountDirections11052026.pdf">Project Account Directions, 3rd Revision dt 11.05.2026</a></li>
+		</ul></li><li><a class="popout level1" href="#">REGISTRATIONS</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="project">PROMOTER</a></li><li><a class="level2" href="login">PROJECT</a></li><li><a class="level2" href="NewAgent">AGENT</a></li><li><a class="level2" href="auth_entity_reg">Authorized Entity U/S  8</a></li>
+		</ul></li><li><a class="popout level1" href="#">CONCILIATION FORUM</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="conciliations">CONCILIATION LOGIN</a></li><li><a class="level2" href="ConciliationDetails">CONCILIATION STATUS</a></li>
+		</ul></li><li><a class="popout level1" href="#">COMPLAINTS </a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="SignUp">REGISTER COMPLAINT</a></li><li><a class="level2" href="SignUp">COMPLAINT FOR COMPENSATION</a></li><li><a class="level2" href="getcomplaint">GET COMPLAINT NUMBER</a></li><li><a class="level2" href="register_grievance">Public Grievance</a></li><li><a class="level2" href="frm_sec39_Insert_complaint_details_new.aspx">Request for Rectification of Order U/S 39</a></li><li><a class="level2" href="Frm_All_Complaint_Status_Page.aspx">Complaint Status</a></li><li><a class="level2" href="frm_ecourt_Complaint_Cause_Action_public.aspx?oldid=">2nd complaint for new cause of action</a></li><li><a class="level2" href="frm_view_complaint_cause_action_public.aspx">View 2nd complaint for new cause of action</a></li><li><a class="level2" href="Frm_All_ComplaintAOA_Status_Page.aspx">Complaint AOA Status</a></li>
+		</ul></li><li><a class="popout level1" href="#">REQUEST</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="Requestdoc">Request For Certified Copy of Document</a></li><li><a class="level2" href="frm_OrderExecution.aspx">REQUEST FOR ORDER EXECUTION</a></li><li><a class="level2" href="frm_Rc_Report.aspx">VIEW RC STATUS</a></li><li><a class="level2" href="frm_process_request_fileinspection.aspx">Request For Physical File Inspection</a></li>
+		</ul></li><li><a class="popout level1" href="#">LOGIN</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="login">USER LOGIN</a></li><li><a class="level2" href="InspectionOfficerLogin.aspx">INSPECTION LOGIN</a></li><li><a class="level2" href="SignUp">E-Court Login/Sign Up</a></li><li><a class="level2" href="grievance_login">Grievance Login</a></li><li><a class="level2" href="login_sec8">Authorized Entity U/S 8 Login</a></li>
+		</ul></li><li><a class="popout level1" href="#">DOWNLOADS</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%201%20(Architect%20Certificate).xlsx">Form REG 1 (Architect Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%202%20(Engineer%20Certificate).xlsx">Form REG 2 (Engineer Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%203%20(CA%20Certificate).xlsx">Form REG 3 (CA Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%204%20(Architect%20Certificate).docx">Form REG 4 (Architect Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%204A%20(Architect%20Certificate).docx">Form REG 4A (Architect Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%205%20(CA%20Certificate).doc">Form REG 5 (CA Certificate)</a></li>
+		</ul></li><li><a class="level1" href="applicationform">CAREER</a></li><li><a class="popout level1" href="#">USER MANUALS</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Complaint%20Registration.pdf" target="_blank">User Manual for Complaint Registration</a></li><li><a class="level2" href="usermanual/usermanual/User-Manual-Promoter-Enrollment.pdf" target="_blank">User Manual for Promoter Enrollment</a></li><li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Project%20Registration.pdf">User Manual for Project Registration</a></li><li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Project%20Extension.pdf">User Manual for Project Extension</a></li><li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Agent%20Registration.pdf">User Manual for Agent Registration</a></li>
+		</ul></li><li><a class="level1" href="ContactUs">CONTACT US</a></li>
+	</ul>
+</div><a id="ctl00_menuBar_SkipLink"></a>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 cm" style="padding-right: 0">
+                       
+                              
+                                      <img src="#" alt="Hon'ble CM YOGI ADITYANATH" title="Hon'ble CM YOGI ADITYANATH" class="img-responsive" style="height: 95px; max-width: 100px;display:none" />
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        
+
+        <!--================Header Menu Area =================-->
+        <div style="min-height:400px;" id="main">
+            
+    <section class="banner_part" style="margin-top: 120px;" title="Rera Main Image">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 offset-lg-1 col-sm-8 offset-sm-2" style="margin-left: 0px;">
+                    <div class="banner_text aling-items-center" style="display: none;">
+                        <div class="banner_text_iner" style="display: none;">
+                            <h5 style="display: none;">Our</h5>
+                            <h2>
+                                <label style="font-size: 15px;">
+                                    <blink>Click Here</blink>
+                                </label>
+                                <a href="pdf/RERA%20REPORT6919.pdf" target="_blank">UPRERA Anual Report</a>
+                            </h2>
+                            <p style="display: none;">Guide Us To Guide You</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!--================End Home Banner Area =================-->
+
+
+
+    <style>
+        .shortServicesNew {
+            position: fixed;
+            top: 60%;
+            width: 12%;
+            z-index: 2;
+            right: 0;
+        }
+
+        .shortServices {
+            position: fixed;
+            top: 65%;
+            width: 12%;
+            z-index: 2;
+            right: 0;
+        }
+
+        .serviceLink i.fa {
+            display: inline-block;
+            border-radius: 60px;
+            box-shadow: 0px 0px 2px #888;
+            padding: 0.7em 0.8em;
+            background: red;
+        }
+
+        #contact i.fa {
+            display: inline-block;
+            border-radius: 60px;
+            box-shadow: 0px 0px 2px #888;
+            padding: 0.7em 0.8em;
+            background: red;
+        }
+
+        .alert {
+            position: relative;
+            padding: 0rem 0rem;
+            margin-bottom: 0rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+
+        .shortServices ul, .shortServicesNew ul {
+            padding: 0;
+            -webkit-transform: translate(116px, 0);
+            -moz-transform: translate(116px, 0);
+            -ms-transform: translate(116px, 0);
+            -o-transform: translate(116px, 0);
+            transform: translate(116px, 0);
+        }
+
+            .shortServices ul li, .shortServicesNew ul li {
+                display: block;
+                margin: 5px 15px;
+                background: rgba(255,255,255,.9);
+                width: 300px;
+                text-align: left;
+                padding: 0;
+                -webkit-border-radius: 0 17px 17px 0;
+                -moz-border-radius: 0 17px 17px 0;
+                border-radius: 30px 0 0 30px;
+                -webkit-transition: all 1s;
+                -moz-transition: all 1s;
+                -ms-transition: all 1s;
+                -o-transition: all 1s;
+                transition: all 1s;
+            }
+
+                .shortServices ul li a, .shortServicesNew ul li a {
+                    display: inline-flex;
+                    padding-top: 5px;
+                    align-items: center;
+                    width: 100%;
+                    color: #8f2200;
+                }
+
+                .shortServices ul li .glyph-icon, javeed img, .shortServicesNew ul li .glyph-icon {
+                    animation: rotation 1s infinite linear;
+                }
+
+                .shortServices ul li .glyph-icon, .shortServicesNew ul li .glyph-icon {
+                    font-size: 35px;
+                }
+
+        shortServices span, shortServicesNew span {
+            display: inline-block;
+            position: relative;
+            top: 0;
+            padding-left: 2px;
+        }
+
+        .shortServices ul li:hover, .shortServicesNew ul li {
+            -webkit-transform: translate(-160px, 0);
+            -moz-transform: translate(-160px, 0);
+            -ms-transform: translate(-160px, 0);
+            -o-transform: translate(-160px, 0);
+            transform: translate(-160px, 0);
+            background: #FFF;
+        }
+
+        .CF:hover, .VR:hover, .PR:hover, .CL:hover {
+            background-color: #f8b600!important;
+            color: #fff;
+        }
+
+        .shortServices ul li .glyph-icon, javeed img {
+            animation: rotation 1s infinite linear;
+        }
+
+        .shortServices ul li .glyph-icon {
+            font-size: 35px;
+        }
+    </style>
+    
+    
+    
+    <nav class="shortServicesNew">
+        <ul>
+            <li class="PR"><a href="https://heyzine.com/flip-book/935c440eb3.html" target="_blank" class="external" title="SOP's and Office Orders">
+                <i class="glyph-icon material-icons col-maroon">book</i><span> SOP's and Office Orders</span></a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="shortServices">
+        <ul>
+            
+            <li class="PR"><a data-toggle="modal" data-target="#myModal" style="font-size: large" class="external" title="RERA Sankalp E-Newsletter">
+                <i class="glyph-icon material-icons col-maroon">book</i><span> RERA Sankalp E-Newsletter</span></a>
+            </li>
+            <li class="PR"><a href="pdf/RERACTB.pdf" target="_blank" class="external" title="RERA Coffee Table Book">
+                <i class="glyph-icon material-icons col-maroon">book</i><span> RERA Coffee Table Book</span></a>
+            </li>
+
+        </ul>
+    </nav>
+    <div id="suggestPost"><a href="#" target="_blank"></a></div>
+    <section>
+        <div class="container-fluid ">
+            <div class="row alert alert-danger" role="alert">
+                <div class="col-lg-2 col-md-2">
+                    <strong style="color: #5d1d1f">
+                        
+                        <label style="margin-bottom: 0px; color: #675f5f">Notifications!</label>
+                        &nbsp; &nbsp;<a href="javascript:void(0)" onclick="stopScroll();" id="stopscroll"><i class="fa fa-pause" aria-hidden="true"></i> </a><a href="javascript:void(0)" onclick="startScroll();" id="startscroll" style="display: none;"><i class="fa fa-play" aria-hidden="true"></i></a></strong>
+
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <marquee id="mq1" onmouseover="this.stop();" onmouseout="this.start();" style="vertical-align: middle; margin-top: 5px;">
+                        <p>
+                         <label style="font-family:Arial; font-size: 13px;margin-bottom: 0rem;"> 
+                        <img src="img/icon/new-icon.gif" />
+                        <a style="color:#675f5f;" target="_blank" href="pdf/rerasankalp/April-June2024RERASankalpE-Newsletter.pdf">RERA Sankalp E-Newsletter</a>&nbsp;|</label>
+                    
+                      <label style="font-family:Arial; font-size: 13px;margin-bottom: 0rem;">
+                          
+                          <img src="img/icon/new-icon.gif" />
+                          
+                           <a style="color:#675f5f;" target="_blank" href="pdf/Result-51th-Batch.pdf">Examination Results for the 51th Batch of Agent Training Conducted from 4th to 7th Oct 2026 </a>,
+                          <img src="img/icon/new-icon.gif" />
+                          
+                           <a style="color:#675f5f;" target="_blank" href="pdf/Result-52th-Batch.pdf">Examination Results for the 52th Batch of Agent Training Conducted from 14th to 17th Oct 2026 </a>,
+                          <img src="img/icon/new-icon.gif" />
+                          
+                           <a style="color:#675f5f;" target="_blank" href="pdf/aeresult12336.pdf">Result for the Position of Assistant Engineeer </a>,
+                          <img src="img/icon/new-icon.gif" />
+                          
+                           <a style="color:#675f5f;" target="_blank" href="pdf/Result-50th-Batch.pdf">Examination Results for the 50th Batch of Agent Training Conducted from 23th to 26th September 2026 </a>,
+                          <img src="img/icon/new-icon.gif" />
+                          
+                           <a style="color:#675f5f;" target="_blank" href="pdf/QPR-Order.pdf">Extension of Timelines for Submission QPR </a>,&nbsp;|</label>
+                      
+                            </p></marquee>
+
+
+                </div>
+                <div class="col-lg-1 col-md-1">
+                    <span style="color: #c4171d; padding-top: 0px">&nbsp;<a style="color: #c4171d;" href="notices" target="_blank">More.....</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================About  Area =================-->
+    <section class="about-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row align-items-center">
+                        <div class="col-sm-7">
+
+                            <div class="about-content">
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h4 style="color: #786d6d">About RERA</h4>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        
+
+                                        
+                                        
+                                        
+                                        <br />
+
+                                        
+                                        <span style="color: #066ddb;"><a href="ReraSamvaad" target="_blank" style="color: #066ddb">CLICK HERE</a>  </span>FOR REGISTRATION IN RERA SAMVAAD 
+                                        <br />
+
+                                        
+                                    </div>
+                                    <p style="text-align: justify; font-weight: 700; color: #727374;">The Real Estate (Regulation and Development) Act, 2016 is an Act of the Parliament of India which seeks to protect home-buyers as well as help boost investments in the real estate industry. The Act came into force from 1 May 2016.</p>
+                                    <p class="smHeadp">The Purpose of this Act is :</p>
+                                    <ul style="color: #727374;">
+                                        <li>To establish the Real Estate Regulatory Authority for regulation and promotion of the Real Estate sector.</li>
+                                        <li>To protect the interest of consumers in the Real Estate Sector and to establish an adjudicating mechanism for speedy dispute redressal.</li>
+                                        <li style="">To ensure transparency in projects.<a class="link-button" style="color: #e81115; font-weight: bold;" target="_blank" href="about_us.aspx"> &nbsp;Read More...</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-sm-5 d-none d-sm-block">
+                            <div class="about-img">
+                                <img src="img/raw/about-1.png" title="About Rera Image" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================About Area End =================-->
+
+    <!--================Service  Area =================-->
+    <section class="service-area area-padding" style="padding: 20px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xl-3" title="Details of Collection Account">
+                    <a href="CollectionView" class="serviceLink" target="_blank">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575">
+                                    <div class="container1">
+                                        <!-- Icon on the left -->
+                                        <i class="fa fa-bullhorn small-icon" style="color: #fff"></i>
+
+                                        <!-- Text content on the right -->
+                                        <strong class="text" style="font-size: 14px">DETAILS OF COLLECTION ACCOUNT</strong>
+                                    </div>
+                                    
+                                </h6>
+                                
+                                <p style="color: #757575;">
+                                    Allottees are advised to make all payments to the promoter only through the designated Collection Account of the project.
+                                     <a target="_blank" href="CollectionView">The details of Collection Accounts of the Projects can be viewed [here]</a>
+                                    If any payment is collected by the promoter through an account other than designated Collection Account, <a target="_blank" href="frm_OtherAccount_DetailsofProject.aspx">Please report to U.P.RERA immediately [here]</a>
+                                       <img src="img/icon/new-icon.gif" />
+                                </p>
+                                <p style="color: #757575;"></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Single service -->
+                <div class="col-md-6 col-xl-3">
+                    <a href="ComplaintHome" class="serviceLink" target="_blank" title="Rera COMPLAINT">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575;">
+                                    <i class="fa fa-file-alt" style="color: #fff"></i>&nbsp;  
+                                <strong>COMPLAINT</strong>
+                                </h6>
+                                <p style="color: #757575;">Here you can register a new complaint, a complaint for compensation and provide information about un-registered Projects. </p>
+
+                            </div>
+                        </div>
+                    </a>
+                    <a href="fees" class="serviceLink" target="_blank" style="display: none;">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575;">
+                                    <i class="fa fa-calculator" style="color: #fff"></i>&nbsp;  
+                                <strong>FEE CALCULATOR</strong>
+                                </h6>
+                                <p style="color: #757575;">Have you any doubt or worry about the registration fee? Now you can calculate the fee of your related projects! Please click here to calculate.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Single service -->
+                <div class="col-md-6 col-xl-3" title="RERA CAUSE LIST ">
+                    <a href="cause" class="serviceLink" target="_blank">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575;">
+                                    <i class="fa fa-list" style="color: #fff"></i>&nbsp;
+                                <strong>CAUSE LIST </strong>
+                                </h6>
+                                <p style="color: #757575;">Here you can search complaint's and Conciliation case's  hearing bench and place details and their respective dates, Click here to see detail.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Single service -->
+                <div class="col-md-6 col-xl-3" title="RERA PROJECT REGISTRATION ">
+                    <a href="RegHome" target="_blank" class="serviceLink">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575;">
+                                    <i class="fa fa-pencil" style="color: #fff"></i>&nbsp;
+                                <strong>REGISTRATION</strong>
+                                </h6>
+                                <p style="color: #757575;">A Project can be register after the registration of promoters.If you have already registered as a promoter, please click here to register your project.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+            <!-- Single service -->
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-md-6 col-xl-3" title="RERA JUDGEMENT">
+                    <a href="JudgementView" class="serviceLink" target="_blank">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 class="heading-with-icon" style="color: #7a7575;">
+                                    <i class="fa fa-info-circle small-icon2" style="color: #fff"></i>
+                                    <strong class="heading-text">IMPORTANT JUDGEMENT OF UP-RERA
+                                    </strong>
+                                </h6>
+
+                                <p style="color: #757575;"></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-xl-3" title="RERA ADVERTISEMENT">
+                    <a href="AdvertiseView" class="serviceLink" target="_blank">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575;"><i class="fa fa-bullhorn" style="color: #fff; font-size: 29px;"></i>&nbsp;  <strong>ADVERTISEMENT </strong></h6>
+                                <p style="color: #757575;">Advertisement for Promoters, Home Buyers and Agents</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-xl-3" title="RERA FAQs">
+                    <a href="pdf/faq.pdf" class="serviceLink" target="_blank">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575;"><i class="fa fa-info-circle" style="color: #fff"></i>&nbsp;  <strong>FAQs </strong></h6>
+                                <p style="color: #757575;">Answers of Frequenty Asked Questions by experts.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                   <div class="col-md-6 col-xl-3" title="RTI Laws">
+                    <a href="RTILaws" class="serviceLink" target="_blank">
+                        <div class="single-service">
+                            <div class="service-content">
+                                <h6 align="left" style="color: #7a7575;"><i class="fa fa-info-circle" style="color: #fff"></i>&nbsp;  <strong>RTI Laws </strong></h6>
+                                <p style="color: #757575;">RTI Laws</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Service Area end =================-->
+    <!--================Circular and Notices==============-->
+    <section id="Section1" style="padding-top: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="mu-features-area">
+                        <!-- Start Title -->
+                        <div class="mu-title">
+                            <div class="row">
+                                <div class="col-lg-9 col-md-9">
+                                    <h2 style="color: #786d6d">Circulars & Notices </h2>
+                                    <p style="font-size: 18px; margin-bottom: 0px; display: none;">View latest notices, orders and announcments</p>
+                                </div>
+                                <div class="col-lg-3 col-md-3"></div>
+                            </div>
+                        </div>
+                        <!-- End Title -->
+                        <!-- Start features content -->
+                        <div class="mu-features-content" style="background: -webkit-linear-gradient(5deg, #f7f7f7 0%, rgba(171, 171, 175, 0.2) 100%); border: 1px solid #ced4da;">
+                            
+                            <div class="panel-body">
+                                <div class="row" id="noticeBtnDiv">
+                                </div>
+                                <div class="row" style="margin-top: 20px;">
+                                    <div class="col-lg-4 col-md-4" style="display: none">
+                                        
+                                    </div>
+                                    <div class="col-lg-12 col-md-12" style="color: #6b747b" id="newsDataDiv">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 3px;">
+                                    <div class="col-lg-4 col-md-4"></div>
+                                    <div class="col-lg-4 col-md-4"><a href="javascript:void(0)" onclick="stopList();" id="stopList"><i class="fa fa-pause" aria-hidden="true"></i></a><a href="javascript:void(0)" onclick="startList();" id="startList" style="display: none;"><i class="fa fa-play" aria-hidden="true"></i></a><a style="color: #e81115;" target="_blank" href="notices">View All Notices...</a></div>
+                                    <div class="col-lg-4 col-md-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End features content -->
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px; display: none">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <h4 style="margin-top: 40px; font-weight: 800;">Click Here For Project Guidlines&nbsp;&nbsp; <i class="glyphicon glyphicon-hand-right"></i></h4>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <a target="_blank" href="pdf/Guidelines_for_Registration_of_Project_and_Updating.pdf">&nbsp;
+                          <img class="img-responsive" src="img/guideline.gif" style="width: 100%; height: 70%;" />
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--===================Important Links Statrt============================-->
+    <section id="mu-features" style="padding-top: 40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="mu-features-area">
+                        <!-- Start Title -->
+                        <div class="mu-title">
+                            <div class="row">
+                                <div class="col-lg-9 col-md-9">
+                                    <h2 style="color: #786d6d">Important Links</h2>
+                                    
+                                </div>
+                                <div class="col-lg-3 col-md-3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Title -->
+                        <!-- Start features content -->
+                        <div class="mu-features-content" style="background: -webkit-linear-gradient(5deg, #f7f7f7 0%, rgba(171, 171, 175, 0.2) 100%)">
+                            
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4  col-sm-6">
+                                    <div class="mu-single-feature">
+                                        
+                                        <div class="panel panel-default pnlDefault">
+                                            <div class="panel-heading">
+                                                <span class="glyphicon glyphicon-search"></span><b>SEARCH</b>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <ul class="news-ticker-images" id="linkSlider1">
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                            
+                                                                             <a id="ctl00_ContentPlaceHolder1_lnkRegisteredPromoters" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkRegisteredPromoters&#39;,&#39;&#39;)">
+                                                                           
+                                                                                <span style="color: #1472d7">Registered Promoter</span>
+                                                                           
+                                                                                 </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                             <a id="ctl00_ContentPlaceHolder1_lnkAgents" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkAgents&#39;,&#39;&#39;)">
+                                                                         
+                                                                                <span style="color: #1472d7">Registered Agent</span>
+                                                                          
+                                                                                 </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                             <a id="ctl00_ContentPlaceHolder1_lnkRegisteredProjects" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkRegisteredProjects&#39;,&#39;&#39;)">
+                                                                          
+                                                                                <span style="color: #1472d7">Registered Projects</span>
+                                                                           
+                                                                                 </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            
+                                                            <li class="news-item" style="display: none">
+                                                                <table cellpadding="4" style="display: none">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                            <a id="ctl00_ContentPlaceHolder1_lnkCompletedProjects" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkCompletedProjects&#39;,&#39;&#39;)">
+                                                                          
+                                                                                <span style="color: #1472d7">Completed Projects
+                                                                                    <img src="img/new-icon.gif" /></span>
+                                                                               
+                                                                            
+                                                                                </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                            <a id="ctl00_ContentPlaceHolder1_lnkDefaulter" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkDefaulter&#39;,&#39;&#39;)">
+                                                                         
+                                                                                <span style="color: #1472d7">DE-REGISTERED PROJECTS
+                                                                                    <img src="img/new-icon.gif" />
+
+                                                                                </span>
+                                                                           </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                             <a id="ctl00_ContentPlaceHolder1_lnkNCLTProjects" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkNCLTProjects&#39;,&#39;&#39;)">
+                                                                          
+                                                                                <span style="color: #1472d7">NCLT PROJECTS
+                                                                                    <img src="img/new-icon.gif" /></span>
+                                                                           
+                                                                                 </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                             <a id="ctl00_ContentPlaceHolder1_lnkAbeyanceProjects" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkAbeyanceProjects&#39;,&#39;&#39;)">
+                                                                           
+                                                                                <span style="color: #1472d7">ABEYANCE PROJECTS
+                                                                                    <img src="img/new-icon.gif" /></span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                            <a id="ctl00_ContentPlaceHolder1_lnkWithdrawn" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkWithdrawn&#39;,&#39;&#39;)">
+                                                                           
+                                                                                <span style="color: #1472d7">WITHDRAWN REGISTRATION
+                                                                                    <img src="img/new-icon.gif" /></span>
+                                                                           
+                                                                                </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-search"></i></td>
+                                                                        <td>
+                                                                             <a id="ctl00_ContentPlaceHolder1_lnkNCLTProjectsUnderSection" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkNCLTProjectsUnderSection&#39;,&#39;&#39;)">
+                                                                           
+                                                                                <span style="color: #1472d7">NCLT PROJECTS U/S-8
+                                                                                    <img src="img/new-icon.gif" /></span>
+                                                                                 </a>
+                                                                          
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-footer" id="link1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="mu-single-feature">
+                                        
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <span class="fa fa-exclamation-triangle"></span>
+                                                <b>Important Services</b>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <ul class="news-ticker-images" id="linkSlider2">
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="verify">
+                                                                                <span style="color: #1472d7">Verify RERA Registration
+                                                                                    <img src="img/new-icon.gif" /></span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="fees">
+                                                                                <span style="color: #1472d7">Calculate Project Fee</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="pdf/Guidelines_for_Registration_of_Project_and_Updating.pdf">
+                                                                                <span style="color: #1472d7">Click to view project guidlines</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="pdf/Guidelines_for_Registration_of_Project_and_Updating.pdf">
+                                                                                <span style="color: #1472d7">Project Registration Help</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_self" href="#">
+                                                                                <span style="color: #1472d7">Click For More...</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-footer" id="link2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="mu-single-feature">
+                                        
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <span class="glyphicon glyphicon-link"></span>
+                                                <b>Important Links</b>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <ul class="news-ticker-images" id="linkSlider3" style="margin-bottom: 0px;">
+
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="https://www.india.gov.in/">
+                                                                                <span style="color: #1472d7">National Portal of INDIA</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="http://up.gov.in/">
+                                                                                <span style="color: #1472d7">Official Website, Govt. of Uttar Pradesh </span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+
+
+
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="http://awas.up.nic.in/&#10;">
+                                                                                <span style="color: #1472d7">Housing &amp; Urban Planning Department</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="http://awasbandhu.in/&#10;">
+                                                                                <span style="color: #1472d7">Awas Bandhu</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="http://uptownplanning.gov.in/">
+                                                                                <span style="color: #1472d7">Department of Town and Country Planning, U.P</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="https://maharera.mahaonline.gov.in&#10;">
+                                                                                <span style="color: #1472d7">RERA, Maharashtra</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                            <li class="news-item">
+                                                                <table cellpadding="4">
+                                                                    <tr>
+                                                                        <td><i class="glyphicon glyphicon-hand-right"></i></td>
+                                                                        <td>
+                                                                            <a target="_blank" href="http://rera.mp.gov.in&#10;">
+                                                                                <span style="color: #1472d7">RERA, Madhya Pradesh</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-footer" id="link3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End features content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Important Links Area finished =================-->
+
+    
+
+
+    <!--================News Section  Area Start=================-->
+    <section class="service-area area-padding">
+        <div class="container">
+            <div class="area-heading">
+                <h3 style="color: #786d6d">Latest News</h3>
+                <p class="tagline" style="color: #7b6f6f!Important;">
+                    Find out what's going on and stay up to date
+                    <br />
+                    Language-Hindi/English
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="owl-carousel" style="color: #be0e0e!important;" id="appendNewsData" title="Rera Latest News">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11"></div>
+                        <div class="col-sm-1" title="Rera Latest News" style="color: #be0e0e!important; text-align: right; margin-right: 0px!important;"><a href="javascript:void(0)" class="stop"><i class="fa fa-pause fa-4x" aria-hidden="true"></i></a><a href="javascript:void(0)" class="play" id="startLatestNews" style="display: none;"><i class="fa fa-play fa-4x" aria-hidden="true"></i></a></div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                
+                <div class="col-lg-12 col-md-12"><a class="main_btn" target="_blank" href="reranews">Read More</a></div>
+            </div>
+        </div>
+    </section>
+    <!--================News Section Area end =================-->
+
+
+
+    <section id="SectionPress" style="padding-top: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="mu-features-area">
+                        <!-- Start Title -->
+                        <div class="mu-title">
+                            <div class="row">
+                                <div class="col-lg-9 col-md-9">
+                                    <h2 style="color: #786d6d">Press Releases</h2>
+                                    <p style="font-size: 18px; margin-bottom: 0px; display: none;"></p>
+                                </div>
+                                <div class="col-lg-3 col-md-3"></div>
+                            </div>
+                        </div>
+                        <!-- End Title -->
+                        <!-- Start features content -->
+                        <div class="mu-features-content" style="background: -webkit-linear-gradient(5deg, #f7f7f7 0%, rgba(171, 171, 175, 0.2) 100%); border: 1px solid #ced4da;">
+
+                            <div class="panel-body">
+
+                                <div class="row" style="margin-top: 20px;">
+
+                                    <div class="col-lg-12 col-md-12" id="pressdiv">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 3px;">
+                                    <div class="col-lg-4 col-md-4"></div>
+                                    <div class="col-lg-4 col-md-4"><a href="javascript:void(0)" onclick="stopListpRelease();" id="A1pRelease"><i class="fa fa-pause" aria-hidden="true"></i></a><a href="javascript:void(0)" onclick="startListpRelease();" id="A2pRelease" style="display: none;"><i class="fa fa-play" aria-hidden="true"></i></a><a style="color: #e61e21;" target="_blank" href="PressRelease">View All Press Releases...</a></div>
+                                    <div class="col-lg-4 col-md-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End features content -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--================ Start RERA REGISTERED PROPERTIES Map Area =================-->
+
+    
+
+    <!--=================End RERA REGISTERED PROPERTIES Map Area ===================-->
+    <!-- Start about us counter -->
+    <section id="mu-abtus-counter" class="breadcrumb blog_bg myclass" style="display: block;" title="Rera background Image">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="mu-abtus-counter-area">
+                        <div class="row">
+                            <!-- Start counter item -->
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="mu-abtus-counter-single">
+                                    <span class="fa fa-book"></span>
+                                    <h4 id="ctl00_ContentPlaceHolder1_noOfProjects" style="color: #676262" class="counter">4364</h4>
+                                    <p style="color: #676262">Projects</p>
+                                </div>
+                            </div>
+                            <!-- End counter item -->
+                            <!-- Start counter item -->
+                            
+                            <!-- End counter item -->
+                            <!-- Start counter item -->
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="mu-abtus-counter-single">
+                                    <span class="fa fa-user-secret"></span>
+                                    <h4 id="ctl00_ContentPlaceHolder1_noOfAgents" style="color: #676262" class="counter">7462</h4>
+                                    <p style="color: #676262">Agents</p>
+                                </div>
+                            </div>
+                            <!-- End counter item -->
+                            <!-- Start counter item -->
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="mu-abtus-counter-single no-border">
+                                    <span class="fa fa-flask"></span>
+                                    <h4 id="ctl00_ContentPlaceHolder1_noOfComplaints" style="color: #676262" class="counter">62848</h4>
+                                    <p style="color: #676262">Complaints</p>
+                                </div>
+                            </div>
+                            <!-- End counter item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------------------End about us counter------------------------>
+    <!--============================== Start Gallery Area ================================-->
+
+    <section class="blog-area area-padding" style="padding-bottom: 0 !important;">
+        <div class="container" style="width: 100% !important;">
+            <div class="area-heading">
+                <h3 style="color: #786d6d">Gallery</h3>
+                <p class="taglinefore" style="color: #7a7575">Find out Our Latest Albums </p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" title="Rera Gallery">
+                    <div class="owl-carousel" style="color: #7a7575" title="Rera Gallery" id="imgGal">
+
+                        
+                        
+                    </div>
+                    <div class="row" style="text-align: right; margin-right: 0px!important;">
+                        <div class="col-sm-11"></div>
+                        <div class="col-sm-1"><a href="javascript:void(0)" class="stop"><i class="fa fa-pause fa-4x" aria-hidden="true"></i></a><a href="javascript:void(0)" class="play" id="A1" style="display: none;"><i class="fa fa-play fa-4x" aria-hidden="true"></i></a></div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-lg-4 col-md-4">
+                    <a class="main_btn" target="_blank" href="GalleryDashboard">View More</a>
+                </div>
+                
+                
+
+                <div class="col-lg-1 col-md-1">
+                </div>
+
+
+                <div class="col-lg-2 col-md-2">
+                    <span id="ctl00_ContentPlaceHolder1_lblCount" style="margin-left: 30px"><font color="Red" size="4">Visitor's Count</font></span>
+                    <div align="center"><a href='https://www.counter12.com'>
+                        <img src='https://www.counter12.com/img-d8bb9CY11xZZbxdw-5.gif' border='0' alt='counter'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=d8bb9CY11xZZbxdw'></script></div>
+
+                    
+
+
+
+                    
+                </div>
+            </div>
+    </section>
+
+    <!--==========================Gallery section End=============================-->
+
+    <section class="about_part section-padding" style="padding: 45px 0px; display: none">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 colsm-12">
+                    <div class="mu-title" style="margin-bottom: 40px">
+                        <h2 style="color: #786d6d">OUR LEADERSHIP</h2>
+                        <p style="display: none">Meet Our Leaders</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="mu-latest-course-slide" class="mu-latest-courses-content">
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                            <div class="mu-latest-course-single">
+                                <figure class="mu-latest-course-img">
+                                    <div class="image-flip" ontouchstart="">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p>
+                                                            <img class="img-fluid" src="images/Sanjay_R_BhoosreadyChairman.jpeg" title="Shri Rajive Kumar" alt="card image" />
+                                                        </p>
+                                                        <h4 style="margin-bottom: 0" class="card-title">Sanjay R. Bhoosready</h4>
+                                                        <span style="font-weight: bold">Chairman</span>
+                                                        <p class="card-text">Real Estate Regulatory Authority, Uttar Pradesh</p>
+                                                        <p class="card-text">Phone No (Lucknow Office) - 0522-2781444 </p>
+                                                        <p class="card-text">Phone No (Greater Noida Office) - 0120-2977713</p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                        
+                        
+
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                            <div class="mu-latest-course-single">
+                                <div class="image-flip" ontouchstart="">
+                                    <div class="mainflip">
+                                        <div class="frontside">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <p>
+                                                        <img class=" img-fluid" src="images/DrDeepakSwaroopSaxena.jpeg" title="Dr. Deepak Swaroop Saxena" alt="card image" />
+                                                    </p>
+                                                    <h4 class="card-title">Dr. Deepak Swaroop Saxena</h4>
+                                                    <span style="font-weight: bold">Member</span>
+                                                    <p class="card-text">Real Estate Regulatory Authority, Uttar Pradesh</p>
+                                                    <p class="card-text">Phone No (Lucknow Office) - NA</p>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                            <div class="mu-latest-course-single">
+                                <div class="image-flip">
+                                    <div class="mainflip">
+                                        <div class="frontside">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <p>
+                                                        <img class=" img-fluid" src="images/TVenktesh.jpeg" title="Shri T. Venktesh" alt="card image" />
+                                                    </p>
+                                                    <h4 class="card-title">Shri T. Venktesh</h4>
+                                                    <span style="font-weight: bold">Member</span>
+                                                    <p class="card-text">Real Estate Regulatory Authority, Uttar Pradesh</p>
+
+                                                    <p class="card-text">Phone No (Lucknow Office) - NA</p>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                            <div class="mu-latest-course-single">
+                                <div class="image-flip" ontouchstart="">
+                                    <div class="mainflip">
+                                        <div class="frontside">
+                                            <div class="card">
+                                                <div class="card-body text-center" style="text-align: center;">
+                                                    <p>
+                                                        <img class=" img-fluid" title="Shri Rajesh Kumar Tyagi" src="images/SecretaryRERA1.jpg" alt="card image" />
+                                                    </p>
+                                                    <h4 class="card-title">Shri Rajesh Kumar Tyagi</h4>
+
+                                                    <span style="font-weight: bold">Secretary</span>
+                                                    <p class="card-text">Real Estate Regulatory Authority, Uttar Pradesh</p>
+                                                    <p class="card-text">Phone No (Lucknow Office) - 0522-2781440</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--==========================Gallery section End=============================-->
+    
+    <!--================ End Gallery section Area =================-->
+
+    <section class="breadcrumb blog_bg myclass" title="Rera background Image" style="margin-bottom: 30px; margin-top: 30px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <div class="contact-item">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <h2 style="color: #ded3d3">UPRERA HELPLINE</h2>
+                                        <p style="color: #d9d3d3">
+                                            Timing: 09:30 AM - 06:30 PM ( Mon to Sat ) 
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-2"></div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                        <div class="contact-item" style="color: #d9d3d3">
+                                            <div class="row" id="mydiv">
+                                                <div class="col-lg-12 col-md-12" style="text-align: left;">
+                                                    <span><i class="fa fa-building"></i>Lucknow Headquarter</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 Rerahelp">
+                                                    <label style="margin-bottom: 0px"><i class="fa fa-phone"></i>For Technical & Complaint :</label><br />
+                                                    <span id="ctl00_ContentPlaceHolder1_lbltechnicalno" style="font-size: 15px; border: none; color: white;">9000000000,&nbsp; 9000000000</span>
+
+                                                </div>
+                                            </div>
+                                            <div class="row" style="display: none;">
+                                                <div class="col-lg-12 col-md-12 Rerahelp">
+                                                    <label style="margin-bottom: 0px;"><i class="fa fa-phone"></i>For Project Support : 0522-2781442</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                        <div class="contact-item" style="color: #d9d3d3">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12" style="text-align: left;">
+                                                    <span>
+                                                        <i class="fa fa-building"></i>NCR Regional Office </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 Rerahelp">
+                                                    <label><i class="fa fa-phone"></i>For Technical & Complaint :  </label>
+                                                    <br />
+                                                    <span id="ctl00_ContentPlaceHolder1_lbltechnicalncr" style="font-size: 15px; border: none; color: white;">9000000000 ,&nbsp9000000000,&nbsp;0120-2326111</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------------------------------------------- Gallery Modal Popup------------------------------------------------->
+    <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="image-gallery-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    <img id="image-gallery-image" onclick="OpenAlbum(this.src)" class="img-responsive col-md-12" style="cursor: pointer" src="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i></button>
+
+                    <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-----------------------------------------Modal Pop for VDARS-->
+
+
+
+    
+
+    
+
+
+
+
+    <div class="modal fade" id="myModal" role="dialog" style="z-index: 9999 !important;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="width: 800px">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span id="ctl00_ContentPlaceHolder1_lblPerformanceReport" style="font-size: 13px; font-weight: bold">RERA SANKALP (UP RERA e-Newsletter)</span></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Sno.</th>
+                                <th>Duration</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>1</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter Apr - June 2024</label>
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/April-June2024RERASankalpE-Newsletter.pdf" target="_blank">View</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>2</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter Jan - Mar 2024</label>
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/NewsletterJanMar2024.pdf" target="_blank">View</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>3</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter Oct - Dec 2023</label>
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/NewsletterOctDec2023.pdf" target="_blank">View</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>4</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter July - Sep 2023</label>
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/NewsletterJulySep2023.pdf" target="_blank">View</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>5</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter Apr - Jun 2023</label>
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/MarchApr2023Edition.pdf" target="_blank">View</a>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>6</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter Jan - Mar 2023</label>
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/JanuaryMarch2023EditionJune7.pdf" target="_blank">View</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>7</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter Jul - Dec 2022</label>
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/Rera-Newsletter_Jul-Dec2022.pdf" target="_blank">View</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    <label>8</label>
+                                </td>
+                                <td style="width: 50%;">
+                                    <label>e-Newsletter Jan - Jun 2022</label>
+
+                                </td>
+                                <td style="width: 25%;">
+                                    <a href="pdf/rerasankalp/UPera_Sankalp_Newsletter_Jan_June2022.pdf" target="_blank">View</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+   
+
+
+  <div class="modal fade" id="modalvdars" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        
+        <div class="modal-content wa-modal">
+
+            <!-- Close -->
+            <div class="modal-header border-0">
+                <button type="button" class="close wa-close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body text-center">
+
+                <!-- 📢 Icon (use same image or replace with exact SVG if you have) -->
+                <img src="/img/sm_5b321c99945a21.png" class="wa-icon" />
+
+                <!-- Title -->
+                <h4 class="wa-title">
+                    Join UPRERA WhatsApp Channel
+                </h4>
+
+                <!-- Description -->
+               <p class="wa-desc">
+    Stay updated with the latest news, circulars, and important announcements 
+    from <b style="color:#000;">UP Real Estate Regulatory Authority</b> — directly on WhatsApp.
+</p>
+
+                <!-- Button -->
+                <a href="https://whatsapp.com/channel/0029Vb6sOLN7tkj4edmkmz2W"
+                   target="_blank"
+                   class="wa-btn">
+                   <i class="fa fa-whatsapp"></i> JOIN NOW
+                </a>
+
+                <!-- Footer -->
+                <div class="wa-footer">
+                    <a href="javascript:void(0);" onclick="$('#modalvdars').modal('hide');">
+                        No thanks, I’ll miss the updates
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+    
+    <script>
+        //$(document).ready(function(){
+        //    var myArray = [];
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "WebService1.asmx/ProjectOnMAp",
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (r) {
+        //            //  alert(r.d)
+        //            var result = JSON.parse(r.d);
+        //            for (var i = 0; i < result.length; i++) {
+
+        //                myArray.push([result[i].districtname, result[i].lat,result[i].long,result[i].districtid,result[i].NoOfProjects]);
+        //            }
+        //alert(myArray);                    
+        //            if (r.d != "") 
+        //            { 
+        //                var locations =myArray;                      
+        //                var map = new google.maps.Map(document.getElementById('mapdiv'), {
+        //                    zoom: 7,
+        //                    center: new google.maps.LatLng(26.8467, 80.9462),
+        //                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+
+        //                }); 
+        //                var lineSymbol = {
+        //                    path: 'M 0,-1 0,1',
+        //                    strokeOpacity: 1,
+        //                    scale: 4
+        //                };
+        //                var line = new google.maps.Polyline({
+        //                    path: [{lat: 27.176670, lng: 78.008072}, {lat: 25.448425, lng: 78.568459},{lat: 25.260469, lng: 83.264542}
+        //                        ,{lat: 25.830717, lng: 84.185715},{lat: 26.744890, lng: 83.889908},{lat: 29.959694, lng: 77.549057}
+        //                        ,{lat: 28.419910, lng: 77.522621},{lat: 27.476219, lng: 77.693398},{lat: 27.176670, lng: 78.008072}
+        //                    ],
+        //                    strokeOpacity: 0,
+        //                    icons: [{
+        //                        icon: lineSymbol,
+        //                        offset: '0',
+        //                        repeat: '20px'
+        //                    }],
+        //                    map: map
+        //                });
+
+
+        //                var infowindow = new google.maps.InfoWindow();
+        //                var marker, i; 
+        //                for (i = 0; i < locations.length; i++) {
+        //                    marker = new google.maps.Marker({
+        //                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        //                        map: map,
+        //                        title: locations[i][0],
+        //                        draggable: false,
+        //                        animation: google.maps.Animation.DROP,
+        //                        icon: "img/ecology-environment-smart-city-building-clean-9-28307.png"
+        //                    }); 
+
+        //                    // marker.addListener('click', toggleBounce);
+        //                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        //                        return function () {
+        //                            infowindow.setContent("<a style='font-size:18px;font-weight:bold;color:red' target='_blank' href='frm_allprojectdistrictwise.aspx?districtname="+locations[i][0]+"'>District Name : "+locations[i][0]+" <br/> Total no. of projects : "+locations[i][4]+"</a>");
+        //                            infowindow.open(map, marker);
+        //                        }
+        //                    })(marker, i));
+        //                }
+        //                function toggleBounce() {
+        //                    if (marker.getAnimation() !== null) {
+        //                        marker.setAnimation(null);
+        //                    } else {
+        //                        marker.setAnimation(google.maps.Animation.BOUNCE);
+        //                    }
+        //                }
+                        
+        //            }
+        //            else {                    
+        //            }
+        //        },
+        //        error: function (r) {
+        //            
+        //        },
+        //        failure: function (r) {
+        //            
+        //        }
+        //    });
+        //}); 
+         
+        //$(function()
+        //{
+        //    var ticker = $('.demo6').easyTicker({
+        //        direction: 'up',
+        //        visible: 4,
+        //        interval: 2500,                 
+        //    });
+        //    var tickObj = ticker.data('easyTicker');
+        //    var tickOpts = tickObj.options;
+        //});
+    </script>
+
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fas fa-chevron-up"></i></a>
+        <!--================ start footer Area =================-->
+        <footer class="footer-area ">
+
+       
+            <div class="container-fluid">
+                <div class="row">
+                                    
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-footer-widget">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a class="navbar-brand logo_h" href="index">
+                                        <img src="img/rera_logo.png" title="Rera Logo" alt="Rera Logo"  /></a>
+                                    <br />
+                                    <br />
+                                    <p>The Real Estate (Regulation and Development) Act, 2016 is an Act of the Parliament of India which seeks to protect home-buyers as well as help boost investments in the real estate industry. The Act came into force from 1 May 2016.</p>
+                               
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Quick Links</h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="index">home</a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="AboutUs" target="_blank">about </a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="applicationform" target="_blank">career </a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="Media" target="_blank">media</a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="downloads" target="_blank">downloads</a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="ContactUs" target="_blank">contact us</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="Web_Information_Manager" target="_blank">Web Information Manager</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Social Links</h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                        <li><a href="https://facebook.com/upreraofficial" target="_blank" title="Facebook"><i class="ti-angle-right"></i>Facebook</a>	</li>
+                                     
+                                        <li><a href="https://twitter.com/UPRERAofficial" target="_blank" title="Twitter"><i class="ti-angle-right"></i>Twitter</a>	</li>
+                                         <li style="display:none;"><a href="#" title="Linked In"><i class="ti-angle-right"></i>LinkedIn</a>	</li>
+                                        <li ><a href="https://www.youtube.com/channel/UCAeF0bOHPpzN-K9QvfA9rSQ" target="_blank" title="Youtube"><i class="ti-angle-right"></i>Youtube</a>	</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Circulars & Notices </h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                        <li><a href="pdf/UPRERA_ATS_2018.pdf" target="_blank"><i class="ti-angle-right"></i>Agreement for Sale/Lease</a></li>
+                                        <li><a href="pdf/Order for CA,Architect,Engineer Certificate.pdf" target="_blank"><i class="ti-angle-right"></i>Order for CA, Architect, Engineer Certificate</a></li>
+                                        <li><a href="pdf/Portal_Editing_order.pdf" target="_blank"><i class="ti-angle-right"></i>Order For Project Registration & Editing</a></li>
+                                        <li><a href="pdf/SOP.pdf" target="_blank"><i class="ti-angle-right"></i>SOP for Complaint Redressal</a></li>
+                                        <li><a href="notices" target="_blank"><i class="ti-angle-right"></i>Click For More Notices...</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Other Links</h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="DisclaimerandPolicies" target="_blank">Disclaimer and Policies</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="RTIDOC" target="_blank">RTI</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="TermCondition" target="_blank">Terms and Conditions</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="Sitemap" target="_blank">Sitemap</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                
+            </div>
+        </footer>
+        <div class="container-fluid">
+
+            <div class="row" style="background-color:#6c757d">
+                    <div class="accessibilityDiv">
+                        <ul class="accessibility-icons list-unstyled list-inline font-zoom pull-left">
+                            <li class="language" style="display: inline;"><a style="font-size: 14px;" class="taglib-language-list-text" href="#">
+                                
+                                   <a href="https://facebook.com/upreraofficial" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a>	
+                                &nbsp;
+                               <a href="https://twitter.com/UPRERAofficial" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>	
+                                   &nbsp;
+                                <a href="https://www.youtube.com/channel/UCAeF0bOHPpzN-K9QvfA9rSQ" target="_blank" title="Youtube"><i class="fa fa-youtube-play" style="color:red"></i></a>	
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text increase" title="Increase font size"> | +A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text resetMe" title="Restore default font size" style="padding: 2px 6px 2px 6px;">| A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text decrease" title="Decrease font size" style="">| -A</a>
+                                 &nbsp;
+                                  &nbsp;
+                                
+
+                                 <a style="font-size: 14px;" class=" taglib-language-list-text " href="ScreenReader.aspx" data-toggle="tooltip" title="Screen Reader Access"><span class="fa fa-desktop"></span>   </a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class="taglib-language-list-text " href="Sitemap" data-toggle="tooltip" title="Sitemap"> <i class="fa fa-sitemap" aria-hidden="true"></i></a>
+                                         
+                                    &nbsp;
+                                  &nbsp;
+                             </a>
+
+
+                            </li>
+                       
+                        </ul>
+                    </div>
+                <div class="col-lg-12">
+                    <div class="footer-copy-right">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                  <p>
+   Copyright © 2026 UP-RERA , Concieved by: Uttar Pradesh Real Estate Regulatory Authority , Developed by : UPDESCO(Acme Digitek Solutions Pvt. Ltd)
+
+</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>Last reviewed and updated on <span id="ctl00_lbllastupdated">07 Jul 2026</span></p>
+                            </div>
+                            <div class="col-sm-6">
+                               <p>  Version : 1.9.1 </p>
+                            </div>
+                        </div>
+                      
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <style>
+            .footer-copy-right {
+             padding:10px;
+         }
+         .footer-copyright-area {
+    background: #303030;
+    padding: 20px 0px;
+    text-align: center;
+    margin-left: 200px;
+}
+         .footer-copy-right p {
+    margin: 0px;
+    font-size: 15px;
+    color: #fff;
+    text-align:center;
+}
+         .footer-copy-right a {
+    color: #303030;
+}
+        </style>
+
+
+
+
+        <!--================ End footer Area =================-->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+
+
+        
+
+<!--=======Header Script Start=====-->
+        <script src="multiselect/jquery.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="tcal.css" />
+    	<script type="text/javascript" src="tcal.js"></script> 
+        <script src="js/jquery-1.min.js"></script> 
+
+
+
+
+
+    <script>
+        // Code For Block Inspect Element in Browser
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        $(document).keydown(function (e) {
+            if (e.which === 123) {
+                return false;
+            }
+        });
+
+       
+
+
+        //$('body').on("submit", "form", function () {
+        //    if (Page_ClientValidate() == true) {
+        //        ShowProgress();
+        //        return true;
+        //    }
+        //    else {
+        //        return false;
+        //    }
+        //});
+
+        //function ShowProgress() {
+        //    setTimeout(function () {
+        //        var modal = $('<div />');
+        //        modal.addClass("modal");
+        //        $('body').append(modal);
+        //        var loading = $(".loading");
+        //        loading.show();
+        //        var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
+        //        var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
+        //        loading.css({ top: top, left: left });
+        //    }, 200);
+        //}
+    </script>
+
+
+        
+<!--=======Header Script END=======-->
+
+
+
+
+<script src="js/popper.js"></script>        
+<script src="js/jquery-3.min.js"></script>
+<script src="multiselect/bootstrap.min.js"></script>
+<script src="JqueryCallender/js/jquery-12.js"></script>    
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="js/jquery.bootstrap.newsbox.min.js"></script>
+<script src="vendors/isotope/isotope.pkgd.min.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>       
+<script src="css/counter-up/jquery.counterup.js"></script>
+<script src="css/counter-up/jquery.waypoints.min.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/theme.js"></script>
+    
+<script src="js/bootstrap-multiselect.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min-1.js"></script>
+
+<script src="multiselect/bootstrap-multiselect.js"></script>
+<script src="js/jquery.easy-ticker.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/custom.js"></script>
+     
+
+
+
+    
+<script type='text/javascript'>new Sys.WebForms.Menu({ element: 'ctl00_menuBar', disappearAfter: 500, orientation: 'horizontal', tabIndex: 0, disabled: false });</script></form>
+</body>
+</html>

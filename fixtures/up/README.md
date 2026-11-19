@@ -6,6 +6,7 @@ the site as examples.
 
 | File | Source | Changes from the original |
 |---|---|---|
+| `home.html` | `https://up-rera.in` (survey, 2026-11-19) | Hidden-field values replaced with `[stripped]`; emails/mobiles redacted. Used to test the "Registered Projects" postback |
 | `projects_list.trimmed.html` | `GET https://up-rera.in/projects` (after the "Registered Projects" postback redirect) | Kept the header + first 30 of 3,864 table rows; kept 20 of each filter checkbox list (4,176 project names, 2,236 promoters, 55 districts); `__VIEWSTATE`/`__EVENTVALIDATION` values replaced with `[stripped]`; emails → `redacted@example.invalid`, Indian mobile numbers → `9000000000` |
 | `project_detail_UPRERAPRJ839360.html` | `https://up-rera.in/Projectsummary?…` (row 3's "Details" link) | Same redaction (hidden fields, emails, mobiles) |
 

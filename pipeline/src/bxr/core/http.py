@@ -14,7 +14,11 @@ Guarantees, enforced here so adapters cannot forget them:
 - Follows redirects itself so every hop is rate-limited and robots-checked.
 - Caps response bodies at `max_body_bytes`.
 - Every response with a body goes into the raw archive.
-- Never sends cookies, logs in or tries to get past a CAPTCHA.
+- `post_form` submits public forms (e.g. ASP.NET "postback" links) exactly as a
+  browser would, under the same rules.
+- Keeps session cookies a site sets during this run, like a browser, and
+  discards them when the client closes. Never logs in, never sends credentials,
+  never tries to get past a CAPTCHA.
 """
 
 from __future__ import annotations
@@ -186,27 +190,44 @@ class PoliteClient:
         max_body_bytes: int | None = None,
     ) -> FetchResult:
         """GET politely. `max_body_bytes` overrides the configured cap for known-large pages."""
-        self._check_abort()
-        cap = max_body_bytes or self.cfg.max_body_bytes
-        current = url
         conditional: dict[str, str] = {}
         if etag:
             conditional["If-None-Match"] = etag
         if last_modified:
             conditional["If-Modified-Since"] = last_modified
+        return self._navigate("GET", url, conditional, None, max_body_bytes)
 
+    def post_form(
+        self, url: str, data: Mapping[str, str], *, max_body_bytes: int | None = None
+    ) -> FetchResult:
+        """Submit a public form (urlencoded), following redirects like a browser."""
+        return self._navigate("POST", url, {}, dict(data), max_body_bytes)
+
+    def _navigate(
+        self,
+        method: str,
+        url: str,
+        headers: dict[str, str],
+        data: dict[str, str] | None,
+        max_body_bytes: int | None,
+    ) -> FetchResult:
+        self._check_abort()
+        cap = max_body_bytes or self.cfg.max_body_bytes
+        current = url
         for _hop in range(self.cfg.max_redirects + 1):
             if not self._robots_for(current).allows(current):
                 self.stats["disallowed"] += 1
                 return FetchResult(url=url, final_url=current, outcome=Outcome.DISALLOWED)
-            raw = self._fetch_with_retries(current, conditional, cap)
+            raw = self._fetch_with_retries(current, headers, cap, method=method, data=data)
             location = raw.headers.get("location")
             if raw.status in _REDIRECTS and location:
-                self._archive(url, current, raw)
+                self._archive(url, current, raw, method=method)
                 current = urljoin(current, location)
-                conditional = {}
+                headers = {}
+                if raw.status in (301, 302, 303):  # browsers switch to GET here
+                    method, data = "GET", None
                 continue
-            return self._finish(url, current, raw)
+            return self._finish(url, current, raw, method=method)
 
         self._record(Outcome.TOO_MANY_REDIRECTS)
         return FetchResult(url=url, final_url=current, outcome=Outcome.TOO_MANY_REDIRECTS)
@@ -225,7 +246,7 @@ class PoliteClient:
         elif outcome in (Outcome.OK, Outcome.NOT_MODIFIED, Outcome.CLIENT_ERROR):
             self.consecutive_errors = 0
 
-    def _finish(self, url: str, final_url: str, raw: _Raw) -> FetchResult:
+    def _finish(self, url: str, final_url: str, raw: _Raw, method: str = "GET") -> FetchResult:
         if raw.status is None:
             outcome = Outcome.NETWORK_ERROR
         elif raw.status == 304:
@@ -249,13 +270,16 @@ class PoliteClient:
             last_modified=raw.headers.get("last-modified"),
             error=raw.error,
             attempts=raw.attempts,
-            archived=self._archive(url, final_url, raw),
+            archived=self._archive(url, final_url, raw, method=method),
         )
 
-    def _archive(self, url: str, final_url: str, raw: _Raw) -> ArchiveEntry | None:
+    def _archive(
+        self, url: str, final_url: str, raw: _Raw, method: str = "GET"
+    ) -> ArchiveEntry | None:
         if self.archive is None or raw.status is None:
             return None
         return self.archive.put(
+            method=method,
             url=url,
             final_url=final_url,
             status=raw.status,
@@ -284,10 +308,17 @@ class PoliteClient:
             delay = max(delay, float(retry_after.strip()))
         return min(delay, self.cfg.backoff_max_seconds)
 
-    def _fetch_once(self, url: str, headers: Mapping[str, str], cap: int) -> _Raw:
+    def _fetch_once(
+        self,
+        url: str,
+        headers: Mapping[str, str],
+        cap: int,
+        method: str = "GET",
+        data: dict[str, str] | None = None,
+    ) -> _Raw:
         try:
             client = self._client_for(url)
-            with client.stream("GET", url, headers=dict(headers)) as resp:
+            with client.stream(method, url, headers=dict(headers), data=data) as resp:
                 chunks: list[bytes] = []
                 size = 0
                 truncated = False
@@ -308,14 +339,20 @@ class PoliteClient:
             return _Raw(status=None, error=f"{type(exc).__name__}: {exc}")
 
     def _fetch_with_retries(
-        self, url: str, headers: Mapping[str, str], cap: int | None = None
+        self,
+        url: str,
+        headers: Mapping[str, str],
+        cap: int | None = None,
+        *,
+        method: str = "GET",
+        data: dict[str, str] | None = None,
     ) -> _Raw:
         host = _host_key(url)
         raw = _Raw(status=None)
         for attempt in range(1, self.cfg.max_attempts + 1):
             self._wait_turn(host)
             self.stats["requests"] += 1
-            raw = self._fetch_once(url, headers, cap or self.cfg.max_body_bytes)
+            raw = self._fetch_once(url, headers, cap or self.cfg.max_body_bytes, method, data)
             raw.attempts = attempt
             retryable = raw.status is None or raw.status == 429 or raw.status >= 500
             if not retryable or attempt == self.cfg.max_attempts:

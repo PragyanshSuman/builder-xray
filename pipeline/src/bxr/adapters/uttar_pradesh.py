@@ -45,8 +45,39 @@ _LIST_HEADERS = [
 _INDIVIDUAL_TYPES = re.compile(r"individual|proprietor", re.IGNORECASE)
 
 
+REGISTERED_PROJECTS_TARGET = "ctl00$ContentPlaceHolder1$lnkRegisteredProjects"
+
+
 class ListStructureError(RuntimeError):
     """The list page no longer looks like it did when the parser was written."""
+
+
+def build_postback(home_html: str, page_url: str, event_target: str) -> tuple[str, dict[str, str]]:
+    """Form submission a browser makes when a `__doPostBack(event_target)` link is clicked.
+
+    Returns (action_url, fields). Raises ListStructureError if the link or form is missing.
+    """
+    if event_target not in home_html:
+        raise ListStructureError(f"postback link {event_target!r} not found on home page")
+    soup = BeautifulSoup(home_html, "html.parser")
+    form = soup.find("form")
+    if not isinstance(form, Tag):
+        raise ListStructureError("no form on home page")
+    fields = {
+        str(i["name"]): str(i.get("value", ""))
+        for i in form.find_all("input", attrs={"type": "hidden"})
+        if i.get("name")
+    }
+    if "__VIEWSTATE" not in fields:
+        raise ListStructureError("home page form has no __VIEWSTATE")
+    fields["__EVENTTARGET"] = event_target
+    fields["__EVENTARGUMENT"] = ""
+    action = urljoin(page_url, str(form.get("action") or ""))
+    return action, fields
+
+
+def is_error_page(url: str) -> bool:
+    return "servermaintenance" in url.lower() or "aspxerrorpath" in url.lower()
 
 
 class UpListRow(BaseModel):
