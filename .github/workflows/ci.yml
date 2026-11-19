@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: pipeline
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy
+      - run: uv run pytest
+
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            site/package-lock.json
+            worker/package-lock.json
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - name: Build site
+        working-directory: site
+        run: |
+          npm ci
+          npx astro check
+          npm run build
+      - name: File-count gate (fails above 19,000)
+        working-directory: pipeline
+        run: uv run bxr filecount ../site/dist
+      - name: Zero JS on content pages
+        run: |
+          if grep -rl "<script" site/dist --include=*.html; then
+            echo "::error::Found <script> in built HTML (content pages must ship zero JS)"; exit 1
+          fi
+      - name: Worker typecheck + deploy dry run
+        working-directory: worker
+        run: |
+          npm ci
+          npm run typecheck
+          npx wrangler deploy --dry-run --outdir .wrangler/dry

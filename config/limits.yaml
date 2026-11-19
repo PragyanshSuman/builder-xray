@@ -1,0 +1,25 @@
+# Free-tier limits. Sourced and dated in docs/limits.md. The code reads this file.
+# `stop_at_fraction`: the pipeline stops gracefully once usage reaches
+# limit * stop_at_fraction, and resumes on the next run.
+verified_on: 2026-11-19
+stop_at_fraction: 0.5
+
+limits:
+  cf_worker_requests_per_day: 100000
+  cf_worker_cpu_ms_per_request: 10
+  cf_static_files_per_version: 20000
+  d1_rows_read_per_day: 5000000
+  d1_rows_written_per_day: 100000
+  d1_db_size_mb: 500
+  r2_storage_gb_month: 10
+  r2_class_a_per_month: 1000000
+  r2_class_b_per_month: 10000000
+  brevo_emails_per_day: 300
+  resend_emails_per_day: 100
+  # Filled in at M2 once a provider is chosen and its limits are verified.
+  llm_requests_per_day: 0
+
+# Hard gates that do not follow stop_at_fraction.
+gates:
+  max_static_files: 19000
+  worker_render_cpu_ms: 5

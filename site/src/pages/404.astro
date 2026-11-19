@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n';
+
+const s = t();
+---
+
+<Base title={`${s.notFoundTitle} | ${s.siteName}`} description={s.notFoundTitle}>
+  <h1>{s.notFoundTitle}</h1>
+  <p><a href="/">{s.siteName}</a></p>
+</Base>

@@ -1,0 +1,49 @@
+---
+import '../styles/base.css';
+import { t, type Locale } from '../i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  locale?: Locale;
+  /** ISO date of the data snapshot shown on this page; null before data exists. */
+  dataAsOf?: string | null;
+}
+
+const { title, description, locale = 'en', dataAsOf = null } = Astro.props;
+const s = t(locale);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={s.siteName} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{s.skipToContent}</a>
+    <header class="site-header">
+      <a href="/" class="brand">{s.siteName}</a>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>{dataAsOf ? s.footerDisclaimer(dataAsOf) : s.footerNoData}</p>
+      <nav aria-label="Policies">
+        <a href="/methodology/">{s.navMethodology}</a>
+        <a href="/corrections/">{s.navCorrections}</a>
+        <a href="/right-of-reply/">{s.navRightOfReply}</a>
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+# Crawler identity and politeness defaults (spec §5.2).
+# contact_url is a PLACEHOLDER until the public site exists; replace before M1 crawling.
+user_agent: "BuilderXRayBot/0.1 (+{contact_url}; public RERA records research)"
+contact_url: "https://builder-xray.example/about/crawler"
+min_interval_seconds: 3.0
+max_concurrency_per_host: 1
+max_consecutive_errors: 20
+backoff_base_seconds: 5
+backoff_max_seconds: 600
+respect_robots_txt: true

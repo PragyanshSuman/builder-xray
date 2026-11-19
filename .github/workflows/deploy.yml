@@ -1,0 +1,51 @@
+# M0 deploy: build the static site and deploy the Worker on pushes to main.
+# Replaced by build-deploy.yml (crawl → score → export → build → deploy) in M4.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HAS_CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            site/package-lock.json
+            worker/package-lock.json
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - name: Build site
+        working-directory: site
+        run: npm ci && npm run build
+      - name: File-count gate
+        working-directory: pipeline
+        run: uv run bxr filecount ../site/dist
+      - name: Skip notice (no Cloudflare token yet)
+        if: env.HAS_CF_TOKEN != 'true'
+        run: echo "::warning::CLOUDFLARE_API_TOKEN secret not set; skipping deploy. See docs/runbook.md."
+      - name: Deploy Worker + assets
+        if: env.HAS_CF_TOKEN == 'true'
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npm ci && npx wrangler deploy

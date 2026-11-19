@@ -1,0 +1,28 @@
+# Local working data (DuckDB, Parquet, raw archive)
+/data/*
+!/data/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Node / Astro / Wrangler
+node_modules/
+site/dist/
+site/.astro/
+worker/.wrangler/
+.dev.vars*
+
+# Secrets and env
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

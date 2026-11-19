@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n';
+
+const s = t();
+---
+
+<Base title={s.homeTitle} description={s.homeDescription}>
+  <h1>{s.siteName}</h1>
+  <p class="lede">{s.tagline}</p>
+  <p>{s.comingSoon}</p>
+</Base>

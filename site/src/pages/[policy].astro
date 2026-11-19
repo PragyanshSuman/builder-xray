@@ -1,0 +1,23 @@
+---
+// Placeholder policy pages so footer links resolve. Real content arrives in
+// M3 (methodology) and M5 (corrections, right of reply).
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n';
+
+export function getStaticPaths() {
+  return [
+    { params: { policy: 'methodology' }, props: { key: 'navMethodology' } },
+    { params: { policy: 'corrections' }, props: { key: 'navCorrections' } },
+    { params: { policy: 'right-of-reply' }, props: { key: 'navRightOfReply' } },
+  ] as const;
+}
+
+const s = t();
+const { key } = Astro.props;
+const heading = s[key];
+---
+
+<Base title={`${heading} | ${s.siteName}`} description={`${heading}: ${s.siteName}`}>
+  <h1>{heading}</h1>
+  <p>{s.pagePending}</p>
+</Base>
