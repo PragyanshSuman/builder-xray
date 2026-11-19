@@ -314,7 +314,13 @@ class PoliteClient:
             rules = _Robots(None, allow_all=False, note=f"HTTP {raw.status}: disallow")
         elif raw.status in (401, 403):
             self._record(Outcome.CLIENT_ERROR)
-            rules = _Robots(None, allow_all=False, note=f"HTTP {raw.status}: disallow")
+            netloc = urlsplit(host).netloc
+            if netloc in self.cfg.robots_unavailable_allowed_hosts:
+                rules = _Robots(
+                    None, allow_all=True, note=f"HTTP {raw.status}: allowed (documented exception)"
+                )
+            else:
+                rules = _Robots(None, allow_all=False, note=f"HTTP {raw.status}: disallow")
         elif raw.status >= 400:
             self._record(Outcome.CLIENT_ERROR)
             rules = _Robots(None, allow_all=True, note=f"HTTP {raw.status}: no robots.txt")

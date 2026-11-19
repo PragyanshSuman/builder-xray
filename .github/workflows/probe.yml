@@ -1,0 +1,32 @@
+# Manual reachability probe: can GitHub-hosted runners reach state RERA portals?
+# One robots.txt request per host, 5 s apart, honest User-Agent. No crawling.
+name: Probe portal reachability
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Probe
+        run: |
+          UA='BuilderXRayBot/0.1 (+https://builder-xray.prags-codes.workers.dev/about/crawler/; public RERA records research)'
+          echo "Runner public IP country: $(curl -s --max-time 10 https://ipinfo.io/country || echo unknown)"
+          {
+            echo "| Host | Result |"
+            echo "|---|---|"
+          } >> "$GITHUB_STEP_SUMMARY"
+          for host in www.up-rera.in up-rera.in rera.karnataka.gov.in rera.telangana.gov.in \
+                      haryanarera.gov.in gujrera.gujarat.gov.in rera.rajasthan.gov.in \
+                      www.maharera.maharashtra.gov.in rera.tn.gov.in rera.punjab.gov.in; do
+            res=$(curl -sS -o /dev/null -A "$UA" --max-time 25 \
+                  -w '%{http_code} in %{time_total}s' "https://$host/robots.txt" 2>&1 | tail -1)
+            echo "$host: $res"
+            echo "| $host | $res |" >> "$GITHUB_STEP_SUMMARY"
+            sleep 5
+          done

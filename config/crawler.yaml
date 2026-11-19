@@ -17,3 +17,12 @@ max_attempts: 3
 # Stop reading a response after this many bytes (some portal pages embed huge maps).
 max_body_bytes: 5000000
 max_redirects: 5
+# Hosts whose /robots.txt returns 401/403 while public pages serve our
+# User-Agent normally. RFC 9309 §2.3.1.3 treats an unavailable robots.txt (4xx)
+# as "no restrictions"; our default is stricter (401/403 → disallow), so each
+# exception needs evidence here. Remove an entry if the site starts refusing pages.
+robots_unavailable_allowed_hosts:
+  # 2026-11-19: /robots.txt → 403 (Apache) on both hosts; home page → 200 to
+  # BuilderXRayBot, no CAPTCHA/login; public project search exists.
+  - maharera.maharashtra.gov.in
+  - www.maharera.maharashtra.gov.in

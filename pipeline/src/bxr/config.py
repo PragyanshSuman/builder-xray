@@ -87,6 +87,7 @@ class CrawlerConfig(BaseModel):
     max_attempts: int = Field(ge=1, le=5)
     max_body_bytes: int = Field(gt=0)
     max_redirects: int = Field(ge=0, le=10)
+    robots_unavailable_allowed_hosts: frozenset[str] = frozenset()
 
     @property
     def user_agent_header(self) -> str:

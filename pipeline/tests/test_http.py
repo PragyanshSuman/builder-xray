@@ -143,6 +143,24 @@ def test_robots_status_handling(status: int, allowed: bool) -> None:
         assert outcome is Outcome.DISALLOWED
 
 
+def test_robots_403_exception_only_for_listed_hosts() -> None:
+    ft = FakeTime()
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        if req.url.path == "/robots.txt":
+            return httpx.Response(403)
+        return httpx.Response(200)
+
+    with _client(handler, ft, robots_unavailable_allowed_hosts=["ok.gov.in"]) as c:
+        assert c.get("https://ok.gov.in/").outcome is Outcome.OK
+        assert c.get("https://other.gov.in/").outcome is Outcome.DISALLOWED
+
+
+def test_repo_exceptions_are_documented() -> None:
+    cfg = load_crawler_config()
+    assert "www.maharera.maharashtra.gov.in" in cfg.robots_unavailable_allowed_hosts
+
+
 def test_robots_crawl_delay_extends_interval() -> None:
     ft = FakeTime()
 
