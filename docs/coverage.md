@@ -124,3 +124,14 @@ Also shown: promoter mobile/email. **Not stored, never published.**
 **Scale:** ~3,900 detail pages at 1 request / 3 s ≈ 3.3 h for a first full pass.
 Spread it over nights; afterwards fetch only new projects or those whose list
 row changed.
+
+**Live crawl, 2026-11-19 (`bxr crawl-up --max-details 5`):** home → postback
+→ list: 3,864 projects, 701 flagged; 5/5 detail pages parsed and reg-number
+verified; 10 requests in 72 s. Plain `GET /projects` without the postback
+session redirects to `servermaintenance.aspx`, so the crawler uses the browser flow.
+
+**Note for validation (M2):** "Ongoing" projects (registration kind shown on
+the detail page) were already under construction when RERA began, so their
+declared completion can precede their RERA registration date (e.g.
+UPRERAPRJ13276: registered 2017-09-29, declared completion 2016-08-30). The
+"completion ≥ registration" rule must apply only to "New" projects.
