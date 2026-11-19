@@ -4,6 +4,8 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-11-01",
   "workers_dev": true,
+  // No per-version public preview URLs: one canonical public site only.
+  "preview_urls": false,
   // Pre-built Astro output. Requests that match a file are served directly and
   // do NOT invoke the Worker, so they don't count toward the 100k/day quota.
   "assets": {

@@ -6,7 +6,8 @@ Every number links to its official source and shows the date it was collected.
 
 > Not a credit rating. Not legal or investment advice.
 
-**Status:** M0 (foundations). No data is collected or published yet.
+**Status:** M0 (foundations) complete. No data is collected or published yet.
+Live: https://builder-xray.prags-codes.workers.dev/
 
 | Path | What |
 |---|---|
