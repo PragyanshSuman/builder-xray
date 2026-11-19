@@ -27,6 +27,27 @@ portals, home page + robots.txt only.
 | Directory URL dead | JH | `rera.jharkhand.gov.in` has no DNS; the same directory's annual-report link uses `jharera.jharkhand.gov.in`. Retry there |
 | No website | AR, MN, MZ, NL, SK, LA | Listed "Website Not Setup" by MoHUA |
 
+### Follow-up checks, 2026-11-19
+- **MH:** `/robots.txt` → 403 on both `maharera.maharashtra.gov.in` and
+  `www.maharera.maharashtra.gov.in`; home → 301 → `https://www.maharera.maharashtra.gov.in/`
+  → 200 (65 KB) for BuilderXRayBot, no CAPTCHA or login. Public project search
+  at `/projects-search-result`. Added as a documented exception in
+  `config/crawler.yaml` (RFC 9309: unavailable robots.txt means no restrictions).
+- **JH:** `jharera.jharkhand.gov.in/robots.txt` → 404 (allowed); home page →
+  connection reset. Retry later.
+- **UK, DL:** still no TCP connection on port 443 from India.
+
+### Reachability from GitHub-hosted runners (US), 2026-11-19
+Probe workflow `probe.yml`, one robots.txt request per host:
+
+| Reachable from the US runner | Timed out (25 s) from the US runner, though reachable from India |
+|---|---|
+| UP (both hosts), TG, HR | KA, GJ, RJ, **MH**, TN, PB |
+
+So scheduled crawls **cannot run on GitHub-hosted runners** for most
+states, including Tier A Maharashtra. They need to run from a machine in India
+(decision pending: ADR-003).
+
 ## Unified RERA portal: rera.mohua.gov.in (inspected 2026-11-19)
 
 Requests made by hand: 6 total across 2 hosts, BuilderXRayBot User-Agent,
