@@ -1,0 +1,1667 @@
+
+
+<!DOCTYPE html>
+<html>
+<head id="ctl00_Head1"><link rel="shortcut icon" href="img/rera_logo.png" type="image/x-icon" />
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        // function Print() { 
+        // var printWindowOpt = "toolbar=yes,location=no,directories=yes,menubar=yes,";
+        // printWindowOpt += "scrollbars=yes,width=750,height=500,left=100,top=125";
+        // document.getElementById("ctl00_ContentPlaceHolder1_pnlprint").visibility = 'visible';
+        // var sWinHTML = document.getElementById("ctl00_ContentPlaceHolder1_pnlprint").innerHTML;
+        // var printWindow = window.open("", "", printWindowOpt);
+        //  printWindow.document.open();
+        // printWindow.document.write('<html><body><table style="width:100%;text-align:center"><tr><td style="width:15%"><img src="images/Picture2.png" style="width:80px;height:80px" /></td><td style="text-align:center"><h3>भू-सम्पदा विनियामक प्राधिकरण, उत्तर प्रदेश</h3><h4>नवीन भवन, राज्य नियोजन संस्थान,<br> कालाकांकर हाउस , पुराना हैदराबाद, लखनऊ - 226007  </h4> </td></tr><tr><td colspan="3" style="text-align:center"><h3></h3></td></tr><tr><td colspan="3"></br>');
+        // printWindow.document.write(sWinHTML);
+        // printWindow.document.write('</td></tr></table></body></html>');
+        // printWindow.document.write('</head><body ><table style="width:100%;text-align:center"><tr><td style="width:15%"><img src="images/Picture2.png" style="width:80px;height:80px" /></td><td style="text-align:center"><h3>भू-सम्पदा विनियामक प्राधिकरण, उत्तर प्रदेश</h3><h4>नवीन भवन, राज्य नियोजन संस्थान,<br> कालाकांकर हाउस , पुराना हैदराबाद, लखनऊ - 226007  </h4> </td></tr><tr><td colspan="3" style="text-align:center"><h3></h3></td></tr><tr><td colspan="3"></br>');
+        // printWindow.document.write(panel.innerHTML);
+        // printWindow.document.write('</td></tr></table></body></html>');  
+        // printWindow.document.close();
+        // SetActiveStyleSheet('Print Preview');
+        // printWindow.print();
+        // printWindow.close();
+        //return true; 
+        // }
+        $(document).ready(function () {
+            // alert('ok');
+            load_MultiplePromoter1();
+        });
+        $(document).ready(function () {
+            $('#btn').click(function () {
+                $('#dialog').dialog("open");
+            });
+            $('#dialog').dialog({
+                title: 'Contact Information',
+                draggable: false,
+                resizable: false,
+                width: 600,
+                height: 350,
+                closeOnEscape: false,
+                modal: true,
+                autoOpen: false
+
+            });
+        });
+
+        function load_MultiplePromoter1() {
+            var var1 = '';
+            //alert(var1);
+            var id = var1;
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/load_MultiplePromoter1",
+                data: "{id: '" + id + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    // alert(r.d);
+                    if (r.d != "0") {
+                        $('#tblregistry1').html(r.d);
+                    }
+                    else {
+                        $('#promoterdiv').hide();
+                    }
+                },
+                error: function (r) {
+
+                },
+                failure: function (r) {
+
+                }
+            });
+        }
+
+        function Print() {
+            var panel = document.getElementById("ctl00_ContentPlaceHolder1_pnlprint");
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title></title>');
+            //printWindow.document.write('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>');
+            printWindow.document.write('</head><body ><table style="width:100%;text-align:center"><tr><td style="width:15%"><img src="images/Picture2.png" style="width:80px;height:80px" /></td><td style="text-align:center"><h3>भू-सम्पदा विनियामक प्राधिकरण, उत्तर प्रदेश</h3><h4>नवीन भवन, राज्य नियोजन संस्थान,<br> कालाकांकर हाउस , पुराना हैदराबाद, लखनऊ - 226007  </h4> </td></tr><tr><td colspan="3" style="text-align:center"><h3></h3></td></tr><tr><td colspan="3"></br>');
+            printWindow.document.write(panel.innerHTML);
+            printWindow.document.write('</td></tr></table></body></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+            }, 500);
+            return false;
+        }
+
+        function showModalPopUp(promoterid) {
+            $('#mymodalPopup').modal('toggle');
+            $('#mymodalPopup').modal('show');
+            //popUpObj = window.open("ViewPromoterforproject.aspx?promoter=" + promoterid,
+            //"ModalPopUp",
+            //"toolbar=no," +
+            //"scrollbars=no," +
+            //"location=no," + 
+            //"statusbar=no," + 
+            //"menubar=no," + 
+            //"resizable=0," +
+            //"width=800," +  
+            //"height=400," + 
+            //"left = 200," + 
+            //"top=200"
+            //); 
+            //popUpObj.focus();
+            //  LoadModalDiv();
+        }
+        function downloadFile(pdfname) {
+            debugger;
+            var url = "https://upreradisk.blob.core.windows.net/azureportaldeploy/";
+            var pdfname = pdfname;
+            var link = document.createElement('a');
+            link.href = url + pdfname;
+            link.download = pdfname;
+            link.click();
+            link.remove();
+
+        }
+    </script>
+    <style>
+        ._xymns .row:nth-of-type(odd) {
+            /* background: #eaeaea; */
+            /* background: #ffffff; */
+            background: #fdfdfd;
+        }
+
+        ._xymns .row {
+            /* background: #fff; */
+            padding: 5px 0px;
+            border-top: 1px solid #ddd;
+        }
+
+        .divPromoter label {
+            font-weight: normal !important;
+        }
+
+        .modal {
+            /*position: fixed;
+     top: 0;
+     left: 0;
+     background-color: rgba(255,255,255, 0.1) !important;
+     z-index: 99;
+     opacity: 0.8;*/
+        }
+
+
+        .form-control {
+            height: 45% !important;
+            font-size: 13px !important;
+        }
+
+        .panel-grey > .panel-heading {
+            color: #3a3b3c;
+            background-color: #c9c9c9;
+            border-color: #c9c9c9;
+        }
+
+        .panel-grey > .panel-body {
+            background: #efefef;
+        }
+    </style>
+    <style>
+        .xyz-dialog {
+            background: lightblue;
+            padding: 1rem;
+            border-radius: 8px;
+            position: relative;
+            width: 400px;
+            border: solid 1px black;
+        }
+
+            .xyz-dialog::after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-right: 30px solid lightblue;
+                position: absolute;
+                right: 100%;
+            }
+
+        .body {
+        }
+
+        @media (max-width: 768px) {
+            .xyz-dialog {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    </style>
+    <style>
+        .abc-dialog {
+            padding: 1rem;
+            border-radius: 8px;
+            position: relative;
+            width: 250px;
+        }
+
+            .abc-dialog::after {
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-right: 30px solid lightblue;
+                position: absolute;
+                right: 170%;
+            }
+
+        .body {
+        }
+
+        @media (max-width: 768px) {
+            .abc-dialog {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        .background-lightBlue {
+            background-color: lightblue;
+           
+            width: 100%;       
+            max-width: 300px;
+             height:80px;
+             display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none;
+            padding: 0;
+            border-radius: 4px;
+            border: 2px solid black !important;
+        }
+
+        .animatedtext {
+            color: darkred !important;
+           
+            animation: blinker 1.5s linear infinite;
+            text-align: center;  
+        }
+
+        @keyframes blinker {
+            30% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><meta name="description" content="This is an official website of UP RERA that provides online information about all activities, provisions by UP RERA in Uttar Pradesh." /><meta name="keywords" content="uprera,UP RERA,uttar pradesh rera,rera in uttar pradesh,UPRERA,Official Website of RERA Uttar Pradesh,Website of RERA Uttar Pradesh,Website of RERA,RERA UP WEBSITE,UP RERA WEBSITE, OFFICIAL WEBSITE OF RERA,RERA UP,UPRERA WEBSITE,ONLINE PROPERTY,ONLINE PROJECT REGISTRTION,Promoters Registration" /><title>
+	UP RERA : Uttar Pradesh Real Estate Regulatory Authority
+</title>
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" /><link rel="stylesheet" href="css/bootstrap.css" /><link rel="stylesheet" href="css/themify-icons.css" /><link rel="stylesheet" href="vendors/fontawesome/css/all.min.css" /><link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" /><link rel="stylesheet" href="vendors/animate-css/animate.css" /><link rel="stylesheet" href="css/site.css" /><link href="JqueryCallender/css/jquery-ui.css" rel="stylesheet" /><link href="css/font-awesome.min.css" rel="stylesheet" />
+         
+    <!-- main css -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-3.min.js"></script>        
+     <script src="js/jquery-2.min.js"></script>
+    <script src="js/validation.js"></script>
+     
+    <link href="multiselect/bootstrap-multiselect.css" rel="stylesheet" /><link href="css/slick.css" rel="stylesheet" /><link rel="stylesheet" href="css/style.css" /><link rel="stylesheet" href="css/responsive.css" />
+
+     
+ 
+         
+       <script type="text/javascript">
+           $(document).ready(function () {
+               var counter = 0;
+
+               var originalSize = $('div').css('font-size');
+               var originalSizeAnc = $('a').css('font-size');
+               var originalSizePara = $('p').css('font-size');
+               var originalSizeli = $('li').css('font-size');
+               var originalSizetable = $('table').css('font-size');
+               // reset        
+               $(".resetMe").click(function () {
+                   counter = 0;
+
+                   $('div').css('font-size', originalSize);
+                   $('a').css('font-size', originalSizeAnc);
+                   $('p').css('font-size', originalSizePara);
+                   $('li').css('font-size', originalSizeli);
+                   $('table').css('font-size', originalSizeli);
+               });
+
+               // Increase Font Size          
+               $(".increase").click(function () {
+
+                   if (counter <= 4 && counter >= 0) {
+                       counter = counter + 1
+                   }
+                   else if (counter >= 4) {
+
+                   }
+                   else {
+                       counter = counter + 1;
+                   }
+
+                   var currentSize = $('div').css('font-size');
+
+                   var currentSizeAnc = $('a').css('font-size');
+                   var currentSizepara = $('p').css('font-size');
+                   var currentSizeli = $('li').css('font-size');
+                   var currentSizetable = $('table').css('font-size');
+                   if (counter <= 4) {
+
+                       var currentSize = parseFloat(currentSize) * 1.2;
+
+                       var currentSizeAnc = parseFloat(currentSizeAnc) * 1.2;
+                       var currentSizepara = parseFloat(currentSizepara) * 1.2;
+                       var currentSizeli = parseFloat(currentSizeli) * 1.2;
+                       var currentSizetable = parseFloat(currentSizetable) * 1.2;
+                       $('div').css('font-size', currentSize);
+                       $('a').css('font-size', currentSizeAnc);
+                       $('p').css('font-size', currentSizepara);
+                       $('li').css('font-size', currentSizeli);
+                       $('table').css('font-size', currentSizetable);
+                   }
+
+                   return false;
+               });
+
+               // Decrease Font Size       
+               $(".decrease").click(function () {
+
+                   counter = counter - 1;
+
+
+
+                   var currentFontSize = $('div').css('font-size');
+                   var currentFontSizeAnc = $('a').css('font-size');
+                   var currentFontSizepara = $('p').css('font-size');
+                   var currentFontSizeli = $('li').css('font-size');
+                   var currentFontSizetable = $('table').css('font-size');
+                   var currentSize = $('div').css('font-size');
+                   var currentSizeAnc = $('a').css('font-size');
+                   var currentSizepara = $('p').css('font-size');
+                   var currentSizeli = $('li').css('font-size');
+                   var currentSizetable = $('table').css('font-size');
+
+                   var currentSize = parseFloat(currentSize) * 0.8;
+                   var currentSizeAnc = parseFloat(currentSizeAnc) * 0.8;
+                   var currentSizepara = parseFloat(currentSizeAnc) * 0.8;
+                   var currentSizeli = parseFloat(currentSizeli) * 0.8;
+                   var currentSizetable = parseFloat(currentSizetable) * 0.8;
+
+                   $('div').css('font-size', currentSize);
+                   $('a').css('font-size', currentSizeAnc);
+                   $('p').css('font-size', currentSizepara);
+                   $('li').css('font-size', currentSizeli);
+                   $('table').css('font-size', currentSizetable);
+                   return false;
+               });
+           });
+
+      </script>
+
+ 
+
+    
+
+    
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./Projectsummary?UI0aPA1ISD=Gy8UJfJF6lE%3d&amp;hfFlag=LOVaGk%2fIYis%3d&amp;NPJ6RAme=c4AFTyNArXCX7fELKHgrQA%3d%3d&amp;PaURJEMAN4=ZL9MNERkNdaqDdPaL8qICA%3d%3d&amp;IRSAHEB=D6PY3lyims8%3d" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="[stripped]" />
+
+
+<script src="/ScriptResource.axd?d=9hSKVupFAlz5rX1VfBgqktJMTypQlhA4CayKFPkY73SkaMnjMtFJYKhIgoJMaysbh9Vcm_sdgF4wmtit3uonkkb58QNc8r-e0usWCn8E9rWQCdPVfnqgw2kYVX_H95_1s5OQQx7e2--IIBu5WuM_yvcP-J2NhS6bxlrH2wOOTYo1&amp;t=2ddfb07d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=jDrYmNZ1BfuQTouQ_UV7IBXWXW1cdQHTmtY5CMur73DvuWX3F9zbKJSatVkGJH8D5QlCEr30Ln1LYpkSHGTJMAMQGq3Qjug1o3V1bbfG-porSx-F_NY_aH8Ilc0rGfLoeBK2RoLUILrFmoB9ahemWA2&amp;t=7f16157c" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B9BBCE2D" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="[stripped]" />
+        
+        <!--================Header Menu Area =================-->
+        <header class="header_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="accessibilityDiv">
+                        <ul class="accessibility-icons list-unstyled list-inline font-zoom pull-right">
+                            <li class="language" style="display: inline;"><a style="font-size: 14px;" class="taglib-language-list-text" href="#">
+                                
+                                   <a href="https://facebook.com/upreraofficial" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a>	
+                                &nbsp;
+                               <a href="https://twitter.com/UPRERAofficial" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>	
+                                   &nbsp;
+                                <a href="https://www.youtube.com/channel/UCAeF0bOHPpzN-K9QvfA9rSQ" target="_blank" title="Youtube"><i class="fa fa-youtube-play" style="color:red"></i></a>	
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text increase" title="Increase font size"> | +A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text resetMe" title="Restore default font size" style="padding: 2px 6px 2px 6px;">| A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text decrease" title="Decrease font size" style="">| -A</a>
+                                 &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class=" taglib-language-list-text " href="#main" data-toggle="tooltip" title="Skip to main content"><span class="fa fa-arrow-down"></span>   </a>
+                                  &nbsp;
+                                  &nbsp;
+
+                                 <a style="font-size: 14px;" class=" taglib-language-list-text " href="ScreenReader.aspx" data-toggle="tooltip" title="Screen Reader Access"><span class="fa fa-desktop"></span>   </a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class="taglib-language-list-text " href="Sitemap" data-toggle="tooltip" title="Sitemap"> <i class="fa fa-sitemap" aria-hidden="true"></i></a>
+                                         &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class="taglib-language-list-text " href="admin" data-toggle="tooltip" title=""> <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                                   
+                                    &nbsp;
+                                  &nbsp;
+                              
+                                <span class="time"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                <script type="text/javascript">
+                                    var d = new Date()
+                                    var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+                                    var monthname = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+                                    document.write(weekday[d.getDay()] + ", ")
+                                    document.write(d.getDate() + " ")
+                                    document.write(monthname[d.getMonth()] + ", ")
+                                    document.write(d.getFullYear())
+                                </script>
+                                | <i class="far fa-clock" aria-hidden="true"></i>
+                                <span id="clockDisplay">
+                                    <script type="text/javascript" language="javascript">
+                                        function renderTime() {
+                                            var currentTime = new Date();
+                                            var diem = "AM";
+                                            var h = currentTime.getHours();
+                                            var m = currentTime.getMinutes();
+                                            var s = currentTime.getSeconds();
+                                            setTimeout('renderTime()', 1000);
+                                            if (h == 0) {
+                                                h = 12;
+                                            } else if (h > 12) {
+                                                h = h - 12;
+                                                diem = "PM";
+                                            }
+                                            if (h < 10) {
+                                                h = "0" + h;
+                                            }
+                                            if (m < 10) {
+                                                m = "0" + m;
+                                            }
+                                            if (s < 10) {
+                                                s = "0" + s;
+                                            }
+                                            var myClock = document.getElementById('clockDisplay');
+                                            myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+                                            myClock.innerText = h + ":" + m + ":" + s + " " + diem;
+                                        }
+                                        renderTime();
+                                    </script>
+                                </span></span></a>
+
+
+                            </li>
+                            <li class="language" style="display: inline;"></li>
+                            <li class="language" style="display: inline;"> </li>
+                            <li class="language" style="display: inline;"> </li>
+                            <li class="language" style="display: inline;"> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main_menu m0">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <div class="row" style="width: 100%">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="col-lg-2 col-md-2 col-xs-6">
+                                <a class="navbar-brand logo_h" href="index" style="padding-top: 10px;">
+                                    <img src="img/rera_logo.png" title="UPRERA Logo" alt="UPRERA" class="img-responsive" /></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="float: right;">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="col-lg-9 col-md-9" style="padding-right: 0px; padding-left: 0px;">
+                                <div class="row wname" style="margin-top: 15px;">
+                                    <div class="col-lg-12 col-md-12">
+                                        <h2 id="reraheading" style="color:#dc3838">Uttar Pradesh Real Estate Regulatory Authority</h2>
+                                    </div>
+                                </div>
+                                <div class="row menudiv" style="margin-top: 10px;">
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse main-menu-item" id="navbarNav" style="margin-top: 5px;">
+                                        <a href="#ctl00_menuBar_SkipLink"><img alt="Skip Navigation Links" src="/WebResource.axd?d=qRV__gASohxYzUYw4RthYnyOyafG05EdEYlf45hh_Zw2aGxOzGSxeQeWS2HRmdgDWkuyRHsu-VXZ_0uBpfGAr6ovsJ7RcJaAXmzR1O-AOcU1&amp;t=639256397503738887" width="0" height="0" border="0" /></a><div id="ctl00_menuBar" style="width: 100%; float: none;">
+	<ul class="level1 nav navbar-nav">
+		<li><a class="level1" href="index.aspx"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li><li><a class="popout level1" href="#">ABOUT RERA</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="about">INTRODUCTION</a></li><li><a class="popout level2" href="#">MEDIA SECTION</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="GalleryDashboard">PHOTO GALLERY</a></li><li><a class="level3" href="VideoDashboard">VIDEO GALLERY</a></li><li><a class="level3" href="PressRelease">PRESS RELEASES</a></li><li><a class="level3" href="reranews">IN NEWS</a></li><li><a class="level3" href="frm_interviews.aspx">INTERVIEWS</a></li>
+			</ul></li><li><a class="level2" href="frm_Rera_Anual_Report.aspx">UP-RERA Annual Report</a></li><li><a class="level2" href="pdf/Best_Practices_by_UP-RERA.pdf">E-Book on Best Practices</a></li>
+		</ul></li><li><a class="popout level1" href="#">LEGAL</a><ul class="level2 dropdown-menu">
+			<li><a class="popout level2" href="#">ACTS</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="pdf/reraact.pdf">RERA Acts</a></li><li><a class="level3" href="https://awas.upsdc.gov.in/en/page/acts">UP Housing Development Acts </a></li><li><a class="level3" href="https://www.yamunaexpresswayauthority.com/web/acts-regulations/key-acts/">UP Industrial Development Acts </a></li>
+			</ul></li><li><a class="popout level2" href="#">RULES</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="pdf/rera.pdf">UP RERA Rules General Rules-2016 </a></li><li><a class="level3" href="pdf/UPRERA_ATS_2018.pdf">UP RERA Rules-2018 (Agreement for Sale and lease) </a></li><li><a class="level3" href="https://awas.upsdc.gov.in/en/page/rules">UP Housing Development Rules </a></li>
+			</ul></li><li><a class="popout level2" href="#">REGULATIONS</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="frm_Regulation_View.aspx">UP RERA Regulations</a></li><li><a class="level3" href="https://awas.upsdc.gov.in/en/page/regulations">UP Housing Development Regulations  </a></li><li><a class="level3" href="https://www.stagingupsida.com/ammendment-regulation.aspx">UP Industrial Development Regulations</a></li>
+			</ul></li><li><a class="popout level2" href="#">Bye-Laws</a><ul class="level3 dropdown-menu">
+				<li><a class="level3" href="https://awas.upsdc.gov.in/en/page/bye-laws">UP Housing Development Bye-Laws</a></li><li><a class="level3" href="https://www.stagingupsida.com/laws-upsida.aspx">UP Industrial Development Bye-Laws</a></li>
+			</ul></li><li><a class="level2" href="pdf/rerenotification.pdf">NOTIFICATIONS</a></li><li><a class="level2" href="pdf/RERAAccountDirections11052026.pdf">Project Account Directions, 3rd Revision dt 11.05.2026</a></li>
+		</ul></li><li><a class="popout level1" href="#">REGISTRATIONS</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="project">PROMOTER</a></li><li><a class="level2" href="login">PROJECT</a></li><li><a class="level2" href="NewAgent">AGENT</a></li><li><a class="level2" href="auth_entity_reg">Authorized Entity U/S  8</a></li>
+		</ul></li><li><a class="popout level1" href="#">CONCILIATION FORUM</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="conciliations">CONCILIATION LOGIN</a></li><li><a class="level2" href="ConciliationDetails">CONCILIATION STATUS</a></li>
+		</ul></li><li><a class="popout level1" href="#">COMPLAINTS </a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="SignUp">REGISTER COMPLAINT</a></li><li><a class="level2" href="SignUp">COMPLAINT FOR COMPENSATION</a></li><li><a class="level2" href="getcomplaint">GET COMPLAINT NUMBER</a></li><li><a class="level2" href="register_grievance">Public Grievance</a></li><li><a class="level2" href="frm_sec39_Insert_complaint_details_new.aspx">Request for Rectification of Order U/S 39</a></li><li><a class="level2" href="Frm_All_Complaint_Status_Page.aspx">Complaint Status</a></li><li><a class="level2" href="frm_ecourt_Complaint_Cause_Action_public.aspx?oldid=">2nd complaint for new cause of action</a></li><li><a class="level2" href="frm_view_complaint_cause_action_public.aspx">View 2nd complaint for new cause of action</a></li><li><a class="level2" href="Frm_All_ComplaintAOA_Status_Page.aspx">Complaint AOA Status</a></li>
+		</ul></li><li><a class="popout level1" href="#">REQUEST</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="Requestdoc">Request For Certified Copy of Document</a></li><li><a class="level2" href="frm_OrderExecution.aspx">REQUEST FOR ORDER EXECUTION</a></li><li><a class="level2" href="frm_Rc_Report.aspx">VIEW RC STATUS</a></li><li><a class="level2" href="frm_process_request_fileinspection.aspx">Request For Physical File Inspection</a></li>
+		</ul></li><li><a class="popout level1" href="#">LOGIN</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="login">USER LOGIN</a></li><li><a class="level2" href="InspectionOfficerLogin.aspx">INSPECTION LOGIN</a></li><li><a class="level2" href="SignUp">E-Court Login/Sign Up</a></li><li><a class="level2" href="grievance_login">Grievance Login</a></li><li><a class="level2" href="login_sec8">Authorized Entity U/S 8 Login</a></li>
+		</ul></li><li><a class="popout level1" href="#">DOWNLOADS</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%201%20(Architect%20Certificate).xlsx">Form REG 1 (Architect Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%202%20(Engineer%20Certificate).xlsx">Form REG 2 (Engineer Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%203%20(CA%20Certificate).xlsx">Form REG 3 (CA Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%204%20(Architect%20Certificate).docx">Form REG 4 (Architect Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%204A%20(Architect%20Certificate).docx">Form REG 4A (Architect Certificate)</a></li><li><a class="level2" href="finalcertificates/finalcertificates/Form%20REG%205%20(CA%20Certificate).doc">Form REG 5 (CA Certificate)</a></li>
+		</ul></li><li><a class="level1" href="applicationform">CAREER</a></li><li><a class="popout level1" href="#">USER MANUALS</a><ul class="level2 dropdown-menu">
+			<li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Complaint%20Registration.pdf" target="_blank">User Manual for Complaint Registration</a></li><li><a class="level2" href="usermanual/usermanual/User-Manual-Promoter-Enrollment.pdf" target="_blank">User Manual for Promoter Enrollment</a></li><li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Project%20Registration.pdf">User Manual for Project Registration</a></li><li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Project%20Extension.pdf">User Manual for Project Extension</a></li><li><a class="level2" href="usermanual/usermanual/User%20Manual%20for%20Agent%20Registration.pdf">User Manual for Agent Registration</a></li>
+		</ul></li><li><a class="level1" href="ContactUs">CONTACT US</a></li>
+	</ul>
+</div><a id="ctl00_menuBar_SkipLink"></a>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 cm" style="padding-right: 0">
+                       
+                              
+                                      <img src="#" alt="Hon'ble CM YOGI ADITYANATH" title="Hon'ble CM YOGI ADITYANATH" class="img-responsive" style="height: 95px; max-width: 100px;display:none" />
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        
+
+        <!--================Header Menu Area =================-->
+        <div style="min-height:400px;" id="main">
+            
+    <section class="breadcrumb blog_bg myclass">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Registration Details</h2>
+                            <span style="color: #FFF;">View Registration's Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contentSection" class="service-area area-padding">
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 20px; padding: 0px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3>Project Detail</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h1 class="panel-title">Project Basic Information</h1>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="_xymns">
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label for="lblprojectname">Project Name</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_lblprojectname">VAISHNO CRYSTAL</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label for="lblregno">Registration Number</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_lblregno">UPRERAPRJ839360</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label for="prjregdate">Project Registration Date</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_prjregdate">11-06-2019</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label for="prj_type">Project Type</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_prj_type">New</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label>Project Cordinator Number </label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_contactnumber">9000000000</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label>Proposed Period </label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_Lblpropeseperoid">60</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label id="ctl00_ContentPlaceHolder1_lblProposedStartDate" class="">Proposed Start Date : </label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_lblpropesedDatestart">11-03-2019</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <label>Declared Date Of Completion</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <label id="ctl00_ContentPlaceHolder1_Lblproposedenddt">10-03-2024</label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div id="ctl00_ContentPlaceHolder1_divViewOnMap" class="row">
+                                                            <div class="col-sm-4">
+                                                                <label>View On Map</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <a target="_blank" class="btn btn-link" href="mapview_project.aspx?form=19981" title="View on map"><i class="fa fa-2x fa-map-marker"></i></a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            
+                            <div class="xyz-dialog" style="position: absolute; top: 100px; right: 100px;">
+                                <div class="title">
+                                    <marquee><span style="font-size:18px;font-weight:bold">Contact Details</span></marquee>
+                                </div>
+                                <div class="body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Promoter Mobile Number</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="ctl00_ContentPlaceHolder1_promoterMobileNumber">9000000000</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Project Coordinator Number</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="ctl00_ContentPlaceHolder1_projectCordinatorNumber">9000000000</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>HelpLine/TollFree Number</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="ctl00_ContentPlaceHolder1_helpLineNumber"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            
+
+
+                            
+                            <div id="ctl00_ContentPlaceHolder1_divQR">
+                                <div class="abc-dialog" style="position: absolute; top: 300px; right: 100px;">
+                                    
+                                    <div class="body">
+                                        <div class="row" style="margin-left: 50px; margin-bottom: -18px;">
+                                            <img id="ctl00_ContentPlaceHolder1_imgQRCode" src="QRImages/QRCode/QRCode_19112026180052126_19981.png" height="100" width="100" border="0" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="_xymns">
+                                                    <div id="ctl00_ContentPlaceHolder1_dv_ext" class="row">
+                                                        <div class="col-sm-12" style="padding: 0">
+                                                            <div class="panel panel-info">
+                                                                <div class="panel-heading">
+                                                                    <h1 class="panel-title">Extension Granted</h1>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <div id="ctl00_ContentPlaceHolder1_dv_extgrd" class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="table-responsive">
+                                                                                <div>
+	<table class="table table-hover table-condensed" cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_grd_extension" width="100%">
+		<tr>
+			<th scope="col" width="10%">Sno</th><th scope="col" width="45%">Extension From</th><th scope="col" width="45%">Extension Upto</th>
+		</tr><tr>
+			<td>
+                                                                                                <span id="ctl00_ContentPlaceHolder1_grd_extension_ctl02_lblid">1</span>
+                                                                                            </td><td>
+                                                                                                <span id="ctl00_ContentPlaceHolder1_grd_extension_ctl02_lblextf">10-03-2024</span>
+                                                                                            </td><td>
+                                                                                                <span id="ctl00_ContentPlaceHolder1_grd_extension_ctl02_lblextt">09-09-2024 (Six months extension in view of force majeure caused by covid-19 pandemic)</span>
+                                                                                            </td>
+		</tr>
+	</table>
+</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h1 class="panel-title">Project Location</h1>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="_xymns">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>State</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblState">Uttar Pradesh</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>District</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <label id="ctl00_ContentPlaceHolder1_lbldistrict">Aligarh</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>Tehsil</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <label id="ctl00_ContentPlaceHolder1_lbltechsil">Koil</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>Project Address</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblpaddress"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h1 id="ctl00_ContentPlaceHolder1_headPrmEOrEntity" class="panel-title">Promoter Detail</h1>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="_xymns">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblPrmName">Name</label>
+                                                        </div>
+                                                        <div class="col-sm-8 divPromoter">
+                                                            <span id="ctl00_ContentPlaceHolder1_Lblpromotername"> JADON INFRATECH</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblprmtype">Applicant Type</label>
+                                                        </div>
+                                                        <div class="col-sm-8 divPromoter">
+                                                            <label id="ctl00_ContentPlaceHolder1_LblAppicanttype">Partnership Firm</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblprmMob">Mobile</label>
+                                                        </div>
+                                                        <div class="col-sm-8 divPromoter">
+                                                            <label id="ctl00_ContentPlaceHolder1_Lblmobilenumber">9000000000</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblprmemailid">Email</label>
+                                                        </div>
+                                                        <div class="col-sm-8 divPromoter">
+                                                            <label id="ctl00_ContentPlaceHolder1_Lblemailapp">redacted@example.invalid</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblprmadd">Promoter&#39;s Address</label>
+                                                        </div>
+                                                        <div class="col-sm-8 divPromoter">
+                                                            <label id="ctl00_ContentPlaceHolder1_Lbladdressapplicant">JADON INFRATECH, IN FRONT OF PALM TREE HOTEL, MARRIS ROAD, ALIGARH, UP-202001</label>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ctl00_ContentPlaceHolder1_dvChairman" class="row">
+                                                        <div class="col-sm-4">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblprmchairmainAdd">Chairman&#39;s Address</label>
+                                                        </div>
+                                                        <div class="col-sm-8 divPromoter">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblpromoterChairmanaddress">JADON INFRATECH, IN FRONT OF PALM TREE HOTEL, MARRIS ROAD, ALIGARH, UP-202001</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row" id="promoterdiv">
+                            <div class="col-sm-12" style="padding: 0">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h1 class="panel-title">Other Promoter Associated With this Project</h1>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="_xymns">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="table-responsive">
+                                                                <table id="tblregistry1" class="table table-hover table-condensed" border="0"></table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12" style="padding: 0">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h1 class="panel-title">Projects and Complaints against the promoter</h1>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="_xymns">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>Number of the projects of the promoter</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <label id="ctl00_ContentPlaceHolder1_lbltotalproject">1</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>Total complaints against the promoter</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <label id="ctl00_ContentPlaceHolder1_lbltotalcomplaint">0 (Under Registration - 0 )</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>Total no. of complaints in respect to this Project</label>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <label id="ctl00_ContentPlaceHolder1_lblprojectwisecomplaint">0</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+                            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                                <a id="ctl00_ContentPlaceHolder1_lnkviewinspectdoc" class="btn btn-red" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lnkviewinspectdoc&#39;,&#39;&#39;)">View Site Inspection Details</a>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-md-4 text-center">
+                                <div id="ctl00_ContentPlaceHolder1_pnlViewPrjDetail">
+	
+                                    <a class="btn btn-red" href="viewprojects" target="_blank">View Project In Detail </a>
+                                
+</div>
+                                
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 text-center" style="display: none">
+                                <a class="btn btn-red" style="display: none" onclick="showModalPopUp('')" id="A8">View Project Summary </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(function () {
+            $("#show-slide").click(function () {
+                $('.slide-box').slideToggle("slow", function () { });
+            });
+        });
+    </script>
+    <script src="http://rera.mp.gov.in/assets/fancybox-master/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('.carousel').carousel({
+                interval: 6000
+            })
+
+        });//end dom
+    </script>
+    <div id="mymodalPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content" style="width: 800px">
+                <div class="modal-header">
+                    <h4 class="modal-title">Project Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="text-align: right;">
+                        <div class="col-sm-10"></div>
+                        <div class="col-sm-2">
+                            <input type="image" name="ctl00$ContentPlaceHolder1$Btnprint" id="ctl00_ContentPlaceHolder1_Btnprint" src="images/printButton.png" onclick="Print();" border="0" />
+                        </div>
+                    </div>
+                    <div id="ctl00_ContentPlaceHolder1_pnlprint">
+	
+                        <div class="row">
+                            <div class="col-sm-12 table-responsive" style="text-align: center">
+                                <span id="ctl00_ContentPlaceHolder1_pnlheading" style="font-size: 20px; text-decoration: underline; font-family: Algerian">Project Summary</span>
+                                <br />
+                                <br />
+                                <div>
+
+	</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <br />
+                                <br />
+                                <span id="ctl00_ContentPlaceHolder1_lbldocdt" style="font-size: 16px; text-decoration: underline; font-family: Algerian; margin-left: 20px;">Document Details</span>
+                                <br />
+                                <br />
+                                <div>
+		<table cellspacing="0" cellpadding="4" class="table table-bordered table-striped" border="0" id="ctl00_ContentPlaceHolder1_grvdocumentdetails" width="100%">
+			<tr bgcolor="Orange">
+				<th align="left" scope="col"><font color="White"><b>
+                                                SNo.
+                                            </b></font></th><th align="left" scope="col"><font color="White"><b>Document Name</b></font></th><th scope="col"><font color="White"><b>Upload Type</b></font></th><th align="left" scope="col"><font color="White"><b>Download</b></font></th>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl02_lblSRNO">1</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl02_Label2">Proforma of Conveyance Deed</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl02_Labdoc">NA</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl02$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl02_mainid" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl02_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl02$Lnkdownload&#39;,&#39;&#39;)" style="color: black"></a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl03_lblSRNO">2</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl03_Label2">Proforma of Completion Certificate(Occupancy)</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl03_Labdoc">NA</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl03$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl03_mainid" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl03_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl03$Lnkdownload&#39;,&#39;&#39;)" style="color: black"></a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl04_lblSRNO">3</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl04_Label2">Proforma of Completion Certificate(Occupancy)</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl04_Labdoc">NA</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl04$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl04_mainid" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl04_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl04$Lnkdownload&#39;,&#39;&#39;)" style="color: black"></a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl05_lblSRNO">4</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl05_Label2">CA CERTIFICATE</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl05_Labdoc">NA</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl05$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl05_mainid" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl05_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl05$Lnkdownload&#39;,&#39;&#39;)" style="color: black"></a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl06_lblSRNO">5</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl06_Label2">ARCHITECT CERTIFICATE</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl06_Labdoc">NA</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl06$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl06_mainid" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl06_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl06$Lnkdownload&#39;,&#39;&#39;)" style="color: black"></a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl07_lblSRNO">6</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl07_Label2">ENGINEERS CERTIFICATE</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl07_Labdoc">NA</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl07$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl07_mainid" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl07_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl07$Lnkdownload&#39;,&#39;&#39;)" style="color: black"></a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl08_lblSRNO">7</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl08_Label2">Other Plan(If Any)</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl08_Labdoc">New</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl08$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl08_mainid" value="65714" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl08_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl08$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl09_lblSRNO">8</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl09_Label2">Electricity Supply Plan</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl09_Labdoc">New</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl09$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl09_mainid" value="65423" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl09_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl09$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl10_lblSRNO">9</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl10_Label2">Water Supply Plan</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl10_Labdoc">New</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl10$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl10_mainid" value="65422" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl10_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl10$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl11_lblSRNO">10</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl11_Label2">Affidavit (Form-B)</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl11_Labdoc">New</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl11$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl11_mainid" value="65421" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl11_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl11$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl12_lblSRNO">11</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl12_Label2">Development Work Plan</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl12_Labdoc">New</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl12$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl12_mainid" value="65420" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl12_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl12$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl13_lblSRNO">12</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl13_Label2">Waste Disposal Plan</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl13_Labdoc">New</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl13$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl13_mainid" value="65419" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl13_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl13$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl14_lblSRNO">13</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl14_Label2">Proforma of Allotment Letter</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl14_Labdoc">New</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl14$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl14_mainid" value="65418" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl14_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl14$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl15_lblSRNO">14</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl15_Label2">Proforma of Application Form</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl15_Labdoc">New</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl15$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl15_mainid" value="65417" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl15_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl15$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl16_lblSRNO">15</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl16_Label2">Other Plan(If Any)</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl16_Labdoc">New</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl16$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl16_mainid" value="65416" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl16_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl16$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl17_lblSRNO">16</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl17_Label2">Commencement Certificate</span>
+                                            </font></td><td><font color="#284775">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl17_Labdoc">New</span>
+                                            </font></td><td><font color="#284775">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl17$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl17_mainid" value="65415" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl17_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl17$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr><tr bgcolor="#F7F6F3">
+				<td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl18_lblSRNO">17</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl18_Label2">Details of Encumbrances</span>
+                                            </font></td><td><font color="#333333">
+                                                <span id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl18_Labdoc">New</span>
+                                            </font></td><td><font color="#333333">
+                                                
+                                                <input type="hidden" name="ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl18$mainid" id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl18_mainid" value="65414" />
+                                                <a id="ctl00_ContentPlaceHolder1_grvdocumentdetails_ctl18_Lnkdownload" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grvdocumentdetails$ctl18$Lnkdownload&#39;,&#39;&#39;)" style="color: black">Download</a>&nbsp
+                                                
+                                                
+                                                
+                                                
+                                            </font></td>
+			</tr>
+		</table>
+	</div>
+                            </div>
+                        </div>
+                    
+</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="width: 800px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">View OC/CC</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+
+</div>
+                    
+                    
+                    
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fas fa-chevron-up"></i></a>
+        <!--================ start footer Area =================-->
+        <footer class="footer-area ">
+
+       
+            <div class="container-fluid">
+                <div class="row">
+                                    
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-footer-widget">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a class="navbar-brand logo_h" href="index">
+                                        <img src="img/rera_logo.png" title="Rera Logo" alt="Rera Logo"  /></a>
+                                    <br />
+                                    <br />
+                                    <p>The Real Estate (Regulation and Development) Act, 2016 is an Act of the Parliament of India which seeks to protect home-buyers as well as help boost investments in the real estate industry. The Act came into force from 1 May 2016.</p>
+                               
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Quick Links</h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="index">home</a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="AboutUs" target="_blank">about </a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="applicationform" target="_blank">career </a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="Media" target="_blank">media</a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="downloads" target="_blank">downloads</a>
+                                        </li>
+                                        <li><i class="ti-angle-right"></i>
+                                            <a href="ContactUs" target="_blank">contact us</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="Web_Information_Manager" target="_blank">Web Information Manager</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Social Links</h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                        <li><a href="https://facebook.com/upreraofficial" target="_blank" title="Facebook"><i class="ti-angle-right"></i>Facebook</a>	</li>
+                                     
+                                        <li><a href="https://twitter.com/UPRERAofficial" target="_blank" title="Twitter"><i class="ti-angle-right"></i>Twitter</a>	</li>
+                                         <li style="display:none;"><a href="#" title="Linked In"><i class="ti-angle-right"></i>LinkedIn</a>	</li>
+                                        <li ><a href="https://www.youtube.com/channel/UCAeF0bOHPpzN-K9QvfA9rSQ" target="_blank" title="Youtube"><i class="ti-angle-right"></i>Youtube</a>	</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Circulars & Notices </h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                        <li><a href="pdf/UPRERA_ATS_2018.pdf" target="_blank"><i class="ti-angle-right"></i>Agreement for Sale/Lease</a></li>
+                                        <li><a href="pdf/Order for CA,Architect,Engineer Certificate.pdf" target="_blank"><i class="ti-angle-right"></i>Order for CA, Architect, Engineer Certificate</a></li>
+                                        <li><a href="pdf/Portal_Editing_order.pdf" target="_blank"><i class="ti-angle-right"></i>Order For Project Registration & Editing</a></li>
+                                        <li><a href="pdf/SOP.pdf" target="_blank"><i class="ti-angle-right"></i>SOP for Complaint Redressal</a></li>
+                                        <li><a href="notices" target="_blank"><i class="ti-angle-right"></i>Click For More Notices...</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3">
+                        <div class="single-footer-widget">
+                            <h6>Other Links</h6>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="footer-nav">
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="DisclaimerandPolicies" target="_blank">Disclaimer and Policies</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="RTIDOC" target="_blank">RTI</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="TermCondition" target="_blank">Terms and Conditions</a>
+                                        </li>
+                                         <li><i class="ti-angle-right"></i>
+                                            <a href="Sitemap" target="_blank">Sitemap</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                
+            </div>
+        </footer>
+        <div class="container-fluid">
+
+            <div class="row" style="background-color:#6c757d">
+                    <div class="accessibilityDiv">
+                        <ul class="accessibility-icons list-unstyled list-inline font-zoom pull-left">
+                            <li class="language" style="display: inline;"><a style="font-size: 14px;" class="taglib-language-list-text" href="#">
+                                
+                                   <a href="https://facebook.com/upreraofficial" target="_blank" title="Facebook" ><i class="fa fa-facebook"></i></a>	
+                                &nbsp;
+                               <a href="https://twitter.com/UPRERAofficial" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>	
+                                   &nbsp;
+                                <a href="https://www.youtube.com/channel/UCAeF0bOHPpzN-K9QvfA9rSQ" target="_blank" title="Youtube"><i class="fa fa-youtube-play" style="color:red"></i></a>	
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text increase" title="Increase font size"> | +A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text resetMe" title="Restore default font size" style="padding: 2px 6px 2px 6px;">| A</a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a href="#" class="taglib-language-list-text decrease" title="Decrease font size" style="">| -A</a>
+                                 &nbsp;
+                                  &nbsp;
+                                
+
+                                 <a style="font-size: 14px;" class=" taglib-language-list-text " href="ScreenReader.aspx" data-toggle="tooltip" title="Screen Reader Access"><span class="fa fa-desktop"></span>   </a>
+                                  &nbsp;
+                                  &nbsp;
+                                <a style="font-size: 14px;" class="taglib-language-list-text " href="Sitemap" data-toggle="tooltip" title="Sitemap"> <i class="fa fa-sitemap" aria-hidden="true"></i></a>
+                                         
+                                    &nbsp;
+                                  &nbsp;
+                             </a>
+
+
+                            </li>
+                       
+                        </ul>
+                    </div>
+                <div class="col-lg-12">
+                    <div class="footer-copy-right">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                  <p>
+   Copyright © 2026 UP-RERA , Concieved by: Uttar Pradesh Real Estate Regulatory Authority , Developed by : UPDESCO(Acme Digitek Solutions Pvt. Ltd)
+
+</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>Last reviewed and updated on <span id="ctl00_lbllastupdated">07 Jul 2026</span></p>
+                            </div>
+                            <div class="col-sm-6">
+                               <p>  Version : 1.9.1 </p>
+                            </div>
+                        </div>
+                      
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <style>
+            .footer-copy-right {
+             padding:10px;
+         }
+         .footer-copyright-area {
+    background: #303030;
+    padding: 20px 0px;
+    text-align: center;
+    margin-left: 200px;
+}
+         .footer-copy-right p {
+    margin: 0px;
+    font-size: 15px;
+    color: #fff;
+    text-align:center;
+}
+         .footer-copy-right a {
+    color: #303030;
+}
+        </style>
+
+
+
+
+        <!--================ End footer Area =================-->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+
+
+        
+
+<!--=======Header Script Start=====-->
+        <script src="multiselect/jquery.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="tcal.css" />
+    	<script type="text/javascript" src="tcal.js"></script> 
+        <script src="js/jquery-1.min.js"></script> 
+
+
+
+
+
+    <script>
+        // Code For Block Inspect Element in Browser
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        $(document).keydown(function (e) {
+            if (e.which === 123) {
+                return false;
+            }
+        });
+
+       
+
+
+        //$('body').on("submit", "form", function () {
+        //    if (Page_ClientValidate() == true) {
+        //        ShowProgress();
+        //        return true;
+        //    }
+        //    else {
+        //        return false;
+        //    }
+        //});
+
+        //function ShowProgress() {
+        //    setTimeout(function () {
+        //        var modal = $('<div />');
+        //        modal.addClass("modal");
+        //        $('body').append(modal);
+        //        var loading = $(".loading");
+        //        loading.show();
+        //        var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
+        //        var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
+        //        loading.css({ top: top, left: left });
+        //    }, 200);
+        //}
+    </script>
+
+
+        
+<!--=======Header Script END=======-->
+
+
+
+
+<script src="js/popper.js"></script>        
+<script src="js/jquery-3.min.js"></script>
+<script src="multiselect/bootstrap.min.js"></script>
+<script src="JqueryCallender/js/jquery-12.js"></script>    
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="js/jquery.bootstrap.newsbox.min.js"></script>
+<script src="vendors/isotope/isotope.pkgd.min.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>       
+<script src="css/counter-up/jquery.counterup.js"></script>
+<script src="css/counter-up/jquery.waypoints.min.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/theme.js"></script>
+    
+<script src="js/bootstrap-multiselect.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min-1.js"></script>
+
+<script src="multiselect/bootstrap-multiselect.js"></script>
+<script src="js/jquery.easy-ticker.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/custom.js"></script>
+     
+
+
+
+    
+<script type='text/javascript'>new Sys.WebForms.Menu({ element: 'ctl00_menuBar', disappearAfter: 500, orientation: 'horizontal', tabIndex: 0, disabled: false });</script></form>
+</body>
+</html>

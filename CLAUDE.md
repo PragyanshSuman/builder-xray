@@ -16,6 +16,10 @@ before every session. Full product spec: `docs/spec.md`.
 - Publish facts from official records only, each with `source_url` and
   `collected_at`. No reviews, no opinions, no words like "fraud" or "scam".
 - Never display names of individual complainants. Counts and order outcomes only.
+- Never publish personal contact details (phone numbers, email addresses,
+  personal addresses of individuals), even when a portal shows them. Don't store
+  them in parsed tables; redact them from committed fixtures. Promoter legal
+  names and registered company addresses are fine.
 - Link to original PDFs; never rehost builders' documents.
 - Every page footer: "Not a credit rating. Not legal or investment advice. Based
   on official RERA records as of {date}." plus Methodology, Corrections and

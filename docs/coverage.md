@@ -8,7 +8,7 @@ Per source: portal URL, robots.txt status, access method, tier, fields captured
 |---|---|---|
 | Unified RERA portal (IN) | n/a | Inspected 2026-11-19: **no project-level data** (see below) |
 | Maharashtra (MahaRERA) | A | robots.txt returns 403 → **paused, decision needed** |
-| Uttar Pradesh (UP-RERA) | A | Reachable, robots.txt allows home → next: manual inspection (M2) |
+| Uttar Pradesh (UP-RERA) | A | Inspected 2026-11-19: **crawlable**, see below |
 
 ## State portal survey, 2026-11-19
 
@@ -83,3 +83,44 @@ projects.** The spec assumed it could serve as a national per-project index
 
 **Page weight:** the home page is 21.4 MB, almost entirely an inline SVG map.
 Never fetch it in automation; `stateRERA.html` (49 KB) has the directory.
+
+## Uttar Pradesh: up-rera.in (inspected 2026-11-19)
+
+Requests: 4 by hand (home, Registered Projects postback, one detail page) plus
+the survey's 2. Fixtures: `fixtures/up/` (trimmed; phones/emails redacted).
+
+**robots.txt:** `User-agent: *` / `Disallow: /cgi-bin/`, so everything else is allowed.
+No CAPTCHA or login on the list or detail pages. Reachable from GitHub's US
+runners too.
+
+**Project list:** home page "Registered Projects" is an ASP.NET postback
+(`__EVENTTARGET=ctl00$ContentPlaceHolder1$lnkRegisteredProjects`) that
+302-redirects to `GET /projects`. That one page (15.5 MB, so it needs a raised body cap)
+lists **3,864** projects in a single table, with no pagination:
+
+| Column | Meaning (as shown) | Notes |
+|---|---|---|
+| Promoter Name | promoter legal name | |
+| Project Name | project name | 701 names carry the suffix **"(Default on QPR)"**, the portal's own flag. Store it as a separate boolean; strip it from the name |
+| RERA Reg.No. | registration number | unique; formats `UPRERAPRJ<digits>` and `UPRERAPRJ<digits>/<mm>/<yyyy>` |
+| ProjectType | Residential / Commercial / Mixed | 3,146 / 612 / 106 |
+| District | district | |
+| StartDate | proposed start date | dd-mm-yyyy |
+| EndDate | **current** completion date, after extensions | matches "Extension Upto" on the detail page (1 sample; confirm in the golden set) |
+| Registration Date | date registered with UP-RERA | |
+| Details | link `Projectsummary?<5 encrypted params>` | works without a session or cookies |
+
+Other public lists on the home page (same postback mechanism, not yet fetched):
+Completed Projects, De-registered, NCLT, Abeyance, NCLT u/s 8, Registered Promoters, Agents.
+
+**Project detail (`Projectsummary`):** Project Registration Date; Proposed
+Period (months); Proposed Start Date; **Declared Date Of Completion** (the
+original completion date); **Extension Granted** table (Sno, From, Upto, reason
+text); district/tehsil; promoter name and applicant type (e.g. Partnership
+Firm); promoter's number of projects; **total complaints against the promoter**
+and **complaints for this project** (counts); document list with download links.
+Also shown: promoter mobile/email. **Not stored, never published.**
+
+**Scale:** ~3,900 detail pages at 1 request / 3 s ≈ 3.3 h for a first full pass.
+Spread it over nights; afterwards fetch only new projects or those whose list
+row changed.

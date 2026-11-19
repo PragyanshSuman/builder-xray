@@ -1,0 +1,1483 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=Edge" /><meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" /><title>
+	UPRERA Registered Projects
+</title><meta name="description" content="This is an official website of UP RERA that provides online information about all activities, provisions by UP RERA in Uttar Pradesh." /><meta name="keywords" content="uprera,UP RERA,uttar pradesh rera,rera in uttar pradesh,UPRERA,Official Website of RERA Uttar Pradesh,Website of RERA Uttar Pradesh,Website of RERA,RERA UP WEBSITE,UP RERA WEBSITE, OFFICIAL WEBSITE OF RERA,RERA UP,UPRERA WEBSITE,ONLINE PROPERTY,ONLINE PROJECT REGISTRTION,Promoters Registration" />
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="images/logo/UP_RERA_Final%20Logo-02.jpg" type="image/x-icon" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Core Css -->
+    <link href="Dashboard/css/bootstrap.css" rel="stylesheet" />
+    <!-- Waves Effect Css -->
+    <link href="Dashboard/css/waves.css" rel="stylesheet" />
+    <!-- Animation Css -->
+    <link href="Dashboard/css/animate.css" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link href="Dashboard/bootstrapTable/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- Morris Chart Css-->
+    <link href="Dashboard/css/morris.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="Dashboard/css/style.css" rel="stylesheet" /><link href="Dashboard/css/all-themes.css" rel="stylesheet" />
+    
+    <script src="Dashboard/js/jquery.js"></script>
+    
+        
+    <script>
+        $(document).keydown(function (event) {
+            if (event.ctrlKey == true && (event.which == '80')) {
+                //cntrl + p
+                event.preventDefault();
+                $(".logoImage").show();
+                $(".headDash").show();
+                printAssessment();
+                $(".logoImage").hide();
+                $(".headDash").hide();
+            }
+        });
+        function printAssessment() {
+            //alert("Print the little page");
+            window.print();
+        }
+        $(document).ready(function () {
+
+            $("input[type=radio]").addClass('with-gap');
+        })
+    </script>
+     
+    
+    <style>
+
+            .wrapper {
+  position: relative;
+  /*top: 50px;*/
+  height: 700px;
+  overflow-x: auto;
+}
+        .theme-default .navbar-brand {
+    color: #800000 !important;
+    margin-left: 0px !important;
+    float: left;
+    height: 50px;
+    padding: 2px 30px;
+    font-size: 18px;
+    line-height: 20px;
+}
+        .sidebar {
+           top: 70px !important
+        }
+        .theme-default .clientname  { color: #800000 !important;}
+        section.content {
+    margin: 50px 2px 0 225px !important;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+        .sidebar .menu .list i.material-icons {
+            margin-top: 0px;
+        }
+
+        .sidebar .menu .list a {
+            color: #0a0909;
+            position: relative;
+            display: inline-flex;
+            vertical-align: middle;
+            width: 100%;
+            padding: 10px 13px;
+        }
+
+        .sidebar .menu .list .waves-block:before {
+            content: '+';
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .sidebar .menu .list .waves-block :after,
+        .sidebar .menu .list .waves-block:before {
+            position: absolute;
+            top: calc(50% - 14px);
+            right: 17px;
+            font-size: 19px;
+            -moz-transform: scale(0);
+            -ms-transform: scale(0);
+            -o-transform: scale(0);
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .sidebar .menu .list .waves-block:after {
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .sidebar .menu .list .waves-block:after {
+            content: '\2013';
+            -moz-transform: scale(0);
+            -ms-transform: scale(0);
+            -o-transform: scale(0);
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #9c9c9c #e8e8e8;
+        }
+
+            /* Works on Chrome, Edge, and Safari */
+            *::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            *::-webkit-scrollbar-track {
+                background: #e8e8e8;
+            }
+
+            *::-webkit-scrollbar-thumb {
+                background-color: #9c9c9c;
+                border-radius: 20px;
+                border: 3px solid #9c9c9c;
+            }
+
+        .sidebar .menu .row .rowchild .header {
+            background: #eee;
+            font-size: 12px;
+            font-weight: 600;
+            /*padding: 8px 16px;*/
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .ls-closed section.content {
+    margin-left: 15px !important;
+}
+        .ls-closed .bars:before {
+    content: '\E5D2';
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+        .ls-closed .bars:before {
+    content: '\E5D2';
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    color: red;
+}
+        .wrapper {
+    position: relative;
+    /* top: 50px; */
+    height: auto !important;
+    overflow-x: auto;
+}
+    </style>
+    
+<script type="text/javascript">    
+</script>        
+</head>
+<body class="theme-default">
+  
+    <form name="form1" method="post" action="./projects" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="[stripped]" />
+
+
+<script src="/ScriptResource.axd?d=jDrYmNZ1BfuQTouQ_UV7IBXWXW1cdQHTmtY5CMur73DvuWX3F9zbKJSatVkGJH8D5QlCEr30Ln1LYpkSHGTJMAMQGq3Qjug1o3V1bbfG-porSx-F_NY_aH8Ilc0rGfLoeBK2RoLUILrFmoB9ahemWA2&amp;t=7f16157c" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="78B3EDCF" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="[stripped]" />
+               
+    
+        <!-- #END# Page Loader -->
+        
+        
+        
+        <!-- Overlay For Sidebars -->
+        <div class="overlay"></div>
+        <!-- #END# Overlay For Sidebars -->
+        <!-- Search Bar -->
+      
+        <!-- #END# Search Bar -->
+        <!-- Top Bar -->
+       
+        <nav class="navbar">            
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="navbar-header">
+                            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                            <a href="javascript:void(0);" class="bars" ></a>
+                           
+                            <img class="navbar-brand" src="images/logo/UP_RERA_Final_Logo-02.jpg" />
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h2 class="clientname" style="color:#dc3838;font-weight:900;">Uttar Pradesh Real Estate Regulatory Authority</h2>
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Call Search -->
+                        
+                        <!-- #END# Call Search -->
+                        <li>
+                            <a onclick="return showAlertPromoterForHomePage();" data-type="ajax-loader" class="js-sweetalert" title="Go Back To Home Page" role="button">
+                                <i class="material-icons">home</i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                    </div>
+                </div>               
+                
+            </div>
+        </nav>
+        <!-- #Top Bar -->
+        <section>
+            <!-- Left Sidebar -->
+            <aside id="leftsidebar" class="sidebar">
+                <!-- Menu -->
+                <div class="menu">
+                    <div class="row">
+                        <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12 rowchild">
+                            <h4 class="header"> Remove Filters <span style="float: right">
+                                <a id="lnkbtn_reset_prj" title="Remove Filters" class="btn-circle waves-effect waves-circle waves-float btn-sm" href="javascript:__doPostBack(&#39;lnkbtn_reset_prj&#39;,&#39;&#39;)" style="background-color: #fb483a; color: white; float: right; width: 35px; height: 35px;"><i class="material-icons">autorenew</i></a></span></h4>
+                          
+                            
+                              <div class="panel-group" id="accordion_4" role="tablist" aria-multiselectable="false">
+                                <div class="panel panel-maroon">
+                                    <div class="panel-heading" role="tab" id="headingOne_District">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion_4" href="#collapseOne_District" aria-expanded="true" aria-controls="collapseOne_District"><i class="material-icons">location_city</i> District</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne_District" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_District">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                      <span id="spnCount1"></span>
+                                                    <input type="text" id="txtSearchDistrict" placeholder="search district" class="form-control" onkeyup="SearchDistrict(this,'#chk_district');"/>
+                                                </div>
+                                            </div>
+                                            <div style="max-height: 100px; overflow-y: scroll;">
+                                                <span id="chk_district"><input id="chk_district_0" type="checkbox" name="chk_district$0" /><label for="chk_district_0">Agra</label><br /><input id="chk_district_1" type="checkbox" name="chk_district$1" /><label for="chk_district_1">Aligarh</label><br /><input id="chk_district_2" type="checkbox" name="chk_district$2" /><label for="chk_district_2">Amroha</label><br /><input id="chk_district_3" type="checkbox" name="chk_district$3" /><label for="chk_district_3">Ayodhya</label><br /><input id="chk_district_4" type="checkbox" name="chk_district$4" /><label for="chk_district_4">Azamgarh</label><br /><input id="chk_district_5" type="checkbox" name="chk_district$5" /><label for="chk_district_5">Bagpat</label><br /><input id="chk_district_6" type="checkbox" name="chk_district$6" /><label for="chk_district_6">Bahraich</label><br /><input id="chk_district_7" type="checkbox" name="chk_district$7" /><label for="chk_district_7">Ballia</label><br /><input id="chk_district_8" type="checkbox" name="chk_district$8" /><label for="chk_district_8">Balrampur</label><br /><input id="chk_district_9" type="checkbox" name="chk_district$9" /><label for="chk_district_9">Banda</label><br /><input id="chk_district_10" type="checkbox" name="chk_district$10" /><label for="chk_district_10">Barabanki</label><br /><input id="chk_district_11" type="checkbox" name="chk_district$11" /><label for="chk_district_11">Bareilly</label><br /><input id="chk_district_12" type="checkbox" name="chk_district$12" /><label for="chk_district_12">Basti</label><br /><input id="chk_district_13" type="checkbox" name="chk_district$13" /><label for="chk_district_13">Bijnor</label><br /><input id="chk_district_14" type="checkbox" name="chk_district$14" /><label for="chk_district_14">Budaun</label><br /><input id="chk_district_15" type="checkbox" name="chk_district$15" /><label for="chk_district_15">Bulandshahr</label><br /><input id="chk_district_16" type="checkbox" name="chk_district$16" /><label for="chk_district_16">Chandauli</label><br /><input id="chk_district_17" type="checkbox" name="chk_district$17" /><label for="chk_district_17">Etah</label><br /><input id="chk_district_18" type="checkbox" name="chk_district$18" /><label for="chk_district_18">Etawah</label><br /><input id="chk_district_19" type="checkbox" name="chk_district$19" /><label for="chk_district_19">Fatehpur</label><br /></span>
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" id="accordion_5" role="tablist" aria-multiselectable="false">
+                                <div class="panel panel-maroon">
+                                    <div class="panel-heading" role="tab" id="headingPromoter">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_5" href="#collapsePromoter" aria-expanded="true" aria-controls="collapsePromoter"><i class="material-icons">person</i> Promoter</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapsePromoter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPromoter">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                      <span id="spnCount2"></span>
+                                                    <input type="text" id="txtprmSearch" placeholder="search promoter" class="form-control" onkeyup="SearchPromoter(this,'#chkPromoterList');"/>
+                                                </div>
+                                            </div>
+                                            <div style="max-height: 100px; overflow-y: scroll;">
+                                                <span id="chkPromoterList"><input id="chkPromoterList_0" type="checkbox" name="chkPromoterList$0" /><label for="chkPromoterList_0">ORO CONSTRUCTIONS PVT LTD</label><br /><input id="chkPromoterList_1" type="checkbox" name="chkPromoterList$1" /><label for="chkPromoterList_1">ELDECO HOUSING AND INDUSTRIES LTD.</label><br /><input id="chkPromoterList_2" type="checkbox" name="chkPromoterList$2" /><label for="chkPromoterList_2">FUTUREWORLD GREENHOMES PVT. LTD.</label><br /><input id="chkPromoterList_3" type="checkbox" name="chkPromoterList$3" /><label for="chkPromoterList_3">ANSAL HOUSING LIMITED</label><br /><input id="chkPromoterList_4" type="checkbox" name="chkPromoterList$4" /><label for="chkPromoterList_4">MAHALUXMI INFRAHOME PVT LTD</label><br /><input id="chkPromoterList_5" type="checkbox" name="chkPromoterList$5" /><label for="chkPromoterList_5">S. J. P. HOTELS & RESORTS PVT LTD</label><br /><input id="chkPromoterList_6" type="checkbox" name="chkPromoterList$6" /><label for="chkPromoterList_6">SURAJ INFRAVENTURES PVT LTD</label><br /><input id="chkPromoterList_7" type="checkbox" name="chkPromoterList$7" /><label for="chkPromoterList_7">MANJU J HOMES INDIA LIMITED</label><br /><input id="chkPromoterList_8" type="checkbox" name="chkPromoterList$8" /><label for="chkPromoterList_8">CHANDRA MODERN BUILDERS (INDIA) PVT LTD</label><br /><input id="chkPromoterList_9" type="checkbox" name="chkPromoterList$9" /><label for="chkPromoterList_9">AADINATH PROBUILD (INDIA) PRIVATE LIMITED</label><br /><input id="chkPromoterList_10" type="checkbox" name="chkPromoterList$10" /><label for="chkPromoterList_10">SAMRIDHI REALTY HOMES PRIVATE LIMITED</label><br /><input id="chkPromoterList_11" type="checkbox" name="chkPromoterList$11" /><label for="chkPromoterList_11">PRATEEK REALTORS INDIA PRIVATE LIMITED</label><br /><input id="chkPromoterList_12" type="checkbox" name="chkPromoterList$12" /><label for="chkPromoterList_12">STRATEGIC DEVELOPERS PRIVATE LIMITED</label><br /><input id="chkPromoterList_13" type="checkbox" name="chkPromoterList$13" /><label for="chkPromoterList_13">AR LANDCRAFT LLP </label><br /><input id="chkPromoterList_14" type="checkbox" name="chkPromoterList$14" /><label for="chkPromoterList_14">EXCELLA INFRAZONE LLP</label><br /><input id="chkPromoterList_15" type="checkbox" name="chkPromoterList$15" /><label for="chkPromoterList_15">AARCITY INFRASTRUCTURE PRIVATE LIMITED</label><br /><input id="chkPromoterList_16" type="checkbox" name="chkPromoterList$16" /><label for="chkPromoterList_16">SUPER CITY DEVELOPERS PVT LTD</label><br /><input id="chkPromoterList_17" type="checkbox" name="chkPromoterList$17" /><label for="chkPromoterList_17">VIRAJ CONSTRUCTIONS PVT. LTD.</label><br /><input id="chkPromoterList_18" type="checkbox" name="chkPromoterList$18" /><label for="chkPromoterList_18">MANGALYA BUILDTECH PRIVATE LIMITED</label><br /><input id="chkPromoterList_19" type="checkbox" name="chkPromoterList$19" /><label for="chkPromoterList_19">OASIS BUILDMART INDIA PVT LTD</label><br /></span>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" id="accordion_6" role="tablist" aria-multiselectable="false">
+                                <div class="panel panel-maroon">
+                                    <div class="panel-heading" role="tab" id="headingThree_Projects">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_6" href="#collapseThree_Projects" aria-expanded="true" aria-controls="collapseThree_Projects"><i class="material-icons">domain</i> Projects</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree_Projects" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree_Projects">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                      <span id="spnCount3"></span>
+                                                    <input type="text" id="chkfilter" placeholder="search promoter name" onkeyup="SearchProject(this,'#chkProjectName');"/>
+                                                </div>
+                                            </div>
+                                            <div style="max-height: 100px; overflow-y: scroll;">
+                                                <span id="chkProjectName"><input id="chkProjectName_0" type="checkbox" name="chkProjectName$0" /><label for="chkProjectName_0"> ARSH ENCLAVE PHASE 1 </label><br /><input id="chkProjectName_1" type="checkbox" name="chkProjectName$1" /><label for="chkProjectName_1"> ATS ALLURE</label><br /><input id="chkProjectName_2" type="checkbox" name="chkProjectName$2" /><label for="chkProjectName_2"> ATS RHAPSODY</label><br /><input id="chkProjectName_3" type="checkbox" name="chkProjectName$3" /><label for="chkProjectName_3"> Passion Royal Cottage </label><br /><input id="chkProjectName_4" type="checkbox" name="chkProjectName$4" /><label for="chkProjectName_4"> SHALIMAR EVARA HEIGHTS</label><br /><input id="chkProjectName_5" type="checkbox" name="chkProjectName$5" /><label for="chkProjectName_5"> Supertech Czar</label><br /><input id="chkProjectName_6" type="checkbox" name="chkProjectName$6" /><label for="chkProjectName_6"> VAIDIK VIHAR </label><br /><input id="chkProjectName_7" type="checkbox" name="chkProjectName$7" /><label for="chkProjectName_7"> WOODLAND MOHANLALGANJ</label><br /><input id="chkProjectName_8" type="checkbox" name="chkProjectName$8" /><label for="chkProjectName_8">"1st - A Park View" -  Gaur Yamuna City</label><br /><input id="chkProjectName_9" type="checkbox" name="chkProjectName$9" /><label for="chkProjectName_9">"1st - B Park View" -  Gaur Yamuna City</label><br /><input id="chkProjectName_10" type="checkbox" name="chkProjectName$10" /><label for="chkProjectName_10">"Ornate"</label><br /><input id="chkProjectName_11" type="checkbox" name="chkProjectName$11" /><label for="chkProjectName_11">(G+3) Type EWS Flats</label><br /><input id="chkProjectName_12" type="checkbox" name="chkProjectName$12" /><label for="chkProjectName_12">(G+3) Type LIG Flats</label><br /><input id="chkProjectName_13" type="checkbox" name="chkProjectName$13" /><label for="chkProjectName_13">**Construction of 106/162 type 03 Nos. Houses in Y</label><br /><input id="chkProjectName_14" type="checkbox" name="chkProjectName$14" /><label for="chkProjectName_14">**Construction of 18/40 type 24 Nos. Houses in Yoj</label><br /><input id="chkProjectName_15" type="checkbox" name="chkProjectName$15" /><label for="chkProjectName_15">**Construction of 2 nos. 80/122 Semi finished hous</label><br /><input id="chkProjectName_16" type="checkbox" name="chkProjectName$16" /><label for="chkProjectName_16">**Construction of 29/60 type 21 Nos. Houses in Yoj</label><br /><input id="chkProjectName_17" type="checkbox" name="chkProjectName$17" /><label for="chkProjectName_17">**Construction of 29/60 type 24 Nos. Houses in Yoj</label><br /><input id="chkProjectName_18" type="checkbox" name="chkProjectName$18" /><label for="chkProjectName_18">**Construction of 45/75 type 25 Nos. Houses in Yoj</label><br /><input id="chkProjectName_19" type="checkbox" name="chkProjectName$19" /><label for="chkProjectName_19">_Arihant Residency_</label><br /></span>
+                                                
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" id="accordion_7" role="tablist" aria-multiselectable="false" style="display:none">
+                                <div class="panel panel-maroon">
+                                    <div class="panel-heading" role="tab" id="headingFour_CompletedProjects">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_7" href="#collapseFour_CompletedProjects" aria-expanded="true" aria-controls="collapseFour_CompletedProjects"><i class="material-icons">domain</i>Completed Projects</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseFour_CompletedProjects" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree_Projects">
+                                        <div class="panel-body">
+                                            <div style="max-height: 100px; overflow-y: scroll;">
+                                                <input id="chkCompletedProject" type="checkbox" name="chkCompletedProject" /><label for="chkCompletedProject">Show Completed Project</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- #Menu -->
+
+
+
+                <!-- Footer -->
+                <div class="legal">
+                    <div class="copyright">
+                        &copy; 2020 - 2026 <a href="javascript:void(0);">UPRERA - Project DashBoard</a>.
+               
+                    </div>
+                    <div class="version">
+                        <b>Version: </b>1.0.5
+               
+                    </div>
+                </div>
+                <!-- #Footer -->
+            </aside>
+            <!-- #END# Left Sidebar -->            
+        </section>
+        <div style="min-height: 400px;" id="main">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="block-header" style="display:none">
+                        <div class="row">
+                            <div class="col-sm-4"><h2 class="headDash">UPRERA Registered Projects</h2></div>
+                            <div class="col-sm-4" style="text-align:center"><img src="images/logo/ReraLogo.png" style="display:none" class="logoImage"/></div>
+                            <div class="col-sm-4 clockdiv" style="text-align:right;display:none;">                                
+                                    <span class="time"><i class="fa fa-calendar" aria-hidden="true"></i>
+                            <script type="text/javascript">
+                                var d = new Date()
+                                var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+                                var monthname = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+                                document.write(weekday[d.getDay()] + ", ")
+                                document.write(d.getDate() + " ")
+                                document.write(monthname[d.getMonth()] + ", ")
+                                document.write(d.getFullYear())
+                            </script>
+                            | <i class="far fa-clock" aria-hidden="true"></i>
+                            <span id="clockDisplay">
+                                <script type="text/javascript" language="javascript">
+                                    function renderTime() {
+                                        var currentTime = new Date();
+                                        var diem = "AM";
+                                        var h = currentTime.getHours();
+                                        var m = currentTime.getMinutes();
+                                        var s = currentTime.getSeconds();
+                                        setTimeout('renderTime()', 1000);
+                                        if (h == 0) {
+                                            h = 12;
+                                        } else if (h > 12) {
+                                            h = h - 12;
+                                            diem = "PM";
+                                        }
+                                        if (h < 10) {
+                                            h = "0" + h;
+                                        }
+                                        if (m < 10) {
+                                            m = "0" + m;
+                                        }
+                                        if (s < 10) {
+                                            s = "0" + s;
+                                        }
+                                        var myClock = document.getElementById('clockDisplay');
+                                        myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+                                        myClock.innerText = h + ":" + m + ":" + s + " " + diem;
+                                    }
+                                    renderTime();
+                                </script>
+                            </span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Widgets -->
+                    <div class="row clearfix" style="display: none">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-pink hover-expand-effect">
+                                <div class="icon">
+                                    <i class="material-icons">playlist_add_check</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">PROJECTS</div>
+                                    <div id="NoOfProjects" class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-cyan hover-expand-effect">
+                                <div class="icon">
+                                    <i class="material-icons">help</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">PROMOTER</div>
+                                    <div id="NoOfPromoter" class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-light-green hover-expand-effect">
+                                <div class="icon">
+                                    <i class="material-icons">forum</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">COMPLAINTS</div>
+                                    <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-orange hover-expand-effect" style="display: none;">
+                                <div class="icon">
+                                    <i class="material-icons">person_add</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">NEW VISITORS</div>
+                                    <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #END# Widgets -->
+
+                    <!-- Exportable Table -->
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div id="UpdateProgress1" style="display:none;">
+	
+                                        <div style="position: fixed; text-align: center; height: 100%; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #000000; opacity: 0.7;">
+                                            <img id="imgUpdateProgress" title="Loading ..." src="img/slider/ajax-loader.gif" alt="Loading ..." border="0" style="padding: 10px; position: fixed; top: 25%; left: 48%;" />
+                                            <center><span style="color:White;font-weight:bolder;font-size:x-large;position: fixed; top: 49%; left: 50%;"><b>Loading...</b></span></center>
+                                        </div>                                      
+                                    
+</div>
+                                <div class="header" style="display:none">
+                                    <h2>Project Detail</h2>
+                                    <ul class="header-dropdown m-r--5" style="display:none">
+                                        <li class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons">more_vert</i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="javascript:void(0);">Reload</a></li>
+                                                <li><a href="javascript:void(0);">Clear Data</a></li>
+                                                <li><a href="javascript:void(0);">Hide All</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="body">
+                                    <div class="table-responsive narrow-block wrapper">
+                                        <div>
+	<table cellspacing="0" cellpadding="4" class="table table-striped table-hover bg_table js-basic-example dataTable" border="0" border="0" id="grdPojDetail" width="100%"><tr>
+			<th scope="col"><font color="#333333">S.No</font></th><th scope="col"><font color="#333333">Promoter Name</font></th><th scope="col"><font color="#333333">Project Name</font></th><th scope="col"><font color="#333333">RERA Reg.No.</font></th><th scope="col"><font color="#333333">ProjectType</font></th><th scope="col"><font color="#333333">District</font></th><th scope="col"><font color="#333333">StartDate</font></th><th scope="col"><font color="#333333">EndDate</font></th><th scope="col"><font color="#333333">Registration Date</font></th><th scope="col"><font color="#333333">Details</font></th>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">1</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblPromoter"><ul style='padding-left:15px'><li> G R CONSTRUCTIONS</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblProjectName">PARK ROYAL APARTMENT</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblRegistrationNo">UPRERAPRJ13276</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblDistrict">Lucknow</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblStartDate">01-06-2013</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblEndDate">30-08-2016</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl02_lblRegDate" class="btnViewtd">29-09-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=UFp6lobcPEg=&hfFlag=GL34ZTSSjlw=&NPJ6RAme=j/RAcWc6MzEwuMVF9gU5NlYQ78ISJVv1&PaURJEMAN4=ZL9MNERkNda9ii+MxNTwXQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">2</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblPromoter"><ul style='padding-left:15px'><li> HEBE INFRASTRUCTURE PRIVATE LIMITED (MAHAGUN GROU</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblProjectName">MAHAGUN MANTRA II</span>
+                                                        
+                                                        
+                                                         
+                                                         <br /><span id="grdPojDetail_ctl03_Label2"><b><font color="Red">(Default on QPR)</font></b></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblRegistrationNo">UPRERAPRJ1870</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblDistrict">Gautam Buddha Nagar</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblStartDate">01-07-2014</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblEndDate">29-12-2021</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl03_lblRegDate" class="btnViewtd">27-07-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=v4+zSIWT1sQ=&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP&NPJ6RAme=CRbpe4eWUs71eqm5LDT8GnLZlkHMFRxS&PaURJEMAN4=ZL9MNERkNdbQXT2h79pHTg==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">3</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblPromoter"><ul style='padding-left:15px'><li> JADON INFRATECH</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblProjectName">VAISHNO CRYSTAL</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblRegistrationNo">UPRERAPRJ839360</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblDistrict">Aligarh</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblStartDate">11-03-2019</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblEndDate">09-09-2024</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl04_lblRegDate" class="btnViewtd">11-06-2019</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=Gy8UJfJF6lE=&hfFlag=LOVaGk/IYis=&NPJ6RAme=c4AFTyNArXCX7fELKHgrQA==&PaURJEMAN4=ZL9MNERkNdaqDdPaL8qICA==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">4</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblPromoter"><ul style='padding-left:15px'><li> O P INFRAESTATE PVT LTD</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblProjectName">GRAND FORT </span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblRegistrationNo">UPRERAPRJ11302</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblDistrict">Agra</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblStartDate">20-04-2014</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblEndDate">31-12-2018</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl05_lblRegDate" class="btnViewtd">14-08-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=D7esTfBrOhQ=&hfFlag=xaBp3ZsW0Ws=&NPJ6RAme=9y32TM23kj9Ia9jvxUamxw==&PaURJEMAN4=ZL9MNERkNdaDNjkrzuZjHQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">5</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblPromoter"><ul style='padding-left:15px'><li> R D INFO SOLUTIONS PRIVATE LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblProjectName">SQUARE ONE</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblRegistrationNo">UPRERAPRJ11550</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblDistrict">Lucknow</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblStartDate">01-11-2016</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblEndDate">30-12-2018</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl06_lblRegDate" class="btnViewtd">15-08-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=k9A4I3gw1cs=&hfFlag=GL34ZTSSjlw=&NPJ6RAme=+FC/8wsySYD2HibubWU4HQ==&PaURJEMAN4=ZL9MNERkNdYekqfjZ+h9pg==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">6</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblPromoter"><ul style='padding-left:15px'><li>	 AGARWAL ASSOCIATES (PROMOTERS) LIMITED </li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblProjectName">CITY APARTMENTS PHASE-2</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblRegistrationNo">UPRERAPRJ1498</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblStartDate">21-09-2013</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblEndDate">20-09-2018</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl07_lblRegDate" class="btnViewtd">27-07-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=yyfb/zgDnpg=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=ebWNQm8Rffp2pNRnGW70FkKGD5a3uN+3&PaURJEMAN4=ZL9MNERkNdbwT1h1QkwimA==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">7</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblPromoter"><ul style='padding-left:15px'><li>	 AGARWAL ASSOCIATES (PROMOTERS) LIMITED </li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblProjectName">THE RESORT</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblRegistrationNo">UPRERAPRJ706521</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblStartDate">01-10-2021</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblEndDate">06-08-2026</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl08_lblRegDate" class="btnViewtd">09-08-2022</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=op/DRo9g0oE=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=crlTsTJlt+ZJ7PzsY24lUg==&PaURJEMAN4=ZL9MNERkNdZ0Ip750Qy9FQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">8</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblPromoter"><ul style='padding-left:15px'><li>	 AGARWAL ASSOCIATES (PROMOTERS) LIMITED </li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblProjectName">LIG/EWS BLOCK   AT SECTOR-3, ADITYA WORLD CITY, IN</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblRegistrationNo">UPRERAPRJ15047</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblStartDate">09-01-2018</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblEndDate">25-01-2023</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl09_lblRegDate" class="btnViewtd">29-01-2018</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=ZlxK4JJ0kSA=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=1CWGcq/t424g2sAFN47LDIS0nU0kKn2fl65QEUcIiUhGXdVZPrCrCYVsV2glwF5m2uoQpv4Nyks=&PaURJEMAN4=ZL9MNERkNdYkLp5Meh9vxQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">9</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblPromoter"><ul style='padding-left:15px'><li>	 AGARWAL ASSOCIATES (PROMOTERS) LIMITED </li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblProjectName">CITY APARTMENTS PHASE-3</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblRegistrationNo">UPRERAPRJ2115</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblStartDate">21-09-2013</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblEndDate">19-02-2022</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl10_lblRegDate" class="btnViewtd">27-07-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=06+Uh3euK3U=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=ebWNQm8Rffp2pNRnGW70FsZNQ60qRXDc&PaURJEMAN4=ZL9MNERkNdY+Qqao8nU8Ng==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">10</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblPromoter"><ul style='padding-left:15px'><li>	 AGARWAL ASSOCIATES (PROMOTERS) LIMITED </li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblProjectName">LUXURIA ESTATE PHASE COMMERCIAL(BLOCK H)</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblRegistrationNo">UPRERAPRJ3242</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblStartDate">27-06-2016</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblEndDate">25-12-2021</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl11_lblRegDate" class="btnViewtd">28-07-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=OzJbnCmyey4=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=eEO4E+YBla+REIbDiRlukn4RdBSZJsTGunKwglA3/3Cz9RbnLbvsUOWxYkgriVo4&PaURJEMAN4=ZL9MNERkNdbhyrYqu2jWSQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">11</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblPromoter"><ul style='padding-left:15px'><li>	 AGARWAL ASSOCIATES (PROMOTERS) LIMITED </li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblProjectName">CITY GRACE</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblRegistrationNo">UPRERAPRJ787285</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblStartDate">05-04-2021</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblEndDate">31-03-2029</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl12_lblRegDate" class="btnViewtd">06-12-2023</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=Njn5ChtwsZY=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=yGllgIYbIVAZuYxKhI874w==&PaURJEMAN4=ZL9MNERkNdbqStN9/nrnZQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">12</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblPromoter"><ul style='padding-left:15px'><li>100 ACRES HOMES PRIVATE LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblProjectName">KAILASHAM ENCLAVE</span>
+                                                        
+                                                        
+                                                         
+                                                         <br /><span id="grdPojDetail_ctl13_Label2"><b><font color="Red">(Default on QPR)</font></b></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblRegistrationNo">UPRERAPRJ643949/09/2026</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblDistrict">Barabanki</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblStartDate">01-05-2026</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblEndDate">16-06-2029</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl13_lblRegDate" class="btnViewtd">03-09-2026</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=xS+tnLos8jY=&hfFlag=sHQN9DeUDkHozSnUOyKLvA==&NPJ6RAme=DEpJShMOvqL2Ehw/JU147i2pNEVIFrkD&PaURJEMAN4=ZL9MNERkNdZ5o33mEtH4QWTC36O+sCXk&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">13</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblPromoter"><ul style='padding-left:15px'><li>A & P LUCKNOW CONSTRUCTIONS</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblProjectName">MANSHA PLAZA</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblRegistrationNo">UPRERAPRJ871785</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblDistrict">Lucknow</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblStartDate">15-01-2022</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblEndDate">31-08-2025</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl14_lblRegDate" class="btnViewtd">12-04-2022</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=Sx+vgMLk8CY=&hfFlag=GL34ZTSSjlw=&NPJ6RAme=6OEZeWBhG6cJxm/jES6p2A==&PaURJEMAN4=ZL9MNERkNdZlOqDj37l43g==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">14</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblPromoter"><ul style='padding-left:15px'><li>A A ENTERPRISES</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblProjectName">MALGUDI HOMES</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblRegistrationNo">UPRERAPRJ17411</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblDistrict">Lucknow</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblStartDate">23-08-2018</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblEndDate">31-12-2018</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl15_lblRegDate" class="btnViewtd">29-08-2018</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=suRHmQqN2iQ=&hfFlag=GL34ZTSSjlw=&NPJ6RAme=smCNNqPN8mKmkbcrOO2TlA==&PaURJEMAN4=ZL9MNERkNda9rtU1oU0hsQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">15</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblPromoter"><ul style='padding-left:15px'><li>A AND M DEVELOPERS</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblProjectName">SHAKTI PLAZA</span>
+                                                        
+                                                        
+                                                         
+                                                         <br /><span id="grdPojDetail_ctl16_Label2"><b><font color="Red">(Default on QPR)</font></b></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblRegistrationNo">UPRERAPRJ16429</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblStartDate">08-06-2018</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblEndDate">18-12-2019</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl16_lblRegDate" class="btnViewtd">03-06-2018</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=929W5p/kpvU=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=6+xu0RWswL/BjIX1bAF+Cg==&PaURJEMAN4=ZL9MNERkNdaa4HQ8rW/K/A==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">16</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblPromoter"><ul style='padding-left:15px'><li>A C C BUILDERS</li></ul><UL><LI>A.C.C. TOWNSHIP AND LAND DEVELOPMENT</LI></UL></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblProjectName">SAI GARDEN ENCLAVE</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblRegistrationNo">UPRERAPRJ263383/02/2026</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblDistrict">Moradabad</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblStartDate">01-12-2025</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblEndDate">13-11-2030</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl17_lblRegDate" class="btnViewtd">24-02-2026</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=gkqqmmNja7Q=&hfFlag=1E4qQMUGS4qnuSnOY2gD/g==&NPJ6RAme=fcBtnyevI4Kx8z5QBTKKu00OPZlbx96r&PaURJEMAN4=ZL9MNERkNdYyNvBUqICoOnExACBd0ylh&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">17</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblPromoter"><ul style='padding-left:15px'><li>A I M INFRA  HOMES LLP</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblProjectName">ABDULLAH RESIDENCY AND SHOPING PLAZA</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblRegistrationNo">UPRERAPRJ926815</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblProjectType">Mixed</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblDistrict">Meerut</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblStartDate">01-04-2022</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblEndDate">18-01-2027</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl18_lblRegDate" class="btnViewtd">20-09-2022</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=TlMmJwtilDA=&hfFlag=34fLDxYRDAg=&NPJ6RAme=DEAt30MbyC0mOxtDg61s2sXm+9CUejFpNTREnwSf2fACaidNKGSE/g==&PaURJEMAN4=ZL9MNERkNdZAlpldilmDIA==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">18</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblPromoter"><ul style='padding-left:15px'><li>A L SOFTWEB PRIVATE LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblProjectName">GRANDTHUM PHASE I</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblRegistrationNo">UPRERAPRJ585534</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblDistrict">Gautam Buddha Nagar</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblStartDate">01-08-2019</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblEndDate">25-01-2027</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl19_lblRegDate" class="btnViewtd">02-09-2019</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=rxJ/BjZyICE=&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP&NPJ6RAme=xKtMlErmp4Zp7xPPQYo24SsmACRQ5SXj&PaURJEMAN4=ZL9MNERkNdbvy5TGo7/i2A==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">19</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblPromoter"><ul style='padding-left:15px'><li>A L SOFTWEB PRIVATE LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblProjectName">GRANDTHUM PHASE II</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblRegistrationNo">UPRERAPRJ605316</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblDistrict">Gautam Buddha Nagar</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblStartDate">01-08-2019</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblEndDate">25-01-2027</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl20_lblRegDate" class="btnViewtd">02-09-2019</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=kYdiBCU7vu8=&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP&NPJ6RAme=xKtMlErmp4Zp7xPPQYo24a5nJISroYE5&PaURJEMAN4=ZL9MNERkNdYYR828iNyIxg==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">20</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblPromoter"><ul style='padding-left:15px'><li>A L SOFTWEB PRIVATE LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblProjectName">GRANDTHUM PHASE -III</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblRegistrationNo">UPRERAPRJ213153/02/2026</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblDistrict">Gautam Buddha Nagar</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblStartDate">02-01-2026</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblEndDate">04-12-2029</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl21_lblRegDate" class="btnViewtd">20-02-2026</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=bXIKgesLd+8=&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP&NPJ6RAme=xKtMlErmp4Zp7xPPQYo24Un1VD4fvMq8&PaURJEMAN4=ZL9MNERkNdaLQDd7D9ShvDFpTIc4dc7l&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">21</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblPromoter"><ul style='padding-left:15px'><li>A L SOFTWEB PRIVATE LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblProjectName">GRANDTHUM PHASE IV</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblRegistrationNo">UPRERAPRJ103135</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblDistrict">Gautam Buddha Nagar</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblStartDate">01-08-2019</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblEndDate">25-01-2027</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl22_lblRegDate" class="btnViewtd">02-09-2019</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=qI/YVdNXBec=&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP&NPJ6RAme=xKtMlErmp4Zp7xPPQYo24fHHwYF2Z8rh&PaURJEMAN4=ZL9MNERkNdaA0+6VSkiHcw==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">22</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblPromoter"><ul style='padding-left:15px'><li>A L SOFTWEB PRIVATE LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblProjectName">GRANDTHUM PHASE V</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblRegistrationNo">UPRERAPRJ957104</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblDistrict">Gautam Buddha Nagar</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblStartDate">01-08-2019</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblEndDate">25-01-2027</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl23_lblRegDate" class="btnViewtd">02-09-2019</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=Fud4nDJNAJQ=&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP&NPJ6RAme=xKtMlErmp4Zp7xPPQYo24dOc04wi1fFG&PaURJEMAN4=ZL9MNERkNdbyKDJzNH6N3A==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">23</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblPromoter"><ul style='padding-left:15px'><li>A R BUILDTECH PVT LTD</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblProjectName">A R REFLECTIONS</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblRegistrationNo">UPRERAPRJ11476</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblStartDate">05-10-2011</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblEndDate">05-07-2017</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl24_lblRegDate" class="btnViewtd">15-08-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=i5jiyx0IbVU=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=49pgSZYbMXrzpcrn+bOYBQ==&PaURJEMAN4=ZL9MNERkNdauFCtO/oUnnQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">24</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblPromoter"><ul style='padding-left:15px'><li>A R BUILDTECH PVT LTD</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblProjectName">A R DOMAIN</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblRegistrationNo">UPRERAPRJ699935/05/2025</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblDistrict">Ghaziabad</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblStartDate">06-04-2025</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblEndDate">26-03-2028</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl25_lblRegDate" class="btnViewtd">29-05-2025</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=KbGF3Vt8q7E=&hfFlag=q5Tk0QUeJB8oatkp/Oqbxw==&NPJ6RAme=Plq9gd8A5CB7HtRiW3FRaQ==&PaURJEMAN4=ZL9MNERkNdYYBTeJIRUEDWRHcfom+XQz&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">25</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblPromoter"><ul style='padding-left:15px'><li>A R COLONISERS</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblProjectName">CRYSTAL CITY CENTRE</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblRegistrationNo">UPRERAPRJ13447</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblProjectType">Commercial</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblDistrict">Lucknow</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblStartDate">11-10-2017</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblEndDate">31-03-2019</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl26_lblRegDate" class="btnViewtd">08-10-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=cGFgrCjc3Xk=&hfFlag=GL34ZTSSjlw=&NPJ6RAme=q3WRi9mWFVR4dglBcgeDFR0vEZK/adeI&PaURJEMAN4=ZL9MNERkNdZsGPb+X4hzyQ==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">26</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblPromoter"><ul style='padding-left:15px'><li>A R INFRA PROMOTER (INDIA) PVT LTD</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblProjectName">LOTUS TOWER</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblRegistrationNo">UPRERAPRJ8753</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblDistrict">Meerut</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblStartDate">01-01-2013</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblEndDate">31-12-2019</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl27_lblRegDate" class="btnViewtd">15-08-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=mlcGuUpamCY=&hfFlag=34fLDxYRDAg=&NPJ6RAme=L+ucdNs8w4HAJhxU2It3Uw==&PaURJEMAN4=ZL9MNERkNdawGe/S0JVO6A==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">27</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblPromoter"><ul style='padding-left:15px'><li>A R INFRAHEIGHTS PVT. LTD.</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblProjectName">APEX SOUTH CITY</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblRegistrationNo">UPRERAPRJ322057</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblDistrict">Meerut</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblStartDate">16-06-2022</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblEndDate">31-05-2027</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl28_lblRegDate" class="btnViewtd">23-09-2022</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=q68Fz3iIoak=&hfFlag=34fLDxYRDAg=&NPJ6RAme=z+zW8F3GaXDnHXTo3UZI1Q==&PaURJEMAN4=ZL9MNERkNdbge7yWfJKp0w==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">28</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblPromoter"><ul style='padding-left:15px'><li>A TO Z BUILDERS AND  DEVELOPERS</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblProjectName">A2Z COLONY</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblRegistrationNo">UPRERAPRJ864057/06/2025</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblDistrict">Meerut</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblStartDate">12-01-2024</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblEndDate">11-01-2027</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl29_lblRegDate" class="btnViewtd">12-06-2025</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=1X9rPKXokvI=&hfFlag=34fLDxYRDAg=&NPJ6RAme=abJhcsI/5VWNt3/WBDgigw==&PaURJEMAN4=ZL9MNERkNdYvUbZYy5SsraegGEzsf7LB&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td width="5%"><font color="#333333">29</font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblPromoter"><ul style='padding-left:15px'><li>A TO Z BUILDERS AND  DEVELOPERS</li></ul></span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblProjectName">GREEN HEIGHTS-1</span>
+                                                        
+                                                        
+                                                         
+                                                         <br />
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblRegistrationNo">UPRERAPRJ386533</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblDistrict">Meerut</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblStartDate">15-08-2021</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblEndDate">29-07-2026</span>
+                                                    </font></td><td><font color="#333333">
+                                                        <span id="grdPojDetail_ctl30_lblRegDate" class="btnViewtd">22-10-2021</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#333333">
+                                                        <a href="Projectsummary?UI0aPA1ISD=CX9NnrTP93M=&hfFlag=34fLDxYRDAg=&NPJ6RAme=+Q7q05RxLMw4LKyWeSbmwg==&PaURJEMAN4=ZL9MNERkNdZGv4YhvMbWxg==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr><tr bgcolor="White">
+			<td width="5%"><font color="#284775">30</font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblPromoter"><ul style='padding-left:15px'><li>A TO Z DEVELOPERS LIMITED</li></ul></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblProjectName">GREEN ESTATE COLONY</span>
+                                                        
+                                                        
+                                                         
+                                                         <br /><span id="grdPojDetail_ctl31_Label2"><b><font color="Red">(Default on QPR)</font></b></span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblRegistrationNo">UPRERAPRJ3427</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblProjectType">Residential</span>
+                                                        
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblDistrict">Muzaffarnagar</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblStartDate">31-10-2011</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblEndDate">31-10-2018</span>
+                                                    </font></td><td><font color="#284775">
+                                                        <span id="grdPojDetail_ctl31_lblRegDate" class="btnViewtd">02-08-2017</span>
+                                                    </font></td><td class="viewbtndiv"><font color="#284775">
+                                                        <a href="Projectsummary?UI0aPA1ISD=B+jgjZJKPxI=&hfFlag=h+WiFBBo3NcfO/CyglQDDg==&NPJ6RAme=oOdkVQq0+WHE2cxfy4nGT4/Ya314ku8t&PaURJEMAN4=ZL9MNERkNdYt4ofamvGhnA==&IRSAHEB=D6PY3lyims8=" target="_blank" id="anchorViewProject" class="btn bg-blue btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip"  data-placement="bottom" title="Click To View Detail"><i class="material-icons">remove_red_eye</i></a>
+                                                        
+                                                    </font></td>
+		</tr></table>
+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <input type="submit" name="btnPopup" value="" id="btnPopup" disabled="disabled" style="display: none" />
+                
+            </section>
+
+            
+        </div>
+       
+        <style>
+            .viewbtndiv {
+                vertical-align: middle;
+                text-align: center;
+            }
+        </style>
+
+
+    </form>
+   
+    <!-- Bootstrap Core Js -->
+    <script src="Dashboard/js/bootstrap.js"></script>
+    <!-- Select Plugin Js -->
+  
+    <!-- Slimscroll Plugin Js -->
+    <script src="Dashboard/js/jquery.slimscroll.js"></script>
+    <!-- Waves Effect Plugin Js -->
+    <script src="Dashboard/js/waves.js"></script>
+
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="Dashboard/bootstrapTable/jquery.dataTables.js"></script>
+    <script src="Dashboard/bootstrapTable/js/dataTables.bootstrap.js"></script>
+   
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="Dashboard/js/jquery.countTo.js"></script>
+    <!-- Morris Plugin Js -->
+    
+
+    <!-- ChartJs -->
+    
+    <!-- Flot Charts Plugin Js -->
+    
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="Dashboard/jquery-sparkline/jquery.sparkline.js"></script>
+     
+    <!-- Custom Js -->
+    <script src="Dashboard/js/adminCopy.js"></script>
+    <script src="Dashboard/js/index.js"></script>
+    <!-- Demo Js -->
+    <script src="Dashboard/js/demo.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$("#<=grdPojDetail.ClientID%> tbody").before("<thead><tr></tr></thead>");
+            //$("#<=grdPojDetail.ClientID%> thead tr").append($("#<=grdPojDetail.ClientID%> th"));
+            //$("#<=grdPojDetail.ClientID%> tbody tr:first").remove();
+
+            //$('#<=grdPojDetail.ClientID%>').DataTable({
+            //    responsive: true
+            //    //dom: 'Bfrtip',
+            //    //responsive: true,
+            //    //buttons: [
+            //    ////    'copy','excel',
+            //    ////    //'copy', 'csv', 'excel', 'pdf', 'print'
+            //    //]
+            //});
+        });
+        $("table").removeAttr("rules");
+   
+        function showAlertPromoterForHomePage() {
+            window.location = 'index';                
+        }
+    </script>
+     <link href="TableHeaderFixJS/theme.blue.css" rel="stylesheet" />    
+    <script src="TableHeaderFixJS/jquery.tablesorter.js"></script>
+    <script src="TableHeaderFixJS/widget-filter.js"></script>
+    <script src="TableHeaderFixJS/widget-StickyHeader.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("#grdPojDetail tbody").before("<thead><tr></tr></thead>");
+            $("#grdPojDetail thead tr").append($("#grdPojDetail th"));
+            $("#grdPojDetail tbody tr:first").remove();           
+            $("#grdPojDetail").addClass("tablesorter tablesorter-blue");            
+        });
+        $(function () {
+            $('#grdPojDetail').tablesorter({
+                widthFixed: true,
+                headerTemplate: '{content} {icon}', // Add icon for various themes
+
+                widgets: ['zebra', 'stickyHeaders', 'filter'],
+
+                widgetOptions: {
+                    // jQuery selector or object to attach sticky header to
+                    stickyHeaders_attachTo: '.wrapper'
+
+
+                }
+            });
+        });
+
+        function SearchDistrict(txtSearch, cblEmployees)
+        {
+            if ($(txtSearch).val() != "") {
+                var count = 0;
+                $("#chk_district").children('tbody').children('tr').each(function () {
+                    var match = false;
+                    $(this).children('td').children('label').each(function () {
+                        if ($(this).text().toUpperCase().indexOf($(txtSearch).val().toUpperCase()) > -1)
+                            match = true;
+                    });
+                    if (match) {
+                        $(this).show();
+                        count++;
+                    }
+                    else { $(this).hide(); }
+                });
+                $('#spnCount1').html((count) + ' match');
+            }
+            else {
+                $(cblEmployees).children('tbody').children('tr').each(function () {
+                    $(this).show();
+                });
+                $('#spnCount1').html('');
+            }
+        }
+        function SearchPromoter(txtSearch, cblEmployees)
+        {
+            debugger;
+            if ($(txtSearch).val() != "") {
+                var count = 0;
+                $("#chkPromoterList").children('tbody').children('tr').each(function () {
+                    var match = false;
+                    $(this).children('td').children('label').each(function () {
+                        if ($(this).text().toUpperCase().indexOf($(txtSearch).val().toUpperCase()) > -1)
+                            match = true;
+                    });
+                    if (match) {
+                        $(this).show();
+                        count++;
+                    }
+                    else { $(this).hide(); }
+                });
+                $('#spnCount2').html((count) + ' match');
+            }
+            else {
+                $(cblEmployees).children('tbody').children('tr').each(function () {
+                    $(this).show();
+                });
+                $('#spnCount2').html('');
+            }
+        }
+
+        function SearchProject(txtSearch, cblEmployees) {
+            debugger;            
+            if ($(txtSearch).val() != "") {
+                var count = 0;
+                $("#chkProjectName").children('tbody').children('tr').each(function () {
+                    var match = false;
+                    $(this).children('td').children('label').each(function () {
+                        if ($(this).text().toUpperCase().indexOf($(txtSearch).val().toUpperCase()) > -1)
+                            match = true;
+                    });
+                    if (match) {
+                        $(this).show();
+                        count++;
+                    }
+                    else { $(this).hide(); }
+                });
+                $('#spnCount3').html((count) + ' match');
+            }
+            else {
+                $(cblEmployees).children('tbody').children('tr').each(function () {
+                    $(this).show();
+                });
+                $('#spnCount3').html('');
+            }
+        }       
+    </script>
+</body>
+</html>
+
+
+
