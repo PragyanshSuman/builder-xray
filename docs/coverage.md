@@ -38,9 +38,9 @@ projects.** The spec assumed it could serve as a national per-project index
    - 2026-11-19: TCP connected in ~65 ms but **no response within 30 s or
      90 s** (2 attempts, 20 s apart). The same host answered `/robots.txt`
      instantly, so the server is reachable; this endpoint hangs.
-   - Not yet known: whether it hangs for browsers too (i.e. the endpoint is
-     down) or only for non-browser clients. We will not disguise the client
-     to find out.
+   - 2026-11-19: the user opened `tracker.html` in a normal browser and the
+     table stayed **empty**, so the endpoint is down for everyone. It is not
+     blocking bots. It is OK to retry occasionally (a few requests at most per day).
 3. A link to `dashboard.pmay-urban.gov.in/rera/login`, which is login-only. Off-limits.
 
 **Page weight:** the home page is 21.4 MB, almost entirely an inline SVG map.

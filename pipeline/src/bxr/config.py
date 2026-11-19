@@ -64,3 +64,39 @@ def load_limits(path: Path = DEFAULT_LIMITS_PATH) -> LimitsConfig:
     with path.open(encoding="utf-8") as fh:
         raw = yaml.safe_load(fh)
     return LimitsConfig.model_validate(raw)
+
+
+DEFAULT_CRAWLER_PATH = REPO_ROOT / "config" / "crawler.yaml"
+DATA_DIR = REPO_ROOT / "data"
+
+
+class CrawlerConfig(BaseModel):
+    """Politeness settings (spec §5.2). Floors are enforced by validation."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    user_agent: str
+    contact_url: str
+    min_interval_seconds: float = Field(ge=3.0)
+    max_concurrency_per_host: int = Field(ge=1, le=1)
+    max_consecutive_errors: int = Field(gt=0, le=20)
+    backoff_base_seconds: float = Field(gt=0)
+    backoff_max_seconds: float = Field(gt=0)
+    respect_robots_txt: bool
+    timeout_seconds: float = Field(gt=0, le=120)
+    max_attempts: int = Field(ge=1, le=5)
+    max_body_bytes: int = Field(gt=0)
+    max_redirects: int = Field(ge=0, le=10)
+
+    @property
+    def user_agent_header(self) -> str:
+        return self.user_agent.format(contact_url=self.contact_url)
+
+
+def load_crawler_config(path: Path = DEFAULT_CRAWLER_PATH) -> CrawlerConfig:
+    with path.open(encoding="utf-8") as fh:
+        raw = yaml.safe_load(fh)
+    cfg = CrawlerConfig.model_validate(raw)
+    if not cfg.respect_robots_txt:
+        raise ValueError("respect_robots_txt must be true (CLAUDE.md hard rule)")
+    return cfg
