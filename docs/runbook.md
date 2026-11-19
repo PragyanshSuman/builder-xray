@@ -32,6 +32,19 @@ npm run typecheck
 npx wrangler dev             # local preview of Worker + assets
 ```
 
+## Crawling
+
+All network access goes through `bxr.core.http.PoliteClient`, which refuses to
+run unless `CRAWL_ENABLED=1`. Raw responses land in `data/raw/` (gitignored).
+
+```sh
+cd pipeline
+CRAWL_ENABLED=1 uv run bxr survey            # all State/UT portals, ~2 requests each
+CRAWL_ENABLED=1 uv run bxr survey --only MH,UP
+```
+
+Output: `data/survey/YYYY-MM-DD.json` and `docs/portal-survey.md`.
+
 ## First deploy (one-time, ~5 minutes)
 
 1. Create a free Cloudflare account. No payment method is needed for Workers.

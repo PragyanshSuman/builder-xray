@@ -7,8 +7,25 @@ Per source: portal URL, robots.txt status, access method, tier, fields captured
 | State / source | Tier | Status |
 |---|---|---|
 | Unified RERA portal (IN) | n/a | Inspected 2026-11-19: **no project-level data** (see below) |
-| Maharashtra (MahaRERA) | A | Not started (M2) |
-| Uttar Pradesh (UP-RERA) | A | Not started (M2) |
+| Maharashtra (MahaRERA) | A | robots.txt returns 403 → **paused, decision needed** |
+| Uttar Pradesh (UP-RERA) | A | Reachable, robots.txt allows home → next: manual inspection (M2) |
+
+## State portal survey, 2026-11-19
+
+Full table: `docs/portal-survey.md` (generated). 59 requests, 26 distinct
+portals, home page + robots.txt only.
+
+| Class | States/UTs | Meaning |
+|---|---|---|
+| Reachable, no barrier on home page | BR, CG, GA, GJ, HR, HP, KA, OD, PB, RJ, TN (+AN), TG, UP, AS, TR, JK, PY | Candidates; each still needs a manual look at its project search pages |
+| Reachable, CAPTCHA marker on home page | AP | Likely CAPTCHA on search, so probably not crawlable; confirm manually |
+| **Bot-protection challenge** | KL (+LD) | Home returns 503 with a Prophaze JavaScript cookie challenge. **Not covered; we do not bypass it** (hard rule) |
+| **robots.txt disallows all** | ML | `User-agent: * / Disallow: /`. **Not covered** |
+| robots.txt 403 | MH (+DH) | Plain Apache "403 Forbidden" on `/robots.txt`. Home page not fetched (client treats 401/403 as disallow). Needs a decision |
+| Old TLS (legacy renegotiation) | MP, WB | Our TLS library refuses the server's outdated handshake. A client compatibility issue, not access control |
+| Unreachable (timeout) | UK, DL (+CH) | Retry later. May be down, or may block some networks |
+| Directory URL dead | JH | `rera.jharkhand.gov.in` has no DNS; the same directory's annual-report link uses `jharera.jharkhand.gov.in`. Retry there |
+| No website | AR, MN, MZ, NL, SK, LA | Listed "Website Not Setup" by MoHUA |
 
 ## Unified RERA portal: rera.mohua.gov.in (inspected 2026-11-19)
 
